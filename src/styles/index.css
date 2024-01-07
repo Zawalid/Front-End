@@ -1,0 +1,48 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #7054e6;
+  --color-secondary: #ef5c72;
+  --color-tertiary: #f89321;
+  --color-text-secondary: #7d8185;
+  --color-text-tertiary: #00c7c4;
+
+  &,&.light {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f2f8f8;
+    --color-text-primary: #191e24;
+  }
+
+&.dark {
+  --color-background-primary: #232331;
+  --color-background-secondary: #292738;
+  --color-text-primary: #ffffff;
+}
+
+
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  @apply transition-all duration-300;
+}
+body {
+  font-family: 'DM Sans', sans-serif
+}
+#root {
+  @apply h-full;
+}
+
+::-webkit-scrollbar {
+  @apply h-[4px] w-[4px];
+}
+::-webkit-scrollbar-track {
+  @apply rounded-md bg-background-secondary;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-md bg-primary;
+}
