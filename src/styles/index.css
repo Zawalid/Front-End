@@ -10,19 +10,18 @@
   --color-text-secondary: #7d8185;
   --color-text-tertiary: #00c7c4;
 
-  &,&.light {
+  &,
+  &.light {
     --color-background-primary: #ffffff;
     --color-background-secondary: #f2f8f8;
     --color-text-primary: #191e24;
   }
 
-&.dark {
-  --color-background-primary: #232331;
-  --color-background-secondary: #292738;
-  --color-text-primary: #ffffff;
-}
-
-
+  &.dark {
+    --color-background-primary: #232331;
+    --color-background-secondary: #292738;
+    --color-text-primary: #ffffff;
+  }
 }
 
 * {
@@ -31,18 +30,19 @@
   @apply transition-all duration-300;
 }
 body {
-  font-family: 'DM Sans', sans-serif
+  font-family: 'DM Sans', sans-serif;
+  height: 200vh;
 }
 #root {
   @apply h-full;
 }
 
-::-webkit-scrollbar {
-  @apply h-[4px] w-[4px];
+/* ::-webkit-scrollbar {
+  @apply h-[8px] w-[8px];
 }
 ::-webkit-scrollbar-track {
   @apply rounded-md bg-background-secondary;
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-md bg-primary;
-}
+  @apply rounded-md bg-text-primary;
+} */
