@@ -3,7 +3,7 @@ import Header from './Header';
 
 export default function AppLayout() {
   return (
-    <div className='h-full flex flex-col'>
+    <div className='flex h-full flex-col'>
       <Header />
       <Footer />
     </div>
