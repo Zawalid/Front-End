@@ -1,49 +1,53 @@
+import { Address, Email, PhoneNumber } from './ui/ContactInfo';
+import { Logo } from './ui/Logo';
+
 export default function Footer() {
   return (
     <footer className='relative mt-auto flex min-h-[575px] flex-col gap-6  bg-text-primary'>
       <div className="absolute left-0 top-0 h-full w-full bg-[url('/images/4.jpg')] bg-cover bg-no-repeat"></div>
-      <div className='relative z-10 flex-1 justify-between space-y-8 px-7 pt-20 md:pt-32 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 lg:grid-cols-5'>
+      <div className='relative z-10 flex-1 justify-between space-y-8 px-7 pt-20 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 md:pt-32 lg:grid-cols-5'>
         <Info />
         <Explore />
         <Links />
         <Contact />
       </div>
-      <div className='relative z-10 border-t border-text-secondary p-5'>
+      <div className='relative z-10 border-t border-border p-5'>
         <p className='text-center text-text-tertiary'>
-          © 2024 All Rights Reserved. Made by Walid Zakan & Hassan El Mehdioui
+          © 2024 All Rights Reserved. Made by WZ & HM & ZA
         </p>
       </div>
     </footer>
   );
 }
 
+// Info
 function Info() {
   return (
     <div className='flex flex-col items-center gap-5 text-center md:items-start md:text-start'>
-      <img src='/images/logo-2.png' alt='logo' className='w-48' />
+      <Logo type={2} className='w-48' />
       <h2 className='text-xl font-bold text-white '>Get 26,000+ best online courses from us</h2>
       <div className='flex gap-3'>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-text-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
         >
           <i className='fab fa-facebook-f text-white'></i>
         </a>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-text-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
         >
           <i className='fab fa-twitter text-white'></i>
         </a>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-text-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
         >
           <i className='fab fa-instagram text-white'></i>
         </a>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-text-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
         >
           <i className='fab fa-linkedin-in text-white'></i>
         </a>
@@ -51,6 +55,7 @@ function Info() {
     </div>
   );
 }
+// Explore
 function Explore() {
   return (
     <div className='space-y-6'>
@@ -70,6 +75,7 @@ function Explore() {
     </div>
   );
 }
+// Links
 function Links() {
   return (
     <div className='space-y-6'>
@@ -89,7 +95,7 @@ function Link({ children }) {
     </li>
   );
 }
-
+// Contact
 function Contact() {
   return (
     <div className='space-y-6 lg:col-span-2'>
@@ -97,19 +103,15 @@ function Contact() {
       <ul className='space-y-2'>
         <li className='grid grid-cols-[30px_auto]  items-center text-text-tertiary  duration-200 hover:text-white'>
           <i className='fas fa-phone'></i>
-          <a href='tel:+926668880000' className='font-medium '>
-            +92 (0088) 6823
-          </a>
+          <PhoneNumber />
         </li>
         <li className='grid grid-cols-[30px_auto]  items-center text-text-tertiary  duration-200 hover:text-white'>
           <i className='fas fa-envelope'></i>
-          <a href='mailto:needhelp@company.com' className='font-medium'>
-            needhelp@company.com
-          </a>
+          <Email />
         </li>
         <li className='grid grid-cols-[30px_auto]  items-center text-text-tertiary  duration-200 hover:text-white'>
           <i className='fas fa-map-marker-alt'></i>
-          <span className='font-medium'>80 Broklyn Golden Street. New York. USA </span>
+          <Address />
         </li>
       </ul>
       <div className='flex  items-center overflow-hidden rounded-full bg-background-primary p-2'>

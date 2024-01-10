@@ -9,6 +9,8 @@
   --color-tertiary: #f89321;
   --color-text-secondary: #7d8185;
   --color-text-tertiary: #00c7c4;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-text-common: #191e24;
 
   &,
   &.light {
@@ -27,7 +29,6 @@
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  @apply transition-all duration-300;
 }
 body {
   font-family: 'DM Sans', sans-serif;
@@ -37,12 +38,12 @@ body {
   @apply h-full;
 }
 
-/* ::-webkit-scrollbar {
-  @apply h-[8px] w-[8px];
+::-webkit-scrollbar {
+  @apply h-[6px] w-[6px];
 }
 ::-webkit-scrollbar-track {
-  @apply rounded-md bg-background-secondary;
+  @apply bg-text-primary;
 }
 ::-webkit-scrollbar-thumb {
-  @apply rounded-md bg-text-primary;
-} */
+  @apply bg-background-primary;
+}
