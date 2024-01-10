@@ -18,7 +18,7 @@
     --color-text-primary: #191e24;
     --color-border: rgb(229, 231, 235);
   }
-  
+
   &.dark {
     --color-background-primary: #232331;
     --color-background-secondary: #292738;

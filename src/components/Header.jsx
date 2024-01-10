@@ -64,7 +64,7 @@ function DropDown({ children, paths }) {
       arrow={false}
       interactive={true}
       trigger='mouseenter'
-      className='mt-3 rounded-md border border-border bg-background-primary  shadow-lg'
+      className='mt-3 border border-border bg-background-primary  shadow-lg'
       placement='bottom-start'
     >
       {children}

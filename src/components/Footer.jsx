@@ -24,7 +24,7 @@ export default function Footer() {
 function Info() {
   return (
     <div className='flex flex-col items-center gap-5 text-center md:items-start md:text-start'>
-      <Logo type={2} className='w-48' />
+      <Logo className='w-48' />
       <h2 className='text-xl font-bold text-white '>Get 26,000+ best online courses from us</h2>
       <div className='flex gap-3'>
         <a
