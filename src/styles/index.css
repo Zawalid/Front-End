@@ -9,20 +9,21 @@
   --color-tertiary: #f89321;
   --color-text-secondary: #7d8185;
   --color-text-tertiary: #00c7c4;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-text-common: #191e24;
+  --color-text-button: #191e24;
 
   &,
   &.light {
     --color-background-primary: #ffffff;
     --color-background-secondary: #f2f8f8;
     --color-text-primary: #191e24;
+    --color-border: rgb(229, 231, 235);
   }
-
+  
   &.dark {
     --color-background-primary: #232331;
     --color-background-secondary: #292738;
     --color-text-primary: #ffffff;
+    --color-border: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -32,7 +33,6 @@
 }
 body {
   font-family: 'DM Sans', sans-serif;
-  height: 200vh;
 }
 #root {
   @apply h-full;
@@ -42,8 +42,8 @@ body {
   @apply h-[6px] w-[6px];
 }
 ::-webkit-scrollbar-track {
-  @apply bg-text-primary;
+  @apply bg-background-primary;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-background-primary;
+  @apply bg-text-button;
 }

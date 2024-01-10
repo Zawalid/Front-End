@@ -8,7 +8,7 @@ import { useState } from 'react';
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className='flex items-center justify-between bg-background-primary p-5 shadow-md'>
+    <header className='flex items-center justify-between border-b border-border bg-background-primary p-5'>
       <Logo className='w-32' />
       <Links />
       <div className='flex gap-5'>
@@ -54,7 +54,7 @@ function DropDown({ children, paths }) {
           {paths.map((option) => (
             <li
               key={option.label}
-              className='border-t border-zinc-200 px-5 py-3 font-semibold text-text-secondary first:border-none hover:text-text-tertiary '
+              className='border-t border-border px-5 py-3 font-semibold text-text-secondary first:border-none hover:text-text-tertiary '
             >
               {option.label}
             </li>
@@ -64,7 +64,7 @@ function DropDown({ children, paths }) {
       arrow={false}
       interactive={true}
       trigger='mouseenter'
-      className='mt-3 rounded-md border border-zinc-200 bg-white py-2 shadow-lg'
+      className='mt-3 rounded-md border border-border bg-background-primary  shadow-lg'
       placement='bottom-start'
     >
       {children}

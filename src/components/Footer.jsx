@@ -3,7 +3,7 @@ import { Logo } from './ui/Logo';
 
 export default function Footer() {
   return (
-    <footer className='relative mt-auto flex min-h-[575px] flex-col gap-6  bg-text-primary'>
+    <footer className='relative flex min-h-[575px] flex-col gap-6  bg-text-primary'>
       <div className="absolute left-0 top-0 h-full w-full bg-[url('/images/4.jpg')] bg-cover bg-no-repeat"></div>
       <div className='relative z-10 flex-1 justify-between space-y-8 px-7 pt-20 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 md:pt-32 lg:grid-cols-5'>
         <Info />
@@ -117,7 +117,7 @@ function Contact() {
       <div className='flex  items-center overflow-hidden rounded-full bg-background-primary p-2'>
         <input
           type='text'
-          className='h-10 flex-1 px-3 py-5 outline-none placeholder:text-sm'
+          className='h-10 flex-1 px-3 bg-transparent py-5 outline-none placeholder:text-sm'
           placeholder='Enter your email'
         />
         <button className='h-10 w-10 rounded-full bg-secondary text-white transition-colors duration-300 hover:bg-text-tertiary'>

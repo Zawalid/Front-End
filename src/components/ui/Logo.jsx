@@ -1,6 +1,3 @@
-export function Logo({ className, type = 1 }) {
-  return (
-    <img src={`/images/${type === 1 ? 'logo' : 'logo-2'}.png`} alt='logo' className={className} />
-    // <img src='/images/Logo.svg' alt='logo' className={className} />
-  );
+export function Logo({ className }) {
+  return <img src='/images/logo.png' alt='logo' className={className} />;
 }
