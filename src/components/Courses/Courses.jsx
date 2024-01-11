@@ -1,7 +1,7 @@
 import { Button } from '../ui/Button';
 import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
-import Slider, { CustomNavigation, CustomPagination } from '../ui/Slider';
+import Slider from '../ui/Slider';
 import Course from './Course';
 
 const ids = {
@@ -13,30 +13,47 @@ const ids = {
 export default function Courses() {
   return (
     <Section>
-      <div className='mt-3 flex items-end justify-center md:justify-between'>
-        <div className='text-center md:text-start'>
-          <Heading
-            h3='POPULAR COURSES'
-            h2={
-              <>
-                Pick a course to
-                <br />
-                get started your study
-              </>
-            }
-          />
-        </div>
-        <CustomNavigation prevId={ids.prev} nextId={ids.next} />
-      </div>
       <Slider
-        slide={<Course />}
         navigationIds={{
           prev: ids.prev,
           next: ids.next,
         }}
         paginationId={ids.pagination}
-      />
-      <CustomPagination id={ids.pagination} />
+      >
+        <div className='mt-3 flex items-end justify-center md:justify-between'>
+          <div className='text-center md:text-start'>
+            <Heading
+              h3='POPULAR COURSES'
+              h2={
+                <>
+                  Pick a course to
+                  <br />
+                  get started your study
+                </>
+              }
+            />
+          </div>
+          <Slider.Navigation />
+        </div>
+
+        <Slider.Slide>
+          <Course />
+        </Slider.Slide>
+        <Slider.Slide>
+          <Course />
+        </Slider.Slide>
+        <Slider.Slide>
+          <Course />
+        </Slider.Slide>
+        <Slider.Slide>
+          <Course />
+        </Slider.Slide>
+        <Slider.Slide>
+          <Course />
+        </Slider.Slide>
+
+        <Slider.Pagination />
+      </Slider>
       <More />
     </Section>
   );
@@ -55,3 +72,4 @@ function More() {
     </div>
   );
 }
+

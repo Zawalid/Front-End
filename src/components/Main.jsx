@@ -8,8 +8,8 @@ export default function Main() {
     <main className='flex-1'>
       <HeroSection />
       <Courses />
-      <Events />
       <Articles />
+      <Events />
     </main>
   );
 }

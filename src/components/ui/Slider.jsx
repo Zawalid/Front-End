@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { Navigation, Pagination, A11y, Keyboard, Autoplay, Virtual } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -9,7 +9,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import '../../styles/App.css';
 
-export default function Slider({ defaultSlidesPerView, slide, navigationIds, paginationId }) {
+const SliderContext = createContext();
+
+export default function Slider({ defaultSlidesPerView, children, navigationIds, paginationId }) {
+  console.log(children[0]);
   const [slidesPerView, setSlidesPerView] = useState(3);
 
   useEffect(() => {
@@ -29,43 +32,55 @@ export default function Slider({ defaultSlidesPerView, slide, navigationIds, pag
   }, []);
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay, Virtual, A11y, Keyboard]}
-      spaceBetween={50}
-      slidesPerView={defaultSlidesPerView || slidesPerView}
-      className='my-10 p-3'
-      navigation={{
-        nextEl: `#${navigationIds.next}`,
-        prevEl: `#${navigationIds.prev}`,
+    <SliderContext.Provider
+      value={{
+        slidesPerView,
+        navigationIds,
+        paginationId,
       }}
-      mousewheel
-      pagination={{ clickable: true, el: `#${paginationId}` }}
-      autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-      keyboard={{ enabled: true, onlyInViewport: true }}
-      virtual
     >
-      {Array.from({ length: 8 }).map((_, i) => (
-        <SwiperSlide key={i}>{slide}</SwiperSlide>
-      ))}
-    </Swiper>
+      {children[0]}
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay, Virtual, A11y, Keyboard]}
+        spaceBetween={50}
+        slidesPerView={defaultSlidesPerView || slidesPerView}
+        className='my-10 p-3'
+        navigation={{
+          nextEl: `#${navigationIds.next}`,
+          prevEl: `#${navigationIds.prev}`,
+        }}
+        mousewheel
+        pagination={{ clickable: true, el: `#${paginationId}` }}
+        autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        keyboard={{ enabled: true, onlyInViewport: true }}
+        virtual
+      >
+        {children.slice(1, children.length - 1)}
+      </Swiper>
+      {children[children.length - 1]}
+    </SliderContext.Provider>
   );
 }
 
-export function CustomPagination({ id }) {
-  return <div id={id} className='static mt-10 flex justify-center gap-2'></div>;
+function SliderPagination() {
+  const { paginationId } = useContext(SliderContext);
+  return <div id={paginationId} className='static mt-10 flex justify-center gap-2'></div>;
 }
 
-export function CustomNavigation({ prevId, nextId }) {
+function SliderNavigation() {
+  const {
+    navigationIds: { prev, next },
+  } = useContext(SliderContext);
   return (
     <div className='hidden gap-3 md:flex'>
       <button
-        id={prevId}
+        id={prev}
         className='h-12 w-12 rounded-full border-2 border-text-tertiary text-text-tertiary transition-all duration-300 hover:border-text-primary hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-50 '
       >
         <i className='fas fa-arrow-left'></i>
       </button>
       <button
-        id={nextId}
+        id={next}
         className='h-12 w-12 rounded-full border-2 border-text-tertiary text-text-tertiary transition-all duration-300 hover:border-text-primary hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-50 '
       >
         <i className='fas fa-arrow-right'></i>
@@ -73,3 +88,7 @@ export function CustomNavigation({ prevId, nextId }) {
     </div>
   );
 }
+
+Slider.Slide = SwiperSlide;
+Slider.Pagination = SliderPagination;
+Slider.Navigation = SliderNavigation;
