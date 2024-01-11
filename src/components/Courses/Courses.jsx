@@ -1,7 +1,14 @@
 import { Button } from '../ui/Button';
 import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
+import Slider, { CustomNavigation, CustomPagination } from '../ui/Slider';
 import Course from './Course';
+
+const ids = {
+  pagination: 'courses-pagination',
+  prev: 'courses-button-prev',
+  next: 'courses-button-next',
+};
 
 export default function Courses() {
   return (
@@ -19,39 +26,32 @@ export default function Courses() {
             }
           />
         </div>
-        <div className='hidden gap-3 md:flex'>
-          <button className='h-12 w-12 rounded-full border-2 border-text-tertiary text-text-tertiary transition-colors duration-300 hover:border-text-primary hover:text-text-primary '>
-            <i className='fas fa-arrow-left'></i>
-          </button>
-          <button className='h-12 w-12 rounded-full border-2 border-text-tertiary text-text-tertiary transition-colors duration-300 hover:border-text-primary hover:text-text-primary '>
-            <i className='fas fa-arrow-right'></i>
-          </button>
-        </div>
+        <CustomNavigation prevId={ids.prev} nextId={ids.next} />
       </div>
-      <div className='mt-10 flex gap-8 overflow-auto p-3'>
-        <Course />
-        <Course />
-        <Course />
-        <Course />
-        <Course />
-        <Course />
-      </div>
-      <div className="flex justify-center gap-3 my-8">
-        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-primary'></button>
-        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
-        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
-        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
-        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
-      </div>
-      <div className='border-text-button mx-auto flex flex-col items-center gap-3 rounded-3xl border-2 p-2 md:w-fit md:flex-row md:gap-5 md:rounded-full'>
-        <p className='flex flex-col items-center gap-2 md:flex-row md:pl-7'>
-          <span className='font-bold text-text-secondary sm:text-lg'>23,000+</span>
-          <span className='text-sm text-text-secondary sm:text-base'>
-            more skillful courses you can explore
-          </span>
-        </p>
-        <Button>Explore All Courses</Button>
-      </div>
+      <Slider
+        slide={<Course />}
+        navigationIds={{
+          prev: ids.prev,
+          next: ids.next,
+        }}
+        paginationId={ids.pagination}
+      />
+      <CustomPagination id={ids.pagination} />
+      <More />
     </Section>
+  );
+}
+
+function More() {
+  return (
+    <div className='mx-auto mt-10 flex flex-col items-center gap-3 rounded-3xl border-2 border-text-button p-2 md:w-fit md:flex-row md:gap-5 md:rounded-full'>
+      <p className='flex flex-col items-center gap-2 md:flex-row md:pl-7'>
+        <span className='font-bold text-text-secondary sm:text-lg'>23,000+</span>
+        <span className='text-sm text-text-secondary sm:text-base'>
+          more skillful courses you can explore
+        </span>
+      </p>
+      <Button>Explore All Courses</Button>
+    </div>
   );
 }

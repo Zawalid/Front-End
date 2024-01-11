@@ -55,7 +55,7 @@ export function MobileHeader({ isOpen, onClose }) {
 // Links
 function Links() {
   return (
-    <ul className='space-y-5 border-t border-border'>
+    <ul className=' border-t border-border'>
       {routes.map((route) => (
         <Link key={route.label} route={route} />
       ))}
@@ -65,9 +65,9 @@ function Links() {
 function Link({ route }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <L key={route.label} to={route.path}>
-      <li className='flex items-center justify-between border-b border-border py-3 pl-5 font-semibold  text-text-primary transition-colors duration-300 hover:text-text-tertiary '>
-        <span>{route.label}</span>
+    <li key={route.label}>
+      <div className='flex  items-center justify-between border-b border-border py-3 pl-5 font-semibold text-text-primary transition-colors duration-300 hover:text-text-tertiary'>
+        <L to={route.path}>{route.label}</L>
         {route.nested && (
           <button
             className='border-l border-border px-4'
@@ -80,15 +80,15 @@ function Link({ route }) {
             ></i>
           </button>
         )}
-      </li>
+      </div>
       {route.nested && <DropDown routes={route.nested} isExpanded={isExpanded} />}
-    </L>
+    </li>
   );
 }
 function DropDown({ routes, isExpanded }) {
   return (
     <ul
-      className='left-0 right-0 top-full overflow-hidden bg-background-primary transition-[height]  duration-500'
+      className='overflow-hidden bg-background-primary transition-[height]  duration-500'
       style={{
         height: isExpanded ? `${routes.length * 49}px` : '0px',
       }}
@@ -98,7 +98,7 @@ function DropDown({ routes, isExpanded }) {
           key={route.label}
           className='border-b border-border px-10 py-3 font-semibold text-text-secondary transition-colors duration-300 hover:text-text-tertiary '
         >
-          {route.label}
+          <L to={route.path}>{route.label}</L>
         </li>
       ))}
     </ul>
