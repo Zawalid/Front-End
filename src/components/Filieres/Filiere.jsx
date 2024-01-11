@@ -1,4 +1,4 @@
-export default function Course() {
+export default function Filiere() {
   return (
     <div className='relative flex min-w-[300px] flex-col overflow-hidden rounded-lg  shadow-md'>
       <div className='absolute z-10 -right-3 top-4 rounded-full bg-secondary px-5 py-1.5 text-sm font-semibold text-white'>

@@ -1,61 +1,37 @@
 export const routes = [
   {
-    path: '/',
+    path: '/home',
     label: 'Home',
+  },
+  {
+    path: '/filieres',
+    label: 'Filieres',
     nested: [
       {
-        path: '/nested-home-1',
-        label: 'Nested Home 1',
+        path: '/filieres/1',
+        label: 'Filiere 1',
       },
       {
-        path: '/nested-home-2',
-        label: 'Nested Home 2',
+        path: '/filieres/2',
+        label: 'Filiere 2',
       },
       {
-        path: '/nested-home-3',
-        label: 'Nested Home 3',
+        path: '/filieres/3',
+        label: 'Filiere 3',
       },
     ],
   },
   {
-    path: '/pages',
-    label: 'Pages',
-    nested: [
-      {
-        path: '/nested-pages-1',
-        label: 'Nested Pages 1',
-      },
-      {
-        path: '/nested-pages-2',
-        label: 'Nested Pages 2',
-      },
-    ],
+    path: '/blog',
+    label: 'Blog',
   },
   {
-    path: '/courses',
-    label: 'Courses',
+    path: '/evenements',
+    label: 'Evenements',
   },
   {
-    path: '/shop',
-    label: 'Shop',
-  },
-  {
-    path: '/news',
-    label: 'News',
-    nested: [
-      {
-        path: '/nested-news-1',
-        label: 'Nested News 1',
-      },
-      {
-        path: '/nested-news-2',
-        label: 'Nested News 2',
-      },
-      {
-        path: '/nested-news-3',
-        label: 'Nested News 3',
-      },
-    ],
+    path: '/about',
+    label: 'About',
   },
   {
     path: '/contact',

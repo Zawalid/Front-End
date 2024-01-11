@@ -2,15 +2,15 @@ import { Button } from '../ui/Button';
 import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
 import Slider from '../ui/Slider';
-import Course from './Course';
+import Filiere from './Filiere';
 
 const ids = {
-  pagination: 'courses-pagination',
-  prev: 'courses-button-prev',
-  next: 'courses-button-next',
+  pagination: 'filieres-pagination',
+  prev: 'filieres-button-prev',
+  next: 'filieres-button-next',
 };
 
-export default function Courses() {
+export default function FilieresSection() {
   return (
     <Section>
       <Slider
@@ -26,7 +26,7 @@ export default function Courses() {
               h3='POPULAR COURSES'
               h2={
                 <>
-                  Pick a course to
+                  Pick a Filiere to
                   <br />
                   get started your study
                 </>
@@ -37,19 +37,19 @@ export default function Courses() {
         </div>
 
         <Slider.Slide>
-          <Course />
+          <Filiere />
         </Slider.Slide>
         <Slider.Slide>
-          <Course />
+          <Filiere />
         </Slider.Slide>
         <Slider.Slide>
-          <Course />
+          <Filiere />
         </Slider.Slide>
         <Slider.Slide>
-          <Course />
+          <Filiere />
         </Slider.Slide>
         <Slider.Slide>
-          <Course />
+          <Filiere />
         </Slider.Slide>
 
         <Slider.Pagination />
@@ -65,10 +65,10 @@ function More() {
       <p className='flex flex-col items-center gap-2 md:flex-row md:pl-7'>
         <span className='font-bold text-text-secondary sm:text-lg'>23,000+</span>
         <span className='text-sm text-text-secondary sm:text-base'>
-          more skillful courses you can explore
+          more skillful Filieres you can explore
         </span>
       </p>
-      <Button>Explore All Courses</Button>
+      <Button>Explore All Filieres</Button>
     </div>
   );
 }

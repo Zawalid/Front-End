@@ -1,4 +1,4 @@
-import { Link as L } from 'react-router-dom';
+import { NavLink as L } from 'react-router-dom';
 import { Logo } from './ui/Logo';
 import { routes } from '../utils/constants';
 import { Email, PhoneNumber } from './ui/ContactInfo';

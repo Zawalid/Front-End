@@ -1,6 +1,6 @@
 import { Button } from '../ui/Button';
 
-export default function Event() {
+export default function Evenement() {
   return (
     <div className='flex min-w-full flex-col items-center  gap-10  md:flex-row'>
       <Images />

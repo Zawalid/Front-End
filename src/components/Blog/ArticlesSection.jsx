@@ -2,7 +2,7 @@ import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
 import Article from './Article';
 
-export default function Articles() {
+export default function ArticlesSection() {
   return (
     <Section>
       <div className='text-center'>
