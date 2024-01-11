@@ -1,3 +1,4 @@
+import { Button } from '../ui/Button';
 import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
 import Course from './Course';
@@ -5,7 +6,7 @@ import Course from './Course';
 export default function Courses() {
   return (
     <Section>
-      <div className='mt-3 flex items-end justify-between'>
+      <div className='mt-3 flex items-end justify-center md:justify-between'>
         <div className='text-center md:text-start'>
           <Heading
             h3='POPULAR COURSES'
@@ -35,16 +36,21 @@ export default function Courses() {
         <Course />
         <Course />
       </div>
-      <div className='border-text-button mx-auto mt-8 flex flex-col items-center gap-3 rounded-3xl border-2 p-2 md:w-fit md:flex-row md:gap-5 md:rounded-full'>
+      <div className="flex justify-center gap-3 my-8">
+        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-primary'></button>
+        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
+        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
+        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
+        <button className='h-3 w-3 sm:w-4 sm:h-4 rounded-full bg-text-tertiary'></button>
+      </div>
+      <div className='border-text-button mx-auto flex flex-col items-center gap-3 rounded-3xl border-2 p-2 md:w-fit md:flex-row md:gap-5 md:rounded-full'>
         <p className='flex flex-col items-center gap-2 md:flex-row md:pl-7'>
           <span className='font-bold text-text-secondary sm:text-lg'>23,000+</span>
           <span className='text-sm text-text-secondary sm:text-base'>
             more skillful courses you can explore
           </span>
         </p>
-        <button className='bg-text-button flex-1 rounded-full  px-5 py-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-text-secondary sm:px-8 sm:py-3 sm:text-base'>
-          Explore All Courses
-        </button>
+        <Button>Explore All Courses</Button>
       </div>
     </Section>
   );

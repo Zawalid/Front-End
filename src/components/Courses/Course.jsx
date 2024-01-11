@@ -1,11 +1,15 @@
 export default function Course() {
   return (
     <div className='relative flex min-w-[300px] flex-col overflow-hidden rounded-lg  shadow-md'>
-      <div className='absolute -right-3 top-4 rounded-full bg-secondary px-5 py-1.5 text-sm font-semibold text-white'>
+      <div className='absolute z-10 -right-3 top-4 rounded-full bg-secondary px-5 py-1.5 text-sm font-semibold text-white'>
         $49.99
       </div>
       <a href='#'>
-        <img src='/images/course-4.jpg' alt='' className='w-full' />
+        <img
+          src='/images/course-4.jpg'
+          alt=''
+          className='w-full transition-transform duration-300 hover:scale-105'
+        />
       </a>
       <div className='relative flex flex-col bg-background-primary p-8'>
         <div className='absolute -top-4 rounded-full bg-primary px-5 py-1.5 text-sm font-semibold text-white'>

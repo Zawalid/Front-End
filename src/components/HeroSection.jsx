@@ -1,9 +1,10 @@
+import { Button } from './ui/Button';
 import Section from './ui/Section';
 
 export default function HeroSection() {
   return (
     <Section>
-      <div className='flex gap-8 items-center'>
+      <div className='flex h-[70vh] lg:h-auto items-center gap-8'>
         <LeftSide />
         <RightSide />
       </div>
@@ -13,28 +14,25 @@ export default function HeroSection() {
 
 function LeftSide() {
   return (
-    <div className='flex-1 flex flex-col items-center sm:items-start '>
+    <div className='flex flex-1 flex-col items-center lg:items-start '>
       <h3 className='mb-3 font-bold text-text-tertiary'>START TO NEW JOURNEY</h3>
-      <h1 className='mb-6 text-5xl text-center sm:text-start text-sm:text-7xl font-bold text-text-primary'>
+      <h1 className='lg:text-7xl mb-6 text-center text-5xl font-bold text-text-primary lg:text-start'>
         Best <span className='italic text-tertiary'>online </span>
-        courses from
-        eduLerns
+        courses from eduLerns
       </h1>
-      <p className='mb-6 text-text-secondary text-center sm:text-start'>
+      <p className='mb-6 text-center text-text-secondary lg:text-start'>
         World-class training and development programs
         <br />
         developed by top teachers
       </p>
-      <button className='bg-text-button flex-1 rounded-full  text-sm font-bold text-white transition-colors duration-300 hover:bg-text-secondary px-12 py-4 '>
-        FIND COURSE
-      </button>
+      <Button>FIND COURSE</Button>
     </div>
   );
 }
 function RightSide() {
   return (
-    <div className='hidden lg:block flex-1'>
-      <img src='/images/hero.svg' alt='hero' className='w-full h-[400px]' />
+    <div className='hidden flex-1 lg:block'>
+      <img src='/images/hero.svg' alt='hero' className='h-[400px] w-full' />
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function Footer() {
       </div>
       <div className='relative z-10 border-t border-border p-5'>
         <p className='text-center text-text-tertiary'>
-          © 2024 All Rights Reserved. Made by WZ & HM & ZA
+          © 2024 All Rights Reserved. 
         </p>
       </div>
     </footer>
