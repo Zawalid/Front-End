@@ -18,9 +18,9 @@ export default function ArticlesSection() {
         />
       </div>
       <div className='mt-10 grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] justify-center  gap-8 p-3 '>
-        <Article />
-        <Article />
-        <Article />
+        {Array.from({ length: 3 }).map((_, index) => (
+          <Article key={index} id={index + 1} />
+        ))}
       </div>
     </Section>
   );

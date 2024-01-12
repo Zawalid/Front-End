@@ -1,12 +1,19 @@
 import Tippy from '@tippyjs/react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHref } from 'react-router-dom';
 import { Logo } from './ui/Logo';
 import { routes } from '../utils/constants';
 import { MobileHeader } from './MobileHeader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const currentPath = useHref().split('/')[1]
+
+useEffect(() => {
+  setIsMobileMenuOpen(false)
+}
+, [currentPath])
+
   return (
     <header className='flex items-center justify-between border-b border-border bg-background-primary p-5'>
       <Logo className='w-32' />

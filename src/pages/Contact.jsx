@@ -1,3 +1,9 @@
+import PageLayout from '../Layouts/PageLayout';
+
 export default function Contact() {
-  return <div>Contact</div>;
+  return (
+    <PageLayout title='contact'>
+      <div>Contact</div>
+    </PageLayout>
+  );
 }
