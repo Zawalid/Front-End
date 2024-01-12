@@ -1,3 +1,9 @@
+import PageLayout from '../Layouts/PageLayout';
+
 export default function Evenements() {
-  return <div>Evenements</div>;
+  return (
+    <PageLayout title='evenements'>
+      <div>Evenements</div>
+    </PageLayout>
+  );
 }

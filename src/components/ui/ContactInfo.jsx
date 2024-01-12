@@ -15,5 +15,5 @@ export function Email() {
 }
 
 export function Address() {
-  return <span className='font-medium'>80 Broklyn Golden Street. New York. USA </span>;
+  return <span className='font-medium'>80 Broklyn Golden Street. New York. USA </span>
 }

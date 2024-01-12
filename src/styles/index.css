@@ -45,5 +45,10 @@ body {
   @apply bg-background-primary;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-text-button;
+  @apply bg-text-secondary;
 }
+
+::selection {
+  @apply bg-text-primary text-background-primary;
+}
+

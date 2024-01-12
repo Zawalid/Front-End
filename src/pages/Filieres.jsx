@@ -1,6 +1,9 @@
+import PageLayout from '../Layouts/PageLayout';
 
 export default function Filieres() {
   return (
-    <div>Filieres</div>
-  )
+    <PageLayout title='filieres'>
+      <div>Filieres</div>
+    </PageLayout>
+  );
 }

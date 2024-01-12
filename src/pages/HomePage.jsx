@@ -1,5 +1,5 @@
 import HeroSection from '../components/HeroSection';
-import FilieresSection from '../components/FIlieres/FilieresSection';
+import FilieresSection from '../components/Filieres/FilieresSection';
 import ArticlesSection from '../components/Blog/ArticlesSection';
 import EvenementsSection from '../components/Evenements/EvenementsSection';
 
