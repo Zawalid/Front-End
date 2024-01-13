@@ -10,9 +10,10 @@ export default function Blog() {
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get('sortBy') || 'date';
   const direction = searchParams.get('direction') || 'desc';
+  const query = searchParams.get('s') || '';
 
   const setParam = (param) => {
-    const params = { sortBy, direction };
+    const params = { s: query, sortBy, direction };
     setSearchParams(
       {
         ...params,
@@ -38,6 +39,14 @@ export default function Blog() {
       );
   }, [sortBy, direction, setSearchParams]);
 
+  useEffect(() => {
+    if (query === '')
+      setSearchParams((prev) => {
+        prev.delete('s');
+        return prev;
+      });
+  }, [query, setSearchParams]);
+
   return (
     <PageLayout title='blog'>
       <div className='space-y-8'>
@@ -49,11 +58,11 @@ export default function Blog() {
               direction={direction}
               setDirection={(direction) => setParam({ direction })}
             />
-            <Search />
+            <Search query={query} onChange={(query) => setParam({ s: query })} />
           </div>
           <ViewControl view={view} setView={setView} />
         </div>
-        <ArticlesList view={view} sortBy={sortBy} direction={direction} />
+        <ArticlesList view={view} searchQuery={query || ''} sortBy={sortBy} direction={direction} />
       </div>
     </PageLayout>
   );
@@ -87,10 +96,25 @@ function ViewControl({ view, setView }) {
     </div>
   );
 }
-function Search() {
+function Search({ query, onChange }) {
+  const [searchQuery, setSearchQuery] = useState(query || '');
+
   return (
-    <form onSubmit={(e) => e.preventDefault()} className='w-full '>
-      <SearchInput />
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onChange(searchQuery);
+      }}
+      className='w-full '
+    >
+      <SearchInput
+        value={searchQuery}
+        onChange={(e) => {
+          const query = e.target.value;
+          setSearchQuery(query);
+          onChange(query);
+        }}
+      />
     </form>
   );
 }

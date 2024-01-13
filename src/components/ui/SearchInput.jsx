@@ -1,4 +1,4 @@
-export function SearchInput({ className }) {
+export function SearchInput({ className,value,onChange }) {
   return (
     <div className='relative'>
       <i className='fa-solid fa-search absolute bottom-0 right-3 top-0 my-auto h-fit text-lg text-text-secondary'></i>
@@ -6,7 +6,9 @@ export function SearchInput({ className }) {
         type='text'
         placeholder='Search'
         className={`w-full rounded-lg border border-border bg-background-secondary py-1.5 pr-10 pl-4 font-medium text-text-primary outline-none ${className}`}
-      />
+        value={value}
+        onChange={onChange}
+        />
     </div>
   );
 }
