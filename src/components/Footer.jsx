@@ -3,8 +3,7 @@ import { Logo } from './ui/Logo';
 
 export default function Footer() {
   return (
-    <footer className='relative flex min-h-[575px] flex-col gap-6  bg-text-primary'>
-      <div className="absolute left-0 top-0 h-full w-full bg-[url('/images/4.jpg')] bg-cover bg-no-repeat"></div>
+    <footer className='relative  flex min-h-[575px] flex-col bg-[#191e24] gap-6'>
       <div className='relative z-10 flex-1 justify-between space-y-8 px-7 pt-20 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 md:pt-32 lg:grid-cols-5'>
         <Info />
         <Explore />
@@ -29,25 +28,25 @@ function Info() {
       <div className='flex gap-3'>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-facebook-f text-white'></i>
         </a>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-twitter text-white'></i>
         </a>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-instagram text-white'></i>
         </a>
         <a
           href='#'
-          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-tertiary'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-linkedin-in text-white'></i>
         </a>

@@ -26,25 +26,25 @@ function Info() {
       </p>
       <div className='grid grid-cols-2 gap-5 text-start'>
         <div className='grid grid-cols-[50px_auto] items-center'>
-          <span className='grid h-10 w-10 place-content-center rounded-full bg-tertiary'>
+          <span className='grid h-10 w-10 place-content-center rounded-full bg-secondary'>
             <i className='fa-solid fa-calendar text-white'></i>
           </span>
           <h4 className='font-semibold text-text-primary sm:text-lg'>22/05/2024</h4>
         </div>
         <div className='grid grid-cols-[50px_auto] items-center'>
-          <span className='grid h-10 w-10 place-content-center rounded-full bg-tertiary'>
+          <span className='grid h-10 w-10 place-content-center rounded-full bg-secondary'>
             <i className='fa-solid fa-location-dot text-white'></i>
           </span>
           <h4 className='font-semibold text-text-primary sm:text-lg'>Sale,Hay El Salam</h4>
         </div>
         <div className='grid grid-cols-[50px_auto] items-center'>
-          <span className='grid h-10 w-10 place-content-center rounded-full bg-tertiary'>
+          <span className='grid h-10 w-10 place-content-center rounded-full bg-secondary'>
             <i className='fa-solid fa-clock text-white'></i>
           </span>
           <h4 className='font-semibold text-text-primary sm:text-lg'>10 jours</h4>
         </div>
         <div className='grid grid-cols-[50px_auto] items-center'>
-          <span className='grid h-10 w-10 place-content-center rounded-full bg-tertiary'>
+          <span className='grid h-10 w-10 place-content-center rounded-full bg-secondary'>
             <i className='fa-solid fa-tag text-white'></i>
           </span>
           <h4 className='font-semibold text-text-primary sm:text-lg'>Upcoming</h4>

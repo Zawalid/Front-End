@@ -64,8 +64,11 @@ export function usePagination(itemsLength, itemsName) {
              Rows per page:
            </span>
            <DropDown
-             toggler={<span className='text-xs font-medium sm:text-sm'>{rowsPerPage}</span>}
-             togglerClassName='bg-primary rounded-lg  px-3  py-1.5 text-white '
+             toggler={
+              <DropDown.Toggler>
+                {rowsPerPage}
+              </DropDown.Toggler>
+             }
              options={{ placement: 'top', className: 'w-fit' }}
            >
              {rowsPerPageOptions.map((option) => (

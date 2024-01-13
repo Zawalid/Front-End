@@ -37,11 +37,11 @@ export default function Filiere() {
             <span>3 weeks</span>
           </div>
           <div className='flex gap-1'>
-            <i className='fa-solid fa-star text-sm text-tertiary'></i>
-            <i className='fa-solid fa-star text-sm text-tertiary'></i>
-            <i className='fa-solid fa-star text-sm text-tertiary'></i>
-            <i className='fa-solid fa-star text-sm text-tertiary'></i>
-            <i className='fa-solid fa-star text-sm text-tertiary'></i>
+            <i className='fa-solid fa-star text-sm text-secondary'></i>
+            <i className='fa-solid fa-star text-sm text-secondary'></i>
+            <i className='fa-solid fa-star text-sm text-secondary'></i>
+            <i className='fa-solid fa-star text-sm text-secondary'></i>
+            <i className='fa-solid fa-star text-sm text-secondary'></i>
           </div>
         </div>
       </div>

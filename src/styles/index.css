@@ -4,12 +4,11 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #7054e6;
-  --color-secondary: #ef5c72;
-  --color-tertiary: #f89321;
+  --color-primary: #7054e6; 
+  /* --color-primary: #00c7c4; */
+  --color-secondary: #f89321;
   --color-text-secondary: #7d8185;
   --color-text-tertiary: #00c7c4;
-  --color-text-button: #191e24;
 
   &,
   &.light {
@@ -33,6 +32,7 @@
 }
 body {
   font-family: 'DM Sans', sans-serif;
+  @apply bg-background-primary;
 }
 #root {
   @apply h-full;
@@ -51,4 +51,3 @@ body {
 ::selection {
   @apply bg-text-primary text-background-primary;
 }
-

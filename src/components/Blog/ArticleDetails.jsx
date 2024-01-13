@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useArticle, useArticles, useTags } from '../../hooks/useArticles';
+import { Tag } from '../ui/Tag';
 
 export default function ArticleDetails({ id }) {
-  console.log(id)
   const { article, isLoading, error } = useArticle(id);
   if (error) return <p>{error}</p>;
 
@@ -24,7 +24,7 @@ export default function ArticleDetails({ id }) {
 function Details({ article: { title, content, date, cover, tags, author } }) {
   return (
     <div className='col-span-2'>
-      <div className='space-y-4'>
+      <div className='mb-5 space-y-4'>
         <img src={cover} alt={title} className='h-72 w-full rounded-xl object-cover sm:h-96' />
         <div className='mb-3 flex gap-8 text-sm text-text-secondary'>
           <div className='flex items-center gap-2'>
@@ -45,16 +45,17 @@ function Details({ article: { title, content, date, cover, tags, author } }) {
         <h2 className='mb-3 text-3xl font-medium text-text-primary'>{title}</h2>
         <p className='leading- text-lg text-text-secondary'>{content}</p>
       </div>
-      <hr className='my-8 border-border' />
       <ArticleTags tags={tags} />
     </div>
   );
 }
 function ArticleTags({ tags }) {
   return (
-    <div className='flex flex-wrap items-center gap-3'>
+    <div className='flex flex-wrap items-center gap-y-2 gap-x-3'>
       {tags?.map((tag) => (
-        <Tag key={tag} tag={tag} className='bg-text-secondary text-white hover:bg-text-secondary' />
+        <Link key={tag} to={`/blog?filter=${tag.toLowerCase()}`}>
+          <Tag tag={tag} />
+        </Link>
       ))}
     </div>
   );
@@ -128,23 +129,13 @@ function Tags() {
   return (
     <div className='rounded-xl bg-background-secondary p-4 '>
       <h4 className='mb-6 text-lg font-bold text-text-primary'>Tags</h4>
-      <ul className='flex max-h-[250px] overflow-auto py-1.5 flex-wrap gap-3'>
-        {tags.map((tag) => (
-          <Tag key={tag.id} tag={tag.name} />
+      <ul className='flex max-h-[250px] flex-wrap gap-y-1 gap-x-3 overflow-auto py-1.5'>
+        {tags.map(({name}) => (
+          <Link key={name} to={`/blog?filter=${name.toLowerCase()}`}>
+            <Tag tag={name} />
+          </Link>
         ))}
       </ul>
     </div>
   );
 }
-function Tag({ tag, className }) {
-  return (
-    <Link
-      to={`/blog?filter=${tag}`}
-
-      className={`rounded-full bg-background-primary px-5 py-2 text-sm font-medium capitalize text-text-primary shadow-md transition-colors duration-300 hover:bg-text-primary hover:text-background-primary ${className}`}
-    >
-      {tag}
-    </Link>
-  );
-}
-

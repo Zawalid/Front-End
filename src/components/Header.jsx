@@ -15,7 +15,7 @@ useEffect(() => {
 , [currentPath])
 
   return (
-    <header className='flex items-center justify-between border-b border-border bg-background-primary p-5'>
+    <header className='flex items-center  justify-between border-b border-border bg-background-primary p-5'>
       <Logo className='w-32' />
       <Links />
       <div className='flex gap-5'>

@@ -75,13 +75,13 @@ function SliderNavigation() {
     <div className='hidden gap-3 md:flex'>
       <button
         id={prev}
-        className='h-12 w-12 rounded-full border-2 border-text-tertiary text-text-tertiary transition-all duration-300 hover:border-text-primary hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-50 '
+        className='slider-button '
       >
         <i className='fas fa-arrow-left'></i>
       </button>
       <button
         id={next}
-        className='h-12 w-12 rounded-full border-2 border-text-tertiary text-text-tertiary transition-all duration-300 hover:border-text-primary hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-50 '
+        className='slider-button'
       >
         <i className='fas fa-arrow-right'></i>
       </button>

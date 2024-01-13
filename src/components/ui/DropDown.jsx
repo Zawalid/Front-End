@@ -50,13 +50,15 @@ function Button({ children, onClick, className, isDeleteButton, size = 'default'
   return (
     <li
       className={
-        'relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-md text-sm font-medium text-text-secondary  transition-colors duration-300  ' +
+        'relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-md text-sm   font-medium transition-colors duration-300 ' +
         className +
         (size === 'small' ? ' px-2 py-1 ' : ' px-3 py-2 ') +
         (isDeleteButton
           ? 'hover:bg-red-500 hover:text-white '
-          : 'hover:bg-primary hover:text-white ') +
-        (isCurrent ? 'bg-primary text-white' : 'bg-background-primary ')
+          : 'hover:bg-primary hover:text-white   ') +
+        (isCurrent
+          ? 'bg-primary text-white '
+          : 'bg-background-primary text-text-secondary ')
       }
       onClick={onClick}
     >
@@ -71,7 +73,7 @@ function SearchBar({ placeholder, value, onChange }) {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className='text-sm'
+      className='mb-2 text-sm'
       iconClassName='text-text-tertiary text-sm'
     />
   );
@@ -79,7 +81,7 @@ function SearchBar({ placeholder, value, onChange }) {
 
 function Toggler({ children }) {
   return (
-    <span className='flex w-36 cursor-pointer items-center justify-between rounded-lg border border-zinc-200  bg-background-secondary p-2 text-start  text-sm text-text-secondary  focus:outline-none'>
+    <span className='cursor-pointer  rounded-lg  bg-primary px-3 py-1.5   text-sm text-white  focus:outline-none'>
       {children}
     </span>
   );

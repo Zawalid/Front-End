@@ -7,7 +7,7 @@ export default function AppLayout() {
   const [parent] = useAutoAnimate({ duration: 400, easing: 'ease-in-out' });
 
   return (
-    <div className='flex flex-col xl:container xl:mx-auto'>
+    <div className='flex flex-col'>
       <Header />
       <main className='flex-1' ref={parent}>
         <Outlet />

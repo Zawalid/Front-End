@@ -36,7 +36,7 @@ export function Filter({ filter, onChange }) {
         onChange={(e) => setSearchedTag(e.target.value)}
       />
       {updatedTags.length === 0 && (
-        <div className='absolute -z-10 left-0 top-0 grid h-full w-full place-content-center'>
+        <div className='absolute  left-0 bottom-0 grid h-[calc(100%-50px)] w-full place-content-center'>
           <p className='text-sm font-medium text-text-secondary'>No tags found</p>
         </div>
       )}
@@ -44,9 +44,11 @@ export function Filter({ filter, onChange }) {
         <DropDown.Button
           key={tag}
           onClick={() => onChange(tag)}
+          className='justify-between'
           isCurrent={filter === tag}
         >
           <span className='capitalize'>{tag}</span>
+          {filter === tag && <i className='fa-solid fa-check'></i>}
         </DropDown.Button>
       ))}
     </DropDown>

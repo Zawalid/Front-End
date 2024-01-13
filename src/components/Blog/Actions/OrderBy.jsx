@@ -13,11 +13,16 @@ export function OrderBy({ direction, setDirection, sortBy}) {
         }
         options={options}
       >
-        <DropDown.Button onClick={() => setDirection('asc')} className='justify-between'>
+        <DropDown.Button onClick={() => setDirection('asc')
+      } className='justify-between'
+      isCurrent={direction === 'asc'}
+      >
           <span>{sortBy === 'title' ? 'A-Z' : 'Oldest-Newest'}</span>
           {direction === 'asc' && <i className='fa-solid fa-check'></i>}
         </DropDown.Button>
-        <DropDown.Button onClick={() => setDirection('desc')} className='justify-between'>
+        <DropDown.Button onClick={() => setDirection('desc')} className='justify-between'
+        isCurrent={direction === 'desc'}
+        >
           <span>{sortBy === 'title' ? 'Z-A' : 'Newest-Oldest'}</span>
           {direction === 'desc' && <i className='fa-solid fa-check'></i>}
         </DropDown.Button>
