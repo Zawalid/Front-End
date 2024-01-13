@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useArticle, useArticles } from '../../hooks/useArticles';
-import { SearchInput } from '../ui/SearchInput';
+import { useArticle, useArticles, useTags } from '../../hooks/useArticles';
 
 export default function ArticleDetails({ id }) {
+  console.log(id)
   const { article, isLoading, error } = useArticle(id);
   if (error) return <p>{error}</p>;
 
@@ -21,16 +21,11 @@ export default function ArticleDetails({ id }) {
 }
 
 // Details
-function Details({ article: { title, content, date, tags, author } }) {
+function Details({ article: { title, content, date, cover, tags, author } }) {
   return (
     <div className='col-span-2'>
       <div className='space-y-4'>
-        <img
-          src='/images/blog.jpg'
-          // src={cover}
-          alt='blog'
-          className='h-72 w-full rounded-xl object-cover sm:h-96'
-        />
+        <img src={cover} alt={title} className='h-72 w-full rounded-xl object-cover sm:h-96' />
         <div className='mb-3 flex gap-8 text-sm text-text-secondary'>
           <div className='flex items-center gap-2'>
             <i className='fa-solid fa-user text-text-tertiary'></i>
@@ -51,19 +46,16 @@ function Details({ article: { title, content, date, tags, author } }) {
         <p className='leading- text-lg text-text-secondary'>{content}</p>
       </div>
       <hr className='my-8 border-border' />
-
-      <div className='flex items-center gap-3'>
-        <h5 className='text-text-primary'>Tags:</h5>
-        <div className='flex flex-wrap items-center gap-3'>
-          {tags?.map((tag, index) => (
-            <Tag
-              key={index}
-              tag={tag}
-              className='bg-text-secondary text-white hover:bg-text-secondary'
-            />
-          ))}
-        </div>
-      </div>
+      <ArticleTags tags={tags} />
+    </div>
+  );
+}
+function ArticleTags({ tags }) {
+  return (
+    <div className='flex flex-wrap items-center gap-3'>
+      {tags?.map((tag) => (
+        <Tag key={tag} tag={tag} className='bg-text-secondary text-white hover:bg-text-secondary' />
+      ))}
     </div>
   );
 }
@@ -72,20 +64,12 @@ function Details({ article: { title, content, date, tags, author } }) {
 function Aside() {
   return (
     <aside className='mt-10 space-y-8 lg:mt-0'>
-      <Search />
       <LatestArticles />
-      <Categories />
-      <AllTags />
+      <Tags />
     </aside>
   );
 }
-function Search() {
-  return (
-    <form onSubmit={(e) => e.preventDefault()} className=''>
-      <SearchInput className='rounded-xl py-3' />
-    </form>
-  );
-}
+
 function LatestArticles() {
   const { articles, isLoading, error } = useArticles();
   if (isLoading) return <p>Loading...</p>;
@@ -102,20 +86,27 @@ function LatestArticles() {
     </div>
   );
 }
-function Article({ article: { id, title, author, date } }) {
+function Article({ article: { id, title, cover, author, date } }) {
   return (
     <li>
       <Link
         to={`/blog/${id}`}
         className='grid grid-cols-[100px_auto] gap-5 rounded-lg p-4 transition-colors duration-300 hover:bg-background-primary'
       >
-        <img src='/images/blog.jpg' alt='blog' className='h-20 w-full rounded-lg object-cover' />
+        <img src={cover} alt='blog' className='h-20 w-full rounded-lg object-cover' />
         <div className=' space-y-2 overflow-hidden'>
           <h4 className='truncate text-sm font-bold text-text-primary sm:text-base' title={title}>
             {title}
           </h4>
-          <div className='flex items-center gap-2 text-xs font-medium text-text-secondary'>
-            <i className='fa-solid fa-calendar text-text-tertiary'></i>
+
+          <div className='flex items-center gap-2'>
+            <div className='relative grid  h-5 w-5 place-content-center overflow-hidden rounded-full bg-text-tertiary'>
+              <i className='fa-solid fa-user text-xs text-white'></i>
+            </div>
+            <span className='text-sm font-bold text-text-secondary'>{author}</span>
+          </div>
+          <div className='grid grid-cols-[20px_auto] items-center gap-2 text-xs font-medium text-text-secondary'>
+            <i className='fa-solid fa-calendar justify-self-center text-sm text-text-tertiary'></i>
             <span>
               {new Date(date).toLocaleString('default', {
                 month: 'short',
@@ -124,56 +115,36 @@ function Article({ article: { id, title, author, date } }) {
               })}
             </span>
           </div>
-          <div className='flex items-center gap-2'>
-            <div className='relative grid  h-5 w-5 place-content-center overflow-hidden rounded-full bg-text-tertiary'>
-              <i className='fa-solid fa-user text-xs text-white'></i>
-            </div>
-            <span className='text-sm font-bold text-text-secondary'>{author}</span>
-          </div>
         </div>
       </Link>
     </li>
   );
 }
-function Categories() {
+function Tags() {
+  const { tags, isLoading, error } = useTags();
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <div className='rounded-xl bg-background-secondary p-4 '>
-      <h4 className='mb-6 text-lg font-bold text-text-primary'>Categories</h4>
-      <ul>
-        {['SEO', 'Marketing', 'Digital', 'Artificial Intelligence'].map((category, index) => (
-          <li key={index} className='w-full'>
-            <a
-              href='#'
-              className='block rounded-lg px-4 py-3 font-semibold text-text-secondary transition-colors duration-300 hover:bg-background-primary hover:text-text-primary'
-            >
-              {category}
-            </a>
-          </li>
+      <h4 className='mb-6 text-lg font-bold text-text-primary'>Tags</h4>
+      <ul className='flex max-h-[250px] overflow-auto py-1.5 flex-wrap gap-3'>
+        {tags.map((tag) => (
+          <Tag key={tag.id} tag={tag.name} />
         ))}
       </ul>
     </div>
   );
 }
-function AllTags() {
+function Tag({ tag, className }) {
   return (
-    <div className='gap-5 rounded-xl bg-background-secondary p-4'>
-      <h4 className='mb-6 text-lg font-bold text-text-primary'>Tags</h4>
-      <div className='flex flex-wrap gap-3'>
-        {['SEO', 'Marketing', 'Digital', 'Artificial Intelligence'].map((tag, index) => (
-          <Tag key={index} tag={tag} />
-        ))}
-      </div>
-    </div>
+    <Link
+      to={`/blog?filter=${tag}`}
+
+      className={`rounded-full bg-background-primary px-5 py-2 text-sm font-medium capitalize text-text-primary shadow-md transition-colors duration-300 hover:bg-text-primary hover:text-background-primary ${className}`}
+    >
+      {tag}
+    </Link>
   );
 }
 
-function Tag({ tag, className }) {
-  return (
-    <a
-      href='#'
-      className={`rounded-full bg-background-primary px-5 py-2 text-sm font-medium text-text-primary transition-colors duration-300 hover:bg-text-primary hover:text-background-primary ${className}`}
-    >
-      {tag}
-    </a>
-  );
-}

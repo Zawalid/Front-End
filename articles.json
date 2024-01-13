@@ -7,7 +7,7 @@
       "author": "Emily Johnson",
       "date": "2023-09-15",
       "tags": ["AI", "Technology", "Future"],
-      "cover": "https:/unsplash.com/photos/KBZ9UQVJUe8"
+      "cover": "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "author": "Michael Anderson",
       "date": "2023-08-22",
       "tags": ["Sustainability", "Renewable Energy"],
-      "cover": "https://example.com/sustainable-energy.jpg"
+      "cover": "https://images.unsplash.com/photo-1554769945-af468c934022?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fFN1c3RhaW5hYmxlJTIwRW5lcmd8ZW58MHx8MHx8fDI%3D"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "author": "David Miller",
       "date": "2023-07-12",
       "tags": ["Blockchain", "Finance", "Technology"],
-      "cover": "https://example.com/blockchain-finance.jpg"
+      "cover": "https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmxvY2tjaGFpbnxlbnwwfHwwfHx8Mg%3D%3D"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "author": "Ava Carter",
       "date": "2023-06-05",
       "tags": ["Space", "Astronomy", "Exoplanets"],
-      "cover": "https://example.com/exoplanets.jpg"
+      "cover": "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": 5,
@@ -43,7 +43,7 @@
       "author": "Sophia Lee",
       "date": "2023-05-20",
       "tags": ["Mindfulness", "Wellness", "Health"],
-      "cover": "https://example.com/mindfulness.jpg"
+      "cover": "https://images.unsplash.com/photo-1499728603263-13726abce5fd?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWluZGZ1bG5lc3N8ZW58MHx8MHx8fDI%3D"
     },
     {
       "id": 6,
@@ -52,7 +52,7 @@
       "author": "Emma Harris",
       "date": "2023-04-10",
       "tags": ["Electric Vehicles", "Transportation", "Environment"],
-      "cover": "https://example.com/electric-vehicles.jpg"
+      "cover": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RWxlY3RyaWMlMjBWZWhpY2xlc3xlbnwwfHwwfHx8Mg%3D%3D"
     },
     {
       "id": 7,
@@ -61,7 +61,7 @@
       "author": "Liam Garcia",
       "date": "2023-03-01",
       "tags": ["Food", "Cuisine", "Travel"],
-      "cover": "https://example.com/culinary-adventures.jpg"
+      "cover": "https://images.unsplash.com/photo-1626200081110-554e02151dfc?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEN1aXNpbmV8ZW58MHx8MHx8fDI%3D"
     },
     {
       "id": 8,
@@ -70,7 +70,7 @@
       "author": "Nathan Turner",
       "date": "2023-02-14",
       "tags": ["Oceanography", "Marine Biology", "Conservation"],
-      "cover": "https://example.com/ocean-biodiversity.jpg"
+      "cover": "https://images.unsplash.com/photo-1517954622026-26ff0ab2bf96?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8T2NlYW4lMjBkZWVwfGVufDB8fDB8fHwy"
     },
     {
       "id": 9,
@@ -79,7 +79,109 @@
       "author": "Ethan Robinson",
       "date": "2023-01-05",
       "tags": ["Biotechnology", "Medicine", "Innovation"],
-      "cover": "https://example.com/biotechnology.jpg"
+      "cover": "https://images.unsplash.com/photo-1581594549595-35f6edc7b762?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmlvdGVjaG5vbG9neXxlbnwwfHwwfHx8Mg%3D%3D"
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "AI"
+    },
+    {
+      "id": 2,
+      "name": "Technology"
+    },
+    {
+      "id": 3,
+      "name": "Future"
+    },
+    {
+      "id": 4,
+      "name": "Sustainability"
+    },
+    {
+      "id": 5,
+      "name": "Renewable Energy"
+    },
+    {
+      "id": 6,
+      "name": "Blockchain"
+    },
+    {
+      "id": 7,
+      "name": "Finance"
+    },
+    {
+      "id": 8,
+      "name": "Space"
+    },
+    {
+      "id": 9,
+      "name": "Astronomy"
+    },
+    {
+      "id": 10,
+      "name": "Exoplanets"
+    },
+    {
+      "id": 11,
+      "name": "Mindfulness"
+    },
+    {
+      "id": 12,
+      "name": "Wellness"
+    },
+    {
+      "id": 13,
+      "name": "Health"
+    },
+    {
+      "id": 14,
+      "name": "Electric Vehicles"
+    },
+    {
+      "id": 15,
+      "name": "Transportation"
+    },
+    {
+      "id": 16,
+      "name": "Environment"
+    },
+    {
+      "id": 17,
+      "name": "Food"
+    },
+    {
+      "id": 18,
+      "name": "Cuisine"
+    },
+    {
+      "id": 19,
+      "name": "Travel"
+    },
+    {
+      "id": 20,
+      "name": "Oceanography"
+    },
+    {
+      "id": 21,
+      "name": "Marine Biology"
+    },
+    {
+      "id": 22,
+      "name": "Conservation"
+    },
+    {
+      "id": 23,
+      "name": "Biotechnology"
+    },
+    {
+      "id": 24,
+      "name": "Medicine"
+    },
+    {
+      "id": 25,
+      "name": "Innovation"
     }
   ]
 }

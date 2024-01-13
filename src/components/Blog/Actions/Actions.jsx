@@ -9,7 +9,7 @@ export const options = {
   placement: 'auto-start',
 };
 
-export default function Actions({ sortBy, setSortBy, direction, setDirection }) {
+export default function Actions({ sortBy, setSortBy, direction, setDirection, filter, onFilterChange }) {
   return (
     <DropDown
       toggler={<i className='fa-solid fa-ellipsis-v text-'></i>}
@@ -19,7 +19,7 @@ export default function Actions({ sortBy, setSortBy, direction, setDirection }) 
       <SortBy sortBy={sortBy} setSortBy={setSortBy} />
       <OrderBy direction={direction} setDirection={setDirection} sortBy={sortBy} />
       <DropDown.Divider />
-      <Filter />
+      <Filter filter={filter} onChange={onFilterChange} />
     </DropDown>
   );
 }

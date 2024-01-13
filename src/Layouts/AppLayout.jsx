@@ -2,7 +2,6 @@ import { Outlet } from 'react-router';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import PageLayout from './PageLayout';
 
 export default function AppLayout() {
   const [parent] = useAutoAnimate({ duration: 400, easing: 'ease-in-out' });
@@ -15,5 +14,5 @@ export default function AppLayout() {
       </main>
       <Footer />
     </div>
-  );
+  )
 }

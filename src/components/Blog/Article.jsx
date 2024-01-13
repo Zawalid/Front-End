@@ -1,73 +1,52 @@
 import { Link } from 'react-router-dom';
 
 export default function Article({ article, view = 'grid' }) {
-  const { id, title, date, author } = article;
+  const { id, title, date, cover, tags, author } = article;
 
   if (view === 'list')
     return (
-      <div className='grid max-h-[140px] grid-cols-[100px_auto] overflow-hidden rounded-lg bg-background-secondary shadow-md transition-transform duration-500 hover:translate-x-2 sm:grid-cols-[140px_auto]'>
-        <img
-          src='/images/blog.jpg'
-          // src={cover}
-          alt={title}
-          className='h-full object-contain sm:object-cover'
-        />
-        <div className='flex flex-col gap-3 overflow-hidden p-3'>
-          <Link to={`/blog/${id}`}>
+      <Link to={`/blog/${id}`}>
+        <div className='grid grid-cols-[100px_auto] overflow-hidden rounded-lg bg-background-secondary shadow-md transition-all duration-500 hover:translate-x-2 sm:grid-cols-[140px_auto] md:h-[120px]'>
+          <img src={cover} alt={title} className='h-full object-cover' />
+          <div className='flex flex-col gap-4 overflow-hidden p-3  transition-all duration-500'>
             <h4
               className='truncate font-bold leading-tight text-text-primary transition-colors duration-300 hover:text-secondary sm:text-lg'
               title={title}
             >
               {title}
             </h4>
-          </Link>
-          <div className='mb-3 flex gap-x-5 gap-y-2 min-[420px]:flex-row flex-col text-xs text-text-secondary'>
-            <Info author={author} date={date} />
+            <div className='flex flex-col gap-x-5 gap-y-2 text-xs text-text-secondary min-[420px]:flex-row'>
+              <Info author={author} date={date} />
+            </div>
+            <ArticleTags tags={tags} />
           </div>
-          <Link
-            to={`/blog/${id}`}
-            className='flex items-center gap-3 text-xs sm:text-sm text-text-primary transition-colors duration-300 hover:text-tertiary'
-          >
-            <span className='font-medium'>Read More</span>
-            <i className='fa-solid fa-arrow-right '></i>
-          </Link>
         </div>
-      </div>
+      </Link>
     );
 
   if (view === 'grid')
     return (
-      <div className='group flex  h-full flex-col rounded-lg'>
-        <div className='h-full overflow-hidden rounded-lg'>
-          <img
-            src='/images/blog.jpg'
-            // src={cover}
-            alt={title}
-          />
-        </div>
-        <div className='-mt-[100px] ml-[50%] flex w-[90%] -translate-x-1/2 flex-col rounded-2xl bg-background-primary p-5 shadow-md transition-transform duration-500 group-hover:-translate-y-2'>
-          <div className='mb-3 flex justify-between gap-5 text-xs text-text-secondary'>
-            <Info author={author} date={date} />
+      <Link to={`/blog/${id}`}>
+        <div className='group flex h-full flex-col rounded-lg  transition-all duration-500'>
+          <div className='h-[300px] flex-1 overflow-hidden rounded-lg'>
+            <img src={cover} alt={title} className='h-full w-full object-cover' />
           </div>
-          <Link to={`/blog/${id}`}>
+          <div className='-mt-[100px] ml-[50%] flex w-[90%] -translate-x-1/2 flex-col rounded-2xl bg-background-primary p-5 shadow-md transition-transform duration-500 group-hover:-translate-y-2'>
+            <div className='mb-3 flex justify-between gap-5 text-xs text-text-secondary'>
+              <Info author={author} date={date} />
+            </div>
             <h4
               className='max-h-[55px] overflow-hidden text-wrap font-bold leading-tight text-text-primary transition-colors duration-300 hover:text-secondary sm:text-lg'
               title={title}
             >
               {title}
             </h4>
-          </Link>
 
-          <hr className='my-4 border-border' />
-          <Link
-            to={`/blog/${id}`}
-            className='flex items-center justify-between text-sm text-text-primary transition-colors duration-300 hover:text-tertiary'
-          >
-            <span className='font-medium'>Read More</span>
-            <i className='fa-solid fa-arrow-right '></i>
-          </Link>
+            <hr className='my-4 border-border' />
+            <ArticleTags tags={tags} />
+          </div>
         </div>
-      </div>
+      </Link>
     );
 }
 
@@ -89,5 +68,18 @@ function Info({ author, date }) {
         </span>
       </div>
     </>
+  );
+}
+
+function ArticleTags({ tags }) {
+  return (
+    <div className='flex flex-wrap gap-2'>
+      {tags.slice(0, 3).map((tag) => (
+        <span key={tag} className='text-xs font-semibold capitalize text-secondary '>
+          <span className='text-primary'>#</span>
+          {tag}
+        </span>
+      ))}
+    </div>
   );
 }

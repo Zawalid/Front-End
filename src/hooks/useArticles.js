@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getArticle, getArticles } from '../services/api/apiArticles';
+import { getArticle, getArticles, getTags } from '../services/api/apiArticles';
 
 export function useArticles() {
   const { data, isLoading, error } = useQuery({
@@ -22,6 +22,19 @@ export function useArticle(id) {
 
   return {
     article: data,
+    isLoading,
+    error,
+  };
+}
+
+export function useTags() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['tags'],
+    queryFn: getTags,
+  });
+
+  return {
+    tags: data,
     isLoading,
     error,
   };

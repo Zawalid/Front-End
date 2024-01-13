@@ -58,42 +58,46 @@ export function usePagination(itemsLength, itemsName) {
   return {
     Pagination: (
       <div className='flex flex-col-reverse items-center justify-between gap-3 md:flex-row'>
-        <div className='flex w-full  items-center justify-center gap-2 md:w-fit  md:justify-normal'>
-          <span className='text-xs font-medium text-text-secondary sm:text-sm '>
-            Rows per page:
-          </span>
-          <DropDown
-            toggler={<span className='text-xs font-medium sm:text-sm'>{rowsPerPage}</span>}
-            togglerClassName='bg-primary rounded-lg  px-3  py-1.5 text-white '
-            options={{ placement: 'top', className: 'w-fit' }}
-          >
-            {rowsPerPageOptions.map((option) => (
-              <DropDown.Button
-                key={option}
-                size='small'
-                onClick={() => dispatch({ type: 'CHANGE_ROWS_PER_PAGE', payload: option })}
-                isCurrent={option === rowsPerPage}
-                className='justify-center'
-              >
-                <span>{option}</span>
-              </DropDown.Button>
-            ))}
-          </DropDown>
+        <div className='flex w-full px-2 items-center justify-between gap-2 md:w-fit  md:justify-normal'>
+        <div className='flex  items-center gap-2'>
+           <span className='text-xs font-medium text-text-secondary sm:text-sm '>
+             Rows per page:
+           </span>
+           <DropDown
+             toggler={<span className='text-xs font-medium sm:text-sm'>{rowsPerPage}</span>}
+             togglerClassName='bg-primary rounded-lg  px-3  py-1.5 text-white '
+             options={{ placement: 'top', className: 'w-fit' }}
+           >
+             {rowsPerPageOptions.map((option) => (
+               <DropDown.Button
+                 key={option}
+                 size='small'
+                 onClick={() => dispatch({ type: 'CHANGE_ROWS_PER_PAGE', payload: option })}
+                 isCurrent={option === rowsPerPage}
+                 className='justify-center'
+               >
+                 <span>{option}</span>
+               </DropDown.Button>
+             ))}
+           </DropDown>
+         </div>
 
-          <span className='flex gap-1 text-xs text-text-secondary sm:text-sm'>
-            <span className='font-semibold text-text-primary'>{currentPage}</span>
-            of
-            <span className='font-semibold text-text-primary'>
-              {Math.ceil(itemsLength / rowsPerPage)}
-            </span>
-          </span>
-          <span className='flex gap-1 text-xs text-text-secondary sm:text-sm'>
-            (<span className='font-semibold text-text-primary'>{itemsLength}</span>
-            {` ${itemsName}`})
-          </span>
+         <div className='flex  items-center gap-2'>
+           <span className='flex gap-1 text-xs text-text-secondary sm:text-sm'>
+             <span className='font-semibold text-text-primary'>{currentPage}</span>
+             of
+             <span className='font-semibold text-text-primary'>
+               {Math.ceil(itemsLength / rowsPerPage)}
+             </span>
+           </span>
+           <span className='flex gap-1 text-xs text-text-secondary sm:text-sm'>
+             (<span className='font-semibold text-text-primary'>{itemsLength}</span>
+             {` ${itemsName}`})
+           </span>
+         </div>
         </div>
 
-        <div className='flex w-full items-center justify-between gap-5 sm:justify-center md:w-fit md:justify-normal'>
+        <div className='flex w-full items-center justify-between gap-5  md:w-fit md:justify-normal'>
           <button
             className='pagination button'
             disabled={disabledButton === 'previous' || disabledButton === 'both'}

@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import PageLayout from '../Layouts/PageLayout';
 import ArticlesList from '../components/Blog/ArticlesList';
 import Actions from '../components/Blog/Actions/Actions';
 import { SearchInput } from '../components/ui/SearchInput';
-import { useSearchParams } from 'react-router-dom';
+import { useLocalStorageState } from '../hooks/useLocalStorageState';
 
 export default function Blog() {
-  const [view, setView] = useState('grid');
+  const [view, setView] = useLocalStorageState('grid', 'blog-view');
   const [searchParams, setSearchParams] = useSearchParams();
+  
   const sortBy = searchParams.get('sortBy') || 'date';
   const direction = searchParams.get('direction') || 'desc';
+  const filter = searchParams.get('filter') || 'all';
   const query = searchParams.get('s') || '';
 
   const setParam = (param) => {
-    const params = { s: query, sortBy, direction };
+    const params = { s: query, filter, sortBy, direction };
     setSearchParams(
       {
         ...params,
@@ -24,28 +27,23 @@ export default function Blog() {
   };
 
   useEffect(() => {
-    if (
-      !['date', 'title'].includes(sortBy) ||
-      !['asc', 'desc'].includes(direction) ||
-      (sortBy === 'date' && direction === 'desc')
-    )
-      setSearchParams(
-        (prev) => {
+    setSearchParams(
+      (prev) => {
+        if (
+          !['date', 'title'].includes(sortBy) ||
+          !['asc', 'desc'].includes(direction) ||
+          (sortBy === 'date' && direction === 'desc')
+        ) {
           prev.delete('sortBy');
           prev.delete('direction');
-          return prev;
-        },
-        { replace: true },
-      );
-  }, [sortBy, direction, setSearchParams]);
-
-  useEffect(() => {
-    if (query === '')
-      setSearchParams((prev) => {
-        prev.delete('s');
+        }
+        if (query === '') prev.delete('s');
+        if (filter === 'all') prev.delete('filter');
         return prev;
-      });
-  }, [query, setSearchParams]);
+      },
+      { replace: true },
+    );
+  }, [setSearchParams, sortBy, direction, query, filter]);
 
   return (
     <PageLayout title='blog'>
@@ -57,12 +55,20 @@ export default function Blog() {
               setSortBy={(sortBy) => setParam({ sortBy })}
               direction={direction}
               setDirection={(direction) => setParam({ direction })}
+              filter={filter}
+              onFilterChange={(filter) => setParam({ filter })}
             />
             <Search query={query} onChange={(query) => setParam({ s: query })} />
           </div>
           <ViewControl view={view} setView={setView} />
         </div>
-        <ArticlesList view={view} searchQuery={query || ''} sortBy={sortBy} direction={direction} />
+        <ArticlesList
+          view={view}
+          filter={filter}
+          searchQuery={query || ''}
+          sortBy={sortBy}
+          direction={direction}
+        />
       </div>
     </PageLayout>
   );
