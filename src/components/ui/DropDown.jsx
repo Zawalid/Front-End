@@ -1,4 +1,5 @@
 import Tippy from '@tippyjs/react';
+import { SearchInput } from './SearchInput';
 
 const defaultOptions = {
   className: 'w-36  overflow-auto  max-h-[200px]',
@@ -19,7 +20,8 @@ export function DropDown({
     <Tippy
       content={<ul className='grid gap-1 p-2'>{children}</ul>}
       className={
-        'dropdown border border-border rounded-md bg-background-primary p-0 shadow-md ' + (options?.className || defaultOptions.className)
+        'dropdown rounded-md border border-border bg-background-primary p-0 shadow-md ' +
+        (options?.className || defaultOptions.className)
       }
       theme='light'
       trigger={options?.trigger || defaultOptions.trigger}
@@ -48,16 +50,30 @@ function Button({ children, onClick, className, isDeleteButton, size = 'default'
   return (
     <li
       className={
-        'relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-md font-medium text-text-secondary text-sm  transition-colors duration-300  ' +
+        'relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-md text-sm font-medium text-text-secondary  transition-colors duration-300  ' +
         className +
         (size === 'small' ? ' px-2 py-1 ' : ' px-3 py-2 ') +
-        (isDeleteButton ? 'hover:bg-red-500 hover:text-white ' : 'hover:bg-primary hover:text-white ') +
+        (isDeleteButton
+          ? 'hover:bg-red-500 hover:text-white '
+          : 'hover:bg-primary hover:text-white ') +
         (isCurrent ? 'bg-primary text-white' : 'bg-background-primary ')
       }
       onClick={onClick}
     >
       {children}
     </li>
+  );
+}
+
+function SearchBar({ placeholder, value, onChange }) {
+  return (
+    <SearchInput
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      className='text-sm'
+      iconClassName='text-text-tertiary text-sm'
+    />
   );
 }
 
@@ -92,6 +108,7 @@ function NestedMenu({ children, toggler, togglerClassName, options }) {
   );
 }
 DropDown.Button = Button;
+DropDown.SearchBar = SearchBar;
 DropDown.Toggler = Toggler;
 DropDown.Title = Title;
 DropDown.Divider = Divider;

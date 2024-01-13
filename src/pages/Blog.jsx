@@ -9,7 +9,7 @@ import { useLocalStorageState } from '../hooks/useLocalStorageState';
 export default function Blog() {
   const [view, setView] = useLocalStorageState('grid', 'blog-view');
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const sortBy = searchParams.get('sortBy') || 'date';
   const direction = searchParams.get('direction') || 'desc';
   const filter = searchParams.get('filter') || 'all';
@@ -114,12 +114,14 @@ function Search({ query, onChange }) {
       className='w-full '
     >
       <SearchInput
+      placeholder='Search Articles'
         value={searchQuery}
         onChange={(e) => {
           const query = e.target.value;
           setSearchQuery(query);
           onChange(query);
         }}
+        iconClassName='text-lg'
       />
     </form>
   );

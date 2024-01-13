@@ -68,7 +68,7 @@ export default function ArticlesList({ view, searchQuery, filter, sortBy, direct
       <div
         className={`mt-10 grid  gap-8 p-3 ${
           view === 'grid'
-            ? 'grid-cols-[repeat(auto-fit,minmax(300px,350px))] grid-rows-[repeat(auto-fit,350px)] justify-center lg:justify-start'
+            ? 'grid-cols-[repeat(auto-fit,minmax(300px,350px))] justify-center lg:justify-start'
             : ''
         }`}
         ref={parent}

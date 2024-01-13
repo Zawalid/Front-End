@@ -22,7 +22,7 @@ export default function ArticlesSection() {
           }
         />
       </div>
-      <div className='mt-12 grid grid-rows-[repeat(auto-fit,350px)] grid-cols-[repeat(auto-fit,minmax(300px,350px))] justify-center  gap-8 p-3 '>
+      <div className='mt-12 grid  grid-cols-[repeat(auto-fit,minmax(300px,350px))] justify-center  gap-8 p-3 '>
         {articles.slice(articles.length - 3).map((article) => (
           <Article key={article.id} article={article} />
         ))}
