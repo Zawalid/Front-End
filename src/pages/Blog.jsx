@@ -1,34 +1,59 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageLayout from '../Layouts/PageLayout';
 import ArticlesList from '../components/Blog/ArticlesList';
 import Actions from '../components/Blog/Actions/Actions';
 import { SearchInput } from '../components/ui/SearchInput';
-import { usePagination } from '../hooks/usePagination';
-import { useArticles } from '../hooks/useArticles';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Blog() {
-  const { articles, isLoading, error } = useArticles();
   const [view, setView] = useState('grid');
-  const { Pagination, currentPage, rowsPerPage } = usePagination(articles?.length, 'Articles');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortBy = searchParams.get('sortBy') || 'date';
+  const direction = searchParams.get('direction') || 'desc';
 
-  // Todo : Create custom error and loading components
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Something went wrong</div>;
+  const setParam = (param) => {
+    const params = { sortBy, direction };
+    setSearchParams(
+      {
+        ...params,
+        ...param,
+      },
+      { replace: true },
+    );
+  };
+
+  useEffect(() => {
+    if (
+      !['date', 'title'].includes(sortBy) ||
+      !['asc', 'desc'].includes(direction) ||
+      (sortBy === 'date' && direction === 'desc')
+    )
+      setSearchParams(
+        (prev) => {
+          prev.delete('sortBy');
+          prev.delete('direction');
+          return prev;
+        },
+        { replace: true },
+      );
+  }, [sortBy, direction, setSearchParams]);
+
   return (
     <PageLayout title='blog'>
       <div className='space-y-8'>
         <div className='flex items-center justify-between gap-8'>
           <div className='flex flex-1 items-center gap-3 sm:w-[40%] sm:flex-none'>
-            <Actions />
+            <Actions
+              sortBy={sortBy}
+              setSortBy={(sortBy) => setParam({ sortBy })}
+              direction={direction}
+              setDirection={(direction) => setParam({ direction })}
+            />
             <Search />
           </div>
           <ViewControl view={view} setView={setView} />
         </div>
-        <ArticlesList
-          articles={articles.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)}
-          view={view}
-        />
-        {Pagination}
+        <ArticlesList view={view} sortBy={sortBy} direction={direction} />
       </div>
     </PageLayout>
   );

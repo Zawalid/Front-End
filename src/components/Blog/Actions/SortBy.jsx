@@ -13,9 +13,9 @@ export function SortBy({ sortBy, setSortBy, }) {
         }
         options={options}
       >
-        <DropDown.Button onClick={() => setSortBy('')} className='justify-between'>
+        <DropDown.Button onClick={() => setSortBy('date')} className='justify-between'>
           <span>Publication date</span>
-          {sortBy === 'createdAt' && <i className='fa-solid fa-check'></i>}
+          {sortBy === 'date' && <i className='fa-solid fa-check'></i>}
         </DropDown.Button>
         <DropDown.Button onClick={() => setSortBy('title')} className='justify-between'>
           <span>Title</span>
