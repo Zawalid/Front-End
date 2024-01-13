@@ -6,12 +6,12 @@ export default function ArticlesList({ articles, view }) {
   return (
     <div
       className={`mt-10 grid  gap-8 p-3 ${
-        view === 'grid' ? 'grid-cols-[repeat(auto-fit,minmax(350px,1fr))] justify-center ' : ''
+        view === 'grid' ? 'grid-rows-[repeat(auto-fit,350px)] grid-cols-[repeat(auto-fit,minmax(300px,350px))]  justify-center ' : ''
       }`}
       ref={parent}
     >
-      {articles.map((_, index) => (
-        <Article key={index} id={index + 1} view={view} />
+      {articles.map((article) => (
+        <Article key={article.id} article={article} view={view} />
       ))}
     </div>
   );

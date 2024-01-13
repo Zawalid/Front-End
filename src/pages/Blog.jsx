@@ -4,17 +4,21 @@ import ArticlesList from '../components/Blog/ArticlesList';
 import Actions from '../components/Blog/Actions/Actions';
 import { SearchInput } from '../components/ui/SearchInput';
 import { usePagination } from '../hooks/usePagination';
+import { useArticles } from '../hooks/useArticles';
 
 export default function Blog() {
-  const [articles] = useState(Array.from({ length: 30 }));
+  const { articles, isLoading, error } = useArticles();
   const [view, setView] = useState('grid');
-  const { Pagination, currentPage, rowsPerPage } = usePagination(articles.length);
+  const { Pagination, currentPage, rowsPerPage } = usePagination(articles?.length, 'Articles');
 
+  // Todo : Create custom error and loading components
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Something went wrong</div>;
   return (
     <PageLayout title='blog'>
       <div className='space-y-8'>
-        <div className='flex items-center gap-8 justify-between'>
-          <div className='flex items-center gap-3 sm:flex-none sm:w-[40%] flex-1'>
+        <div className='flex items-center justify-between gap-8'>
+          <div className='flex flex-1 items-center gap-3 sm:w-[40%] sm:flex-none'>
             <Actions />
             <Search />
           </div>

@@ -5,7 +5,7 @@ import { Filter } from './Filter';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const options = {
-  className: 'w-60 max-h-[280px] overflow-auto',
+  className: 'w-52 sm:w-60 max-h-[280px] overflow-auto',
   placement: 'auto-start',
 };
 

@@ -1,0 +1,85 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "The Future of Artificial Intelligence",
+      "content": "As AI continues to advance, we explore its impact on various industries and the ethical considerations surrounding its development.",
+      "author": "Emily Johnson",
+      "date": "2023-09-15",
+      "tags": ["AI", "Technology", "Future"],
+      "cover": "https:/unsplash.com/photos/KBZ9UQVJUe8"
+    },
+    {
+      "id": 2,
+      "title": "Exploring Sustainable Energy Solutions",
+      "content": "In the face of climate change, we examine innovative approaches to sustainable energy, from solar power to green technology.",
+      "author": "Michael Anderson",
+      "date": "2023-08-22",
+      "tags": ["Sustainability", "Renewable Energy"],
+      "cover": "https://example.com/sustainable-energy.jpg"
+    },
+    {
+      "id": 3,
+      "title": "The Impact of Blockchain on Finance",
+      "content": "Blockchain technology is reshaping the financial industry. We explore its transformative effects on transactions, security, and decentralization.",
+      "author": "David Miller",
+      "date": "2023-07-12",
+      "tags": ["Blockchain", "Finance", "Technology"],
+      "cover": "https://example.com/blockchain-finance.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Discovering Exoplanets: A Window to Other Worlds",
+      "content": "In the quest for habitable planets beyond our solar system, astronomers uncover the mysteries of exoplanets and the potential for extraterrestrial life.",
+      "author": "Ava Carter",
+      "date": "2023-06-05",
+      "tags": ["Space", "Astronomy", "Exoplanets"],
+      "cover": "https://example.com/exoplanets.jpg"
+    },
+    {
+      "id": 5,
+      "title": "The Art of Mindfulness: Finding Peace in a Busy World",
+      "content": "Amidst the chaos of modern life, we explore the practice of mindfulness and its benefits for mental well-being and stress reduction.",
+      "author": "Sophia Lee",
+      "date": "2023-05-20",
+      "tags": ["Mindfulness", "Wellness", "Health"],
+      "cover": "https://example.com/mindfulness.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Revolutionizing Transportation: The Future of Electric Vehicles",
+      "content": "Electric vehicles are reshaping the automotive industry. We delve into the advancements, challenges, and environmental impact of EVs.",
+      "author": "Emma Harris",
+      "date": "2023-04-10",
+      "tags": ["Electric Vehicles", "Transportation", "Environment"],
+      "cover": "https://example.com/electric-vehicles.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Culinary Adventures: Exploring Global Cuisine",
+      "content": "Embark on a culinary journey as we explore diverse cuisines from around the world, savoring unique flavors and cultural influences.",
+      "author": "Liam Garcia",
+      "date": "2023-03-01",
+      "tags": ["Food", "Cuisine", "Travel"],
+      "cover": "https://example.com/culinary-adventures.jpg"
+    },
+    {
+      "id": 8,
+      "title": "The Marvels of Underwater Life: Exploring Ocean Biodiversity",
+      "content": "Dive into the depths of the ocean to discover the incredible diversity of marine life and the importance of preserving our oceans.",
+      "author": "Nathan Turner",
+      "date": "2023-02-14",
+      "tags": ["Oceanography", "Marine Biology", "Conservation"],
+      "cover": "https://example.com/ocean-biodiversity.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Innovations in Biotechnology: Shaping the Future of Medicine",
+      "content": "Explore the latest breakthroughs in biotechnology and their potential to revolutionize healthcare, from personalized medicine to gene therapy.",
+      "author": "Ethan Robinson",
+      "date": "2023-01-05",
+      "tags": ["Biotechnology", "Medicine", "Innovation"],
+      "cover": "https://example.com/biotechnology.jpg"
+    }
+  ]
+}

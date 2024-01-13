@@ -7,7 +7,7 @@ export default function Article() {
 
   return (
     <PageLayout title={`Article #${id}`}>
-      <ArticleDetails />
+      <ArticleDetails id={id} />
     </PageLayout>
   );
 }

@@ -1,4 +1,6 @@
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AppLayout from './Layouts/AppLayout';
 
 import Blog from './pages/Blog';
@@ -9,7 +11,6 @@ import Contact from './pages/Contact';
 import HomePage from './pages/HomePage';
 import Article from './pages/Article';
 import PageNotFound from './pages/PageNotFound';
-
 // const Blog = lazy(() => import('./pages/Blog'));
 // const Filieres = lazy(() => import('./pages/Filieres'));
 // const Evenements = lazy(() => import('./pages/Evenements'));
@@ -18,6 +19,9 @@ import PageNotFound from './pages/PageNotFound';
 // const HomePage = lazy(() => import('./pages/HomePage'));
 // const Article = lazy(() => import('./pages/Article'));
 // const PageNotFound = lazy(() => import('./pages/PageNotFound'));
+
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -43,5 +47,10 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <RouterProvider router={router} />;
+    </QueryClientProvider>
+  );
 }

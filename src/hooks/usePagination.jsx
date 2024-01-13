@@ -26,7 +26,7 @@ function paginationReducer(state, action) {
   }
 }
 
-export function usePagination(itemsLength) {
+export function usePagination(itemsLength, itemsName) {
   const [pagination, dispatch] = useReducer(paginationReducer, paginationState);
   const { currentPage, rowsPerPage, disabledButton } = pagination;
   const totalPages = useRef(Math.ceil(itemsLength / rowsPerPage));
@@ -57,8 +57,8 @@ export function usePagination(itemsLength) {
 
   return {
     Pagination: (
-      <div className='flex flex-col-reverse md:flex-row items-center justify-between gap-3'>
-        <div className='flex items-center  gap-2'>
+      <div className='flex flex-col-reverse items-center justify-between gap-3 md:flex-row'>
+        <div className='flex w-full  items-center justify-center gap-2 md:w-fit  md:justify-normal'>
           <span className='text-xs font-medium text-text-secondary sm:text-sm '>
             Rows per page:
           </span>
@@ -87,9 +87,13 @@ export function usePagination(itemsLength) {
               {Math.ceil(itemsLength / rowsPerPage)}
             </span>
           </span>
+          <span className='flex gap-1 text-xs text-text-secondary sm:text-sm'>
+            (<span className='font-semibold text-text-primary'>{itemsLength}</span>
+            {` ${itemsName}`})
+          </span>
         </div>
 
-        <div className='flex items-center gap-5'>
+        <div className='flex w-full items-center justify-between gap-5 sm:justify-center md:w-fit md:justify-normal'>
           <button
             className='pagination button'
             disabled={disabledButton === 'previous' || disabledButton === 'both'}

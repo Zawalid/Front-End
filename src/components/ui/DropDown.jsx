@@ -48,7 +48,7 @@ function Button({ children, onClick, className, isDeleteButton, size = 'default'
   return (
     <li
       className={
-        'relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-md font-medium text-text-secondary  transition-colors duration-300  ' +
+        'relative flex w-full cursor-pointer items-center gap-3 overflow-hidden rounded-md font-medium text-text-secondary text-sm sm:text-base transition-colors duration-300  ' +
         className +
         (size === 'small' ? ' px-2 py-1 ' : ' px-3 py-2 ') +
         (isDeleteButton ? 'hover:bg-red-500 hover:text-white ' : 'hover:bg-primary hover:text-white ') +
