@@ -12,7 +12,6 @@ import '../../styles/App.css';
 const SliderContext = createContext();
 
 export default function Slider({ defaultSlidesPerView, children, navigationIds, paginationId }) {
-  console.log(children[0]);
   const [slidesPerView, setSlidesPerView] = useState(3);
 
   useEffect(() => {

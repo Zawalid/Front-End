@@ -3,7 +3,7 @@ import Section from './ui/Section';
 
 export default function HeroSection() {
   return (
-    <Section>
+    <Section id='hero-section'>
       <div className='flex h-[70vh] lg:h-auto items-center gap-8'>
         <LeftSide />
         <RightSide />

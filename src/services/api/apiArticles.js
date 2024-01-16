@@ -10,7 +10,6 @@ export async function getArticles() {
 export async function getArticle(id) {
   const response = await fetch(`http://localhost:3000/articles/${id}`);
   const data = await response.json();
-  console.log(response)
   if (!response.ok) {
     throw new Error('No article found');
   }
