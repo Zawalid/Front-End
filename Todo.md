@@ -1,32 +1,43 @@
 ## **Features**
 
+### Pages
+- [x] HomePage
+- [ ] Filieres Page
+- [ ] Filiere Details Page 
+- [x] Blog Page
+- [x] Article Details Page 
+- [ ] Events Page
+- [ ] Event Details Page 
+- [ ] Contact Page
+- [ ] About Page
 
+---
+### Sections
+- [x] Header
+- [ ] Hero (50%)
+- [ ] Filieres 
+- [x] Blog 
+- [ ] Events 
+- [x] Footer
+
+---
+### Functionalities
+- [x] Blog search
+- [x] Blog filter
+- [x] Blog sort
+- [x] Blog pagination
 
 ---
 
 ## **Do's**
 
-
-
+- [x] Custom error component
+- [x] Custom loading component
+- [ ] Header observer
+- [ ] Dark mode toggle
+- [ ] Add loading skeletons instead of message
 ---
 
 ## **Bugs**
 
----
-
-## Pages
-
-Home
-
-Articles
-    Article:id
-
-Filieres
-    Filiere:id
-
-Events
-    Event:id
-
-About
-
-Contact
+- [ ] BreadCrumbs article Id

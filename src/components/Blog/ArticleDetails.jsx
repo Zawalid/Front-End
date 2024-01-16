@@ -1,20 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useArticle, useArticles, useTags } from '../../hooks/useArticles';
 import { Tag } from '../ui/Tag';
+import { Loading } from '../ui/Loading';
+import { ErrorMessage } from '../ui/ErrorMessage';
 
 export default function ArticleDetails({ id }) {
   const { article, isLoading, error } = useArticle(id);
-  if (error) return <p>{error}</p>;
 
   return (
     <div className=' grid-cols-3 gap-10 lg:grid '>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : Object.keys(article).length > 0 ? (
-        <Details article={article} />
-      ) : (
-        <p>Article not found</p>
-      )}
+      {isLoading && <Loading className='col-span-2 h-full text-xl' />}
+      {error && <ErrorMessage className='col-span-2 h-full text-xl' message={error.message} />}
+      {!error && !isLoading && Object.keys(article).length > 0 && <Details article={article} />}
       <Aside />
     </div>
   );
@@ -51,7 +48,7 @@ function Details({ article: { title, content, date, cover, tags, author } }) {
 }
 function ArticleTags({ tags }) {
   return (
-    <div className='flex flex-wrap items-center gap-y-2 gap-x-3'>
+    <div className='flex flex-wrap items-center gap-x-3 gap-y-2'>
       {tags?.map((tag) => (
         <Link key={tag} to={`/blog?filter=${tag.toLowerCase()}`}>
           <Tag tag={tag} />
@@ -73,17 +70,21 @@ function Aside() {
 
 function LatestArticles() {
   const { articles, isLoading, error } = useArticles();
-  if (isLoading) return <p>Loading...</p>;
-  if (error || !articles) return <p>{error}</p>;
 
   return (
-    <div className='rounded-xl bg-background-secondary p-4 '>
+    <div className='relative min-h-[400px]  rounded-xl bg-background-secondary p-4'>
       <h4 className='mb-6 text-lg font-bold text-text-primary'>Latest Articles</h4>
-      <ul>
-        {articles.slice(articles.length - 3).map((article) => (
-          <Article key={article.id} article={article} />
-        ))}
-      </ul>
+      {isLoading ? (
+        <Loading className='absolute top-0 h-full w-full' />
+      ) : error ? (
+        <ErrorMessage className='absolute top-0 h-full w-full' message={error.message} />
+      ) : (
+        <ul>
+          {articles.slice(articles.length - 3).map((article) => (
+            <Article key={article.id} article={article} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
@@ -123,19 +124,23 @@ function Article({ article: { id, title, cover, author, date } }) {
 }
 function Tags() {
   const { tags, isLoading, error } = useTags();
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
 
   return (
-    <div className='rounded-xl bg-background-secondary p-4 '>
+    <div className='relative min-h-[200px]  rounded-xl bg-background-secondary p-4'>
       <h4 className='mb-6 text-lg font-bold text-text-primary'>Tags</h4>
-      <ul className='flex max-h-[250px] flex-wrap gap-y-1 gap-x-3 overflow-auto py-1.5'>
-        {tags.map(({name}) => (
-          <Link key={name} to={`/blog?filter=${name.toLowerCase()}`}>
-            <Tag tag={name} />
-          </Link>
-        ))}
-      </ul>
+      {isLoading ? (
+        <Loading className='absolute top-0 h-full w-full' />
+      ) : error ? (
+        <ErrorMessage className='absolute top-0 h-full w-full' message={error.message} />
+      ) : (
+        <ul className='flex max-h-[250px] flex-wrap gap-x-3 gap-y-1 overflow-auto py-1.5'>
+          {tags.map(({ name }) => (
+            <Link key={name} to={`/blog?filter=${name.toLowerCase()}`}>
+              <Tag tag={name} />
+            </Link>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

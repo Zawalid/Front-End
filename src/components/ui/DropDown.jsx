@@ -73,7 +73,7 @@ function SearchBar({ placeholder, value, onChange }) {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className='mb-2 text-sm'
+      className='text-sm'
       iconClassName='text-text-tertiary text-sm'
     />
   );

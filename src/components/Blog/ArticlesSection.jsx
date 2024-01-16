@@ -1,12 +1,14 @@
 import { useArticles } from '../../hooks/useArticles';
+import { ErrorMessage } from '../ui/ErrorMessage';
 import { Heading } from '../ui/Heading';
+import { Loading } from '../ui/Loading';
 import Section from '../ui/Section';
 import Article from './Article';
 
 export default function ArticlesSection() {
   const { articles, isLoading, error } = useArticles();
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Something went wrong</div>;
+  if (isLoading) return  <Loading className='h-[70vh] text-xl' />
+  if (error) return <ErrorMessage className='h-[70vh] text-xl' />
 
   return (
     <Section>

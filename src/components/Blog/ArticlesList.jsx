@@ -2,6 +2,8 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Article from './Article';
 import { useArticles, useTags } from '../../hooks/useArticles';
 import { usePagination } from '../../hooks/usePagination';
+import { Loading } from '../ui/Loading';
+import { ErrorMessage } from '../ui/ErrorMessage';
 
 Array.prototype.customSort = function (sortBy, direction) {
   return this.toSorted((a, b) => {
@@ -49,14 +51,14 @@ export default function ArticlesList({ view, searchQuery, filter, sortBy, direct
     return articles?.search(searchQuery).customSort(sortBy, direction).customFilter(filter, tags);
   }
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Something went wrong</div>;
+  if (isLoading) return <Loading className='h-[70vh] text-xl' />;
+  if (error) return <ErrorMessage className='h-[70vh] text-xl' message={error.message} />;
 
   if (render(articles).length === 0)
     return (
-      <div className='flex h-[50vh] flex-col items-center justify-center gap-2'>
+      <div className='flex h-[70vh] flex-col items-center justify-center gap-2'>
         <h1 className='text-3xl font-extrabold text-text-primary'>No Articles Found</h1>
-        {articles.length !== 0 && (
+        {articles?.length !== 0 && (
           <p className='font-medium text-text-secondary'>
             Try searching for something else or changing the filters
           </p>
