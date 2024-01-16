@@ -33,7 +33,6 @@
 
 - [x] Custom error component
 - [x] Custom loading component
-- [x] Header observer
 - [ ] Dark mode toggle
 - [ ] Add loading skeletons instead of message
 ---

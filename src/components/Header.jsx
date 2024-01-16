@@ -7,52 +7,14 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const header = useRef(null);
   const currentPath = useHref().split('/')[1];
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [currentPath]);
 
-  useEffect(() => {
-    const heroSection = document.getElementById('hero-section');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.isIntersecting
-            ? header.current.classList.remove('sticky', 'z-50', 'top-0')
-            : header.current.classList.add('sticky', 'z-50', 'top-0');
-        });
-      },
-      { threshold: 0.8 },
-    );
-    observer.observe(heroSection);
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.isIntersecting
-            ? header.current.classList.remove('opacity-0')
-            : header.current.classList.add('opacity-0');
-        });
-      },
-      { threshold: 1 },
-    );
-    observer.observe(header.current);
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <header
-      className='flex items-center  justify-between border-b border-border  bg-background-primary p-5 shadow-md transition-opacity duration-500'
-      ref={header}
-    >
+    <header className='sticky shadow-sm top-0 z-50 flex items-center  justify-between border-b border-border  bg-background-primary p-5  transition-opacity duration-500'>
       <Logo className='w-32' />
       <Links />
       <div className='flex gap-5'>
