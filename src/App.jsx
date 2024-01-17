@@ -1,6 +1,7 @@
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { DarkModeProvider } from './contexts/DarkModeContext';
 import AppLayout from './Layouts/AppLayout';
 
 import Blog from './pages/Blog';
@@ -47,9 +48,12 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
+      <DarkModeProvider>
+
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <RouterProvider router={router} />
     </QueryClientProvider>
+      </DarkModeProvider>
   );
 }

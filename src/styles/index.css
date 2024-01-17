@@ -32,7 +32,7 @@
 }
 body {
   font-family: 'DM Sans', sans-serif;
-  @apply bg-background-primary;
+  @apply bg-background-primary transition-colors duration-300;
 }
 #root {
   @apply h-full;

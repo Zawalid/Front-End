@@ -29,7 +29,7 @@ export default function Article({ article, view = 'grid' }) {
 
   if (view === 'grid')
     return (
-      <div className='group flex h-[350px] flex-col rounded-lg  transition-all duration-500'>
+      <div className='group flex h-[350px] min-w-[300px] max-w-[350px] flex-col rounded-lg  transition-all duration-500'>
         <div className='h-[300px] flex-1 overflow-hidden rounded-lg'>
           <Link to={`/blog/${id}`}>
             <img src={cover} alt={title} className='h-full w-full object-cover' />
