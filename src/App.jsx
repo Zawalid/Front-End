@@ -12,14 +12,6 @@ import Contact from './pages/Contact';
 import HomePage from './pages/HomePage';
 import Article from './pages/Article';
 import PageNotFound from './pages/PageNotFound';
-// const Blog = lazy(() => import('./pages/Blog'));
-// const Filieres = lazy(() => import('./pages/Filieres'));
-// const Evenements = lazy(() => import('./pages/Evenements'));
-// const About = lazy(() => import('./pages/About'));
-// const Contact = lazy(() => import('./pages/Contact'));
-// const HomePage = lazy(() => import('./pages/HomePage'));
-// const Article = lazy(() => import('./pages/Article'));
-// const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
 const queryClient = new QueryClient();
 

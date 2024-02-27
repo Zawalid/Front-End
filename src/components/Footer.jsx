@@ -1,19 +1,17 @@
-import { Address, Email, PhoneNumber } from './ui/ContactInfo';
 import { Logo } from './ui/Logo';
 
 export default function Footer() {
   return (
-    <footer className='relative  flex min-h-[575px] flex-col bg-[#191e24] gap-6'>
+    <footer className='relative  flex min-h-[575px] flex-col gap-6 bg-[#191e24]'>
       <div className='relative z-10 flex-1 justify-between space-y-8 px-7 pt-20 md:grid md:grid-cols-2 md:gap-8 md:space-y-0 md:pt-32 lg:grid-cols-5'>
         <Info />
         <Explore />
         <Links />
         <Contact />
+        
       </div>
       <div className='relative z-10 border-t border-border p-5'>
-        <p className='text-center text-text-tertiary'>
-          © 2024 All Rights Reserved. 
-        </p>
+        <p className='text-center text-text-tertiary'>© 2024 All Rights Reserved.</p>
       </div>
     </footer>
   );
@@ -25,27 +23,33 @@ function Info() {
     <div className='flex flex-col items-center gap-5 text-center md:items-start md:text-start'>
       <Logo className='w-48' />
       <h2 className='text-xl font-bold text-white '>Get 26,000+ best online courses from us</h2>
-      <div className='flex gap-3'>
+      <div className='flex flex-wrap gap-3'>
         <a
-          href='#'
+          href='https://www.facebook.com/ofppt.page.officielle/'
           className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-facebook-f text-white'></i>
         </a>
         <a
-          href='#'
+          href='https://www.youtube.com/c/ofpptchaineofficielle'
+          className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
+        >
+          <i className='fab fa-youtube text-white'></i>
+        </a>
+        <a
+          href='https://twitter.com/OFPPT_Officiel'
           className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-twitter text-white'></i>
         </a>
         <a
-          href='#'
+          href='https://www.instagram.com/ofppt.officiel/'
           className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-instagram text-white'></i>
         </a>
         <a
-          href='#'
+          href='https://www.linkedin.com/company/ofpptpageofficielle/'
           className='grid h-10 w-10 cursor-pointer place-content-center rounded-full bg-[#2a3037] transition-colors duration-300 hover:bg-secondary'
         >
           <i className='fab fa-linkedin-in text-white'></i>
@@ -102,27 +106,19 @@ function Contact() {
       <ul className='space-y-2'>
         <li className='grid grid-cols-[30px_auto]  items-center text-text-tertiary  duration-200 hover:text-white'>
           <i className='fas fa-phone'></i>
-          <PhoneNumber />
+          <a href='tel:+212537814207' className='font-medium '>
+            +212 0537814207
+          </a>
         </li>
         <li className='grid grid-cols-[30px_auto]  items-center text-text-tertiary  duration-200 hover:text-white'>
           <i className='fas fa-envelope'></i>
-          <Email />
+          <a href='mailto:contact@ofppt.ma' className='font-medium'>
+            contact@ofppt.ma
+          </a>
         </li>
-        <li className='grid grid-cols-[30px_auto]  items-center text-text-tertiary  duration-200 hover:text-white'>
-          <i className='fas fa-map-marker-alt'></i>
-          <Address />
-        </li>
+        
       </ul>
-      <div className='flex  items-center overflow-hidden rounded-full bg-background-primary p-2'>
-        <input
-          type='text'
-          className='h-10 flex-1 px-3 bg-transparent py-5 outline-none placeholder:text-sm'
-          placeholder='Enter your email'
-        />
-        <button className='h-10 w-10 rounded-full bg-secondary text-white transition-colors duration-300 hover:bg-text-tertiary'>
-          <i className='fas fa-arrow-right'></i>
-        </button>
-      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6612.656190811825!2d-6.784859!3d34.035454!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76a365e377477%3A0x412ef7592257e154!2sISTA%20%3A%20Institut%20Sp%C3%A9cialis%C3%A9%20de%20Technologie%20Appliqu%C3%A9e_Hay%20Salam%20Sal%C3%A9!5e0!3m2!1sfr!2sma!4v1705526202818!5m2!1sfr!2sma" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   );
 }

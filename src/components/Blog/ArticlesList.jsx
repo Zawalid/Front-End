@@ -2,8 +2,8 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import Article from './Article';
 import { useArticles, useTags } from '../../hooks/useArticles';
 import { usePagination } from '../../hooks/usePagination';
-import { Loading } from '../ui/Loading';
 import { ErrorMessage } from '../ui/ErrorMessage';
+import ArticlesListSkeleton from '../ui/ArticlesListSkeleton';
 
 Array.prototype.customSort = function (sortBy, direction) {
   return this.toSorted((a, b) => {
@@ -51,7 +51,7 @@ export default function ArticlesList({ view, searchQuery, filter, sortBy, direct
     return articles?.search(searchQuery).customSort(sortBy, direction).customFilter(filter, tags);
   }
 
-  if (isLoading) return <Loading className='h-[70vh] text-xl' />;
+  if (isLoading) return <ArticlesListSkeleton className='lg:justify-start' />;
   if (error) return <ErrorMessage className='h-[70vh] text-xl' message={error.message} />;
 
   if (render(articles).length === 0)
@@ -69,9 +69,7 @@ export default function ArticlesList({ view, searchQuery, filter, sortBy, direct
     <>
       <div
         className={`mt-10 p-3 ${
-          view === 'grid'
-            ? 'flex flex-wrap  gap-8 justify-center lg:justify-start'
-            : 'space-y-5'
+          view === 'grid' ? 'flex flex-wrap  justify-center gap-8 lg:justify-start' : 'space-y-5'
         }`}
         ref={parent}
       >

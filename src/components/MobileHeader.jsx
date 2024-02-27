@@ -1,7 +1,6 @@
 import { NavLink as L } from 'react-router-dom';
 import { Logo } from './ui/Logo';
 import { routes } from '../utils/constants';
-import { Email, PhoneNumber } from './ui/ContactInfo';
 import { useEffect, useRef, useState } from 'react';
 
 export function MobileHeader({ isOpen, onClose }) {
@@ -45,7 +44,6 @@ export function MobileHeader({ isOpen, onClose }) {
           </button>
         </div>
         <Links />
-        <ContactInfo />
         <SocialInfo />
       </div>
     </>
@@ -105,52 +103,38 @@ function DropDown({ routes, isExpanded }) {
   );
 }
 
-// Contact Info
-function ContactInfo() {
-  return (
-    <ul className='space-y-2 px-5 '>
-      <li className='grid grid-cols-[40px_auto]  items-center '>
-        <i className='fas fa-phone text-2xl text-text-tertiary'></i>
-        <p className='flex flex-col gap-2 text-text-primary'>
-          <span className='text-text-tertiary'>Call Now</span>
-          <PhoneNumber />
-        </p>
-      </li>
-      <li className='grid grid-cols-[40px_auto]  items-center '>
-        <i className='fas fa-envelope text-2xl text-text-tertiary'></i>
-        <p className='flex flex-col gap-2 text-text-primary'>
-          <span className='text-text-tertiary'>Send Email</span>
-          <Email />
-        </p>
-      </li>
-    </ul>
-  );
-}
+
 // Social Info
 function SocialInfo() {
   return (
-    <ul className='mt-auto grid grid-cols-4 border-t border-border'>
+    <ul className='mt-auto grid grid-cols-5 border-t border-border'>
       <a
-        href='#'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-tertiary'
+     href='https://www.facebook.com/ofppt.page.officielle/'
+        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
       >
         <i className='fab fa-facebook-f'></i>
       </a>
       <a
-        href='#'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-tertiary'
+         href='https://www.youtube.com/c/ofpptchaineofficielle'
+        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
+      >
+        <i className='fab fa-youtube'></i>
+      </a>
+      <a
+     href='https://twitter.com/OFPPT_Officiel'
+        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
       >
         <i className='fab fa-twitter'></i>
       </a>
       <a
-        href='#'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-tertiary'
+    href='https://www.instagram.com/ofppt.officiel/'
+        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
       >
         <i className='fab fa-instagram'></i>
       </a>
       <a
-        href='#'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-tertiary'
+        href='https://www.linkedin.com/company/ofpptpageofficielle/'
+        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
       >
         <i className='fab fa-linkedin-in'></i>
       </a>

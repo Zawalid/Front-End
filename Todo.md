@@ -34,7 +34,7 @@
 - [x] Custom error component
 - [x] Custom loading component
 - [ ] Dark mode toggle
-- [ ] Add loading skeletons instead of message
+- [x] Add loading skeletons instead of message
 ---
 
 ## **Bugs**
