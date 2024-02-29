@@ -1,6 +1,5 @@
 import { useArticles } from '../../hooks/useArticles';
 import { ErrorMessage } from '../ui/ErrorMessage';
-import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
 import Article from './Article';
 import ArticlesListSkeleton from '../ui/ArticlesListSkeleton';
@@ -13,16 +12,9 @@ export default function ArticlesSection() {
   return (
     <Section>
       <div className='text-center'>
-        <Heading
-          h3='DIRECTLY FROM BLOG'
-          h2={
-            <>
-              Our latest news &
-              <br />
-              upcoming blog posts
-            </>
-          }
-        />
+        <h2 className='text-4xl font-bold tracking-widest text-text-primary sm:text-5xl'>
+          Latest Articles
+        </h2>
       </div>
       {isLoading ? (
         <ArticlesListSkeleton className='mt-12 justify-center' />

@@ -1,3 +1,4 @@
+import { IoEllipsisVertical } from "react-icons/io5";
 import { DropDown } from '../../ui/DropDown';
 import { SortBy } from './SortBy';
 import { OrderBy } from './OrderBy';
@@ -12,7 +13,7 @@ export const options = {
 export default function Actions({ sortBy, setSortBy, direction, setDirection, filter, onFilterChange }) {
   return (
     <DropDown
-      toggler={<i className='fa-solid fa-ellipsis-v text-'></i>}
+      toggler={<IoEllipsisVertical />}
       togglerClassName='button-icon'
       options={{ ...options, placement: 'bottom-start', shouldCloseOnClick: false }}
     >

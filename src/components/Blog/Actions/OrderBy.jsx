@@ -1,3 +1,6 @@
+import { FiCheck, FiChevronRight } from "react-icons/fi";
+import { MdOutlineSortByAlpha } from 'react-icons/md';
+
 import { DropDown } from "../../ui/DropDown";
 import {options} from './Actions'
 
@@ -6,9 +9,9 @@ export function OrderBy({ direction, setDirection, sortBy}) {
       <DropDown.NestedMenu
         toggler={
           <DropDown.Button className='justify-between'>
-            <i className='fa-solid fa-arrow-down-z-a'></i>{' '}
+            <MdOutlineSortByAlpha className='text-lg' />
             <span className='flex-1 text-start'>Order By</span>
-            <i className='fa-solid fa-chevron-right'></i>
+            <FiChevronRight className='text-lg' />
           </DropDown.Button>
         }
         options={options}
@@ -18,13 +21,13 @@ export function OrderBy({ direction, setDirection, sortBy}) {
       isCurrent={direction === 'asc'}
       >
           <span>{sortBy === 'title' ? 'A-Z' : 'Oldest-Newest'}</span>
-          {direction === 'asc' && <i className='fa-solid fa-check'></i>}
+          {direction === 'asc' && <FiCheck />}
         </DropDown.Button>
         <DropDown.Button onClick={() => setDirection('desc')} className='justify-between'
         isCurrent={direction === 'desc'}
         >
           <span>{sortBy === 'title' ? 'Z-A' : 'Newest-Oldest'}</span>
-          {direction === 'desc' && <i className='fa-solid fa-check'></i>}
+          {direction === 'desc' && <FiCheck />}
         </DropDown.Button>
       </DropDown.NestedMenu>
     );

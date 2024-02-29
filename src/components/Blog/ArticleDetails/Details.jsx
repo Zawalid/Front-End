@@ -1,18 +1,25 @@
 import { Link } from 'react-router-dom';
 import { Tag } from '../../ui/Tag';
+import { getCover } from '../../../utils/helpers';
+import { FaUserCircle } from 'react-icons/fa';
+import { FaCalendar } from 'react-icons/fa6';
 
 export function Details({ article: { title, content, date, cover, tags, author } }) {
   return (
     <div className='col-span-2'>
       <div className='mb-5 space-y-4'>
-        <img src={cover} alt={title} className='h-72 w-full rounded-xl object-cover sm:h-96' />
+        <img
+          src={getCover(cover)}
+          alt={title}
+          className='h-72 w-full rounded-xl object-cover sm:h-96'
+        />
         <div className='mb-3 flex gap-8 text-sm text-text-secondary'>
           <div className='flex items-center gap-2'>
-            <i className='fa-solid fa-user text-text-tertiary'></i>
+            <FaUserCircle className='text-text-tertiary' />
             <span>{`By ${author}`}</span>
           </div>
           <div className='flex items-center gap-2'>
-            <i className='fa-solid fa-calendar text-text-tertiary'></i>
+            <FaCalendar className='text-text-tertiary' />
             <span>
               {new Date(date).toLocaleString('default', {
                 month: 'short',

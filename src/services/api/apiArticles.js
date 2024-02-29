@@ -1,5 +1,5 @@
 export async function getArticles() {
-  const response = await fetch('http://localhost:3000/articles');
+  const response = await fetch(import.meta.env.VITE_API_URL + '/articles');
   const data = await response.json();
   if (!response.ok) {
     throw new Error('No articles found');
@@ -8,7 +8,7 @@ export async function getArticles() {
 }
 
 export async function getArticle(id) {
-  const response = await fetch(`http://localhost:3000/articles/${id}`);
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${id}`);
   const data = await response.json();
   if (!response.ok) {
     throw new Error('No article found');
@@ -17,9 +17,9 @@ export async function getArticle(id) {
 }
 
 export async function getTags() {
-  const response = await fetch('http://localhost:3000/tags');
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/tags`);
   const data = await response.json();
-  if(!response.ok) {
+  if (!response.ok) {
     throw new Error('No tags found');
   }
   return data;

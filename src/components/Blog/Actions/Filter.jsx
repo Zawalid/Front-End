@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FiCheck, FiChevronRight, FiFilter } from 'react-icons/fi';
+import { FaSpinner } from 'react-icons/fa6';
 import { useTags } from '../../../hooks/useArticles';
 import { DropDown } from '../../ui/DropDown';
 import { options } from './Actions';
@@ -17,11 +19,11 @@ export function Filter({ filter, onChange }) {
     <DropDown
       toggler={
         <DropDown.Button className='justify-between'>
-          <i className='fa-solid fa-filter'></i>{' '}
+          <FiFilter />{' '}
           <span className='flex-1 text-start font-medium capitalize'>
             {tags?.find(({ name }) => name.toLowerCase() === filter)?.name || 'All'}
           </span>
-          <i className='fa-solid fa-chevron-right'></i>
+          <FiChevronRight className='text-lg' />
         </DropDown.Button>
       }
       options={{
@@ -38,11 +40,11 @@ export function Filter({ filter, onChange }) {
       {isLoading && (
         <div className='absolute  bottom-0 left-0 grid h-[calc(100%-50px)] w-full place-content-center'>
           <p className='text-sm font-medium text-text-secondary'>
-            <i className='fa-solid fa-spinner animate-spin mr-2'></i> Loading...
+            <FaSpinner className='mr-2 animate-spin' /> Loading...
           </p>
         </div>
       )}
-      {(updatedTags.length === 0  && !isLoading) && (
+      {updatedTags.length === 0 && !isLoading && (
         <div className='absolute  bottom-0 left-0 grid h-[calc(100%-50px)] w-full place-content-center'>
           <p className='text-sm font-medium text-text-secondary'>No tags found</p>
         </div>
@@ -55,7 +57,7 @@ export function Filter({ filter, onChange }) {
           isCurrent={filter === tag}
         >
           <span className='capitalize'>{tag}</span>
-          {filter === tag && <i className='fa-solid fa-check'></i>}
+          {filter === tag && <FiCheck />}
         </DropDown.Button>
       ))}
     </DropDown>

@@ -3,14 +3,14 @@ import { Button } from '../components/ui/Button';
 import { InputField } from '../components/ui/InputField';
 import { MdLocalPhone, MdLocationPin, MdMail } from 'react-icons/md';
 import { IoShareSocial } from 'react-icons/io5';
-import { GrYoutube, GrInstagram, GrTwitter, GrLinkedin, GrFacebookOption } from 'react-icons/gr';
 import { FaChevronDown } from 'react-icons/fa6';
 import { useState } from 'react';
+import { SocialMedia } from '../components/ui/SocialMedia';
 
 export default function Contact() {
   return (
     <PageLayout title='contact' image='contact'>
-      <div className='flex flex-col md:flex-row gap-8'>
+      <div className='flex flex-col gap-8 md:flex-row'>
         <ContactInfo />
         <SendMessage />
       </div>
@@ -85,7 +85,7 @@ function ContactInfo() {
         >
           <iframe
             src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6612.656190811825!2d-6.784859!3d34.035454!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76a365e377477%3A0x412ef7592257e154!2sISTA%20%3A%20Institut%20Sp%C3%A9cialis%C3%A9%20de%20Technologie%20Appliqu%C3%A9e_Hay%20Salam%20Sal%C3%A9!5e0!3m2!1sfr!2sma!4v1705526202818!5m2!1sfr!2sma'
-            allowfullscreen='true'
+            allowFullScreen='true'
             loading='lazy'
             referrerPolicy='no-referrer-when-downgrade'
             width='100%'
@@ -103,36 +103,7 @@ function ContactInfo() {
         <div className='space-y-2'>
           <h2 className=' font-bold text-text-primary'> Social Media</h2>
           <div className='flex gap-4'>
-            <a
-              href='https://www.facebook.com/ofppt.page.officielle/'
-              className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border'
-            >
-              <GrFacebookOption className='text-text-secondary' />
-            </a>
-            <a
-              href='https://www.youtube.com/c/ofpptchaineofficielle'
-              className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border'
-            >
-              <GrYoutube className='text-text-secondary' />
-            </a>
-            <a
-              href='https://twitter.com/OFPPT_Officiel'
-              className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border'
-            >
-              <GrTwitter className='text-text-secondary' />
-            </a>
-            <a
-              href='https://www.instagram.com/ofppt.officiel/'
-              className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border'
-            >
-              <GrInstagram className='text-text-secondary' />
-            </a>
-            <a
-              href='https://www.linkedin.com/company/ofpptpageofficielle/'
-              className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border'
-            >
-              <GrLinkedin className='text-text-secondary' />
-            </a>
+            <SocialMedia />
           </div>
         </div>
       </div>
@@ -159,7 +130,7 @@ function SendMessage() {
           <InputField placeholder='Subject' />
         </div>
         <textarea
-          className='w-full h-32 md:flex-1 resize-none rounded-lg border border-border bg-background-secondary py-1.5 pl-4 pr-10 font-medium text-text-primary outline-none'
+          className='h-32 w-full resize-none rounded-lg border border-border bg-background-secondary py-1.5 pl-4 pr-10 font-medium text-text-primary outline-none md:flex-1'
           placeholder='Your Message'
         />
         <Button className='self-start'>Send Message</Button>

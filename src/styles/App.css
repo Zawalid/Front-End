@@ -14,7 +14,7 @@ a.active li {
   @apply bg-text-tertiary  !important;
 }
 .slider-button {
-  @apply h-12 w-12 rounded-full border-2 border-text-tertiary text-text-tertiary transition-all duration-300  disabled:cursor-not-allowed disabled:border-border disabled:text-border;
+  @apply h-12 w-12 rounded-full grid place-content-center text-lg border-2 border-text-tertiary text-text-tertiary transition-all duration-300  disabled:cursor-not-allowed disabled:border-border disabled:text-border;
 
   &:not(:disabled) {
     &:hover {
@@ -75,3 +75,4 @@ main,
 footer > div {
   @apply xl:container xl:mx-auto;
 }
+

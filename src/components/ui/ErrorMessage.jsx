@@ -1,8 +1,10 @@
-export function ErrorMessage({ message,className }) {
+import { BiError } from 'react-icons/bi';
+
+export function ErrorMessage({ message, className }) {
   return (
     <div className={`grid place-content-center ${className}`}>
-      <h3 className='font-bold text-red-500 dark:text-red-400'>
-        <i className='fa-solid fa-triangle-exclamation mr-2'></i>
+      <h3 className='font-bold flex gap-3 items-center text-red-500 dark:text-red-400'>
+        <BiError className='text-5xl'/>
         {message || 'Something went wrong'}
       </h3>
     </div>

@@ -1,7 +1,10 @@
+import { useEffect, useRef, useState } from 'react';
 import { NavLink as L } from 'react-router-dom';
+import { HiMiniXMark } from 'react-icons/hi2';
+import { FaChevronDown } from 'react-icons/fa6';
 import { Logo } from './ui/Logo';
 import { routes } from '../utils/constants';
-import { useEffect, useRef, useState } from 'react';
+import { SocialMedia } from './ui/SocialMedia';
 
 export function MobileHeader({ isOpen, onClose }) {
   const ref = useRef();
@@ -40,11 +43,13 @@ export function MobileHeader({ isOpen, onClose }) {
         <div className='flex items-center justify-between  px-5 pt-5'>
           <Logo className='w-20' />
           <button className='text-lg text-text-primary hover:text-text-secondary' onClick={onClose}>
-            <i className='fa-solid fa-xmark'></i>
+            <HiMiniXMark />{' '}
           </button>
         </div>
         <Links />
-        <SocialInfo />
+        <div className='mt-auto grid grid-cols-5 border-t border-border p-2'>
+          <SocialMedia />
+        </div>
       </div>
     </>
   );
@@ -71,11 +76,11 @@ function Link({ route }) {
             className='border-l border-border px-4'
             onClick={() => setIsExpanded(!isExpanded)}
           >
-            <i
-              className={`fa-solid fa-chevron-down text-sm transition-transform duration-500 ${
+            <FaChevronDown
+              className={`text-sm transition-transform duration-500 ${
                 isExpanded ? 'rotate-180' : ''
               }`}
-            ></i>
+            />
           </button>
         )}
       </div>
@@ -99,45 +104,6 @@ function DropDown({ routes, isExpanded }) {
           <L to={route.path}>{route.label}</L>
         </li>
       ))}
-    </ul>
-  );
-}
-
-
-// Social Info
-function SocialInfo() {
-  return (
-    <ul className='mt-auto grid grid-cols-5 border-t border-border'>
-      <a
-     href='https://www.facebook.com/ofppt.page.officielle/'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
-      >
-        <i className='fab fa-facebook-f'></i>
-      </a>
-      <a
-         href='https://www.youtube.com/c/ofpptchaineofficielle'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
-      >
-        <i className='fab fa-youtube'></i>
-      </a>
-      <a
-     href='https://twitter.com/OFPPT_Officiel'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
-      >
-        <i className='fab fa-twitter'></i>
-      </a>
-      <a
-    href='https://www.instagram.com/ofppt.officiel/'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
-      >
-        <i className='fab fa-instagram'></i>
-      </a>
-      <a
-        href='https://www.linkedin.com/company/ofpptpageofficielle/'
-        className='grid place-content-center border-r border-border p-4 text-text-primary transition-colors duration-300 hover:text-secondary'
-      >
-        <i className='fab fa-linkedin-in'></i>
-      </a>
     </ul>
   );
 }

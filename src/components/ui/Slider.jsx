@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { Navigation, Pagination, A11y, Keyboard, Autoplay, Virtual } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { IoMdArrowForward,IoMdArrowBack } from "react-icons/io";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -76,13 +77,13 @@ function SliderNavigation() {
         id={prev}
         className='slider-button '
       >
-        <i className='fas fa-arrow-left'></i>
+        <IoMdArrowBack />
       </button>
       <button
         id={next}
         className='slider-button'
       >
-        <i className='fas fa-arrow-right'></i>
+        <IoMdArrowForward />
       </button>
     </div>
   );

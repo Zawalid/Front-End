@@ -1,3 +1,5 @@
+import { FiChevronRight,FiCheck } from 'react-icons/fi';
+import { PiSortAscending } from 'react-icons/pi';
 import { DropDown } from '../../ui/DropDown';
 import { options } from './Actions';
 
@@ -6,9 +8,9 @@ export function SortBy({ sortBy, setSortBy }) {
     <DropDown.NestedMenu
       toggler={
         <DropDown.Button className='justify-between'>
-          <i className='fa-solid fa-arrow-down-wide-short'></i>{' '}
-          <span className='flex-1 text-start'>Sort By</span>
-          <i className='fa-solid fa-chevron-right'></i>
+           <PiSortAscending className='text-lg' />
+            <span className='flex-1 text-start'>Sort By</span>
+            <FiChevronRight className='text-lg' />
         </DropDown.Button>
       }
       options={options}
@@ -19,7 +21,7 @@ export function SortBy({ sortBy, setSortBy }) {
         isCurrent={sortBy === 'date'}
       >
         <span>Publication date</span>
-        {sortBy === 'date' && <i className='fa-solid fa-check'></i>}
+        {sortBy === 'date' && <FiCheck />}
       </DropDown.Button>
       <DropDown.Button
         onClick={() => setSortBy('title')}
@@ -27,7 +29,7 @@ export function SortBy({ sortBy, setSortBy }) {
         isCurrent={sortBy === 'title'}
       >
         <span>Title</span>
-        {sortBy === 'title' && <i className='fa-solid fa-check'></i>}
+        {sortBy === 'title' && <FiCheck />}
       </DropDown.Button>
     </DropDown.NestedMenu>
   );

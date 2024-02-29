@@ -15,7 +15,7 @@ export function Tags() {
         <ErrorMessage className='absolute top-0 h-full w-full' message={error.message} />
       ) : (
         <ul className='flex max-h-[250px] flex-wrap gap-x-3 gap-y-1 overflow-auto py-1.5'>
-          {tags.map(({ name }) => (
+          {tags?.map(({ name }) => (
             <Link key={name} to={`/blog?filter=${name.toLowerCase()}`}>
               <Tag tag={name} />
             </Link>

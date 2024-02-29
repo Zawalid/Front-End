@@ -1,9 +1,6 @@
 export default function Filiere({ index }) {
   return (
     <div className='relative flex min-w-[300px] flex-col overflow-hidden rounded-lg  shadow-md'>
-      <div className='absolute -right-3 top-4 z-10 rounded-full bg-secondary px-5 py-1.5 text-sm font-semibold text-white'>
-        $49.99
-      </div>
       <a href='#'>
         <img
           src={`/images/filiere-image-${index + 1}.jpeg`}
@@ -30,20 +27,7 @@ export default function Filiere({ index }) {
             Starting seo as your home based business
           </h4>
         </a>
-        <hr className='my-4 border-border' />
-        <div className='text-sm text-text-secondary'>
-          <div className='mb-2 flex justify-between'>
-            <span>(4.9/8 Rating)</span>
-            <span>3 weeks</span>
-          </div>
-          <div className='flex gap-1'>
-            <i className='fa-solid fa-star text-sm text-secondary'></i>
-            <i className='fa-solid fa-star text-sm text-secondary'></i>
-            <i className='fa-solid fa-star text-sm text-secondary'></i>
-            <i className='fa-solid fa-star text-sm text-secondary'></i>
-            <i className='fa-solid fa-star text-sm text-secondary'></i>
-          </div>
-        </div>
+       
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import { Button } from '../ui/Button';
-import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
 import Slider from '../ui/Slider';
 import Filiere from './Filiere';
@@ -22,16 +21,9 @@ export default function FilieresSection() {
       >
         <div className='mt-3 flex items-end justify-center md:justify-between'>
           <div className='text-center md:text-start'>
-            <Heading
-              h3='POPULAR COURSES'
-              h2={
-                <>
-                  Pick a Filiere to
-                  <br />
-                  get started your study
-                </>
-              }
-            />
+          <h2 className='text-4xl tracking-widest font-bold text-text-primary sm:text-5xl'>
+            Filieres
+          </h2>
           </div>
           <Slider.Navigation />
         </div>

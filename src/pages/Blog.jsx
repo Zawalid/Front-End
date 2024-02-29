@@ -5,6 +5,7 @@ import ArticlesList from '../components/Blog/ArticlesList';
 import Actions from '../components/Blog/Actions/Actions';
 import { SearchInput } from '../components/ui/SearchInput';
 import { useLocalStorageState } from '../hooks/useLocalStorageState';
+import { PiGridFourFill, PiListBold } from 'react-icons/pi';
 
 export default function Blog() {
   const [view, setView] = useLocalStorageState('grid', 'blog-view');
@@ -81,23 +82,13 @@ function ViewControl({ view, setView }) {
         className={`button-icon ${view === 'list' ? 'active' : ''}`}
         onClick={() => setView('list')}
       >
-        <i className='fa-solid fa-list'></i>
+        <PiListBold className='text-lg' />
       </button>
       <button
         className={`button-icon ${view === 'grid' ? 'active' : ''}`}
         onClick={() => setView('grid')}
       >
-        <svg
-          stroke='currentColor'
-          fill='currentColor'
-          strokeWidth='0'
-          viewBox='0 0 512 512'
-          height='16px'
-          width='16px'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path d='M204 240H68a36 36 0 01-36-36V68a36 36 0 0136-36h136a36 36 0 0136 36v136a36 36 0 01-36 36zm240 0H308a36 36 0 01-36-36V68a36 36 0 0136-36h136a36 36 0 0136 36v136a36 36 0 01-36 36zM204 480H68a36 36 0 01-36-36V308a36 36 0 0136-36h136a36 36 0 0136 36v136a36 36 0 01-36 36zm240 0H308a36 36 0 01-36-36V308a36 36 0 0136-36h136a36 36 0 0136 36v136a36 36 0 01-36 36z'></path>
-        </svg>
+        <PiGridFourFill className='text-lg' />
       </button>
     </div>
   );
@@ -114,7 +105,7 @@ function Search({ query, onChange }) {
       className='w-full '
     >
       <SearchInput
-      placeholder='Search Articles'
+        placeholder='Search Articles'
         value={searchQuery}
         onChange={(e) => {
           const query = e.target.value;
