@@ -33,8 +33,9 @@
 
 - [x] Custom error component
 - [x] Custom loading component
-- [ ] Dark mode toggle
+- [x] Dark mode toggle
 - [x] Add loading skeletons instead of message
+- [ ] Add multi language (i18n)
 ---
 
 ## **Bugs**

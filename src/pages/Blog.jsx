@@ -46,7 +46,7 @@ export default function Blog() {
   }, [setSearchParams, sortBy, direction, query, filter]);
 
   return (
-    <PageLayout title='blog'>
+    <PageLayout title='blog' image='blog'>
       <div className='space-y-8'>
         <div className='flex items-center justify-between gap-8'>
           <div className='flex flex-1 items-center gap-3 sm:w-[40%] sm:flex-none'>

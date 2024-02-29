@@ -1,12 +1,12 @@
-export default function Filiere() {
+export default function Filiere({ index }) {
   return (
     <div className='relative flex min-w-[300px] flex-col overflow-hidden rounded-lg  shadow-md'>
-      <div className='absolute z-10 -right-3 top-4 rounded-full bg-secondary px-5 py-1.5 text-sm font-semibold text-white'>
+      <div className='absolute -right-3 top-4 z-10 rounded-full bg-secondary px-5 py-1.5 text-sm font-semibold text-white'>
         $49.99
       </div>
       <a href='#'>
         <img
-          src='/images/course-4.jpg'
+          src={`/images/filiere-image-${index + 1}.jpeg`}
           alt=''
           className='w-full transition-transform duration-300 hover:scale-105'
         />

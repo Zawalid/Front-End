@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className='sticky top-0 z-50 flex items-center justify-between  border-b border-border bg-background-primary  p-5 shadow-sm  transition-opacity duration-500'>
-      <Logo className='w-32' />
+      <Logo className='w-20' />
       <Links />
 
      <div className='flex items-center gap-3'>

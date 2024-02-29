@@ -1,8 +1,7 @@
-import { twMerge } from 'tailwind-merge';
 
 export default function ArticlesListSkeleton({ className }) {
   return (
-    <div className={twMerge('flex animate-pulse flex-wrap justify-center gap-8', className)}>
+    <div className={`flex animate-pulse flex-wrap justify-center gap-8 ${className}`}>
       <Article />
       <Article />
       <Article />

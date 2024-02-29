@@ -6,7 +6,7 @@ export default function Article() {
   const id = useLocation().pathname.split('/')[2];
 
   return (
-    <PageLayout title={`Article #${id}`}>
+    <PageLayout >
       <ArticleDetails id={id} />
     </PageLayout>
   );

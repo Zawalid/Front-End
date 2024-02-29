@@ -21,7 +21,7 @@ export default function Footer() {
 function Info() {
   return (
     <div className='flex flex-col items-center gap-5 text-center md:items-start md:text-start'>
-      <Logo className='w-48' />
+      <Logo className='w-32' />
       <h2 className='text-xl font-bold text-white '>Get 26,000+ best online courses from us</h2>
       <div className='flex flex-wrap gap-3'>
         <a
@@ -118,7 +118,7 @@ function Contact() {
         </li>
         
       </ul>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6612.656190811825!2d-6.784859!3d34.035454!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76a365e377477%3A0x412ef7592257e154!2sISTA%20%3A%20Institut%20Sp%C3%A9cialis%C3%A9%20de%20Technologie%20Appliqu%C3%A9e_Hay%20Salam%20Sal%C3%A9!5e0!3m2!1sfr!2sma!4v1705526202818!5m2!1sfr!2sma" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6612.656190811825!2d-6.784859!3d34.035454!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76a365e377477%3A0x412ef7592257e154!2sISTA%20%3A%20Institut%20Sp%C3%A9cialis%C3%A9%20de%20Technologie%20Appliqu%C3%A9e_Hay%20Salam%20Sal%C3%A9!5e0!3m2!1sfr!2sma!4v1705526202818!5m2!1sfr!2sma" allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </div>
   );
 }

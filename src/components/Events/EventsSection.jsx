@@ -1,7 +1,7 @@
 import { Heading } from '../ui/Heading';
 import Section from '../ui/Section';
 import Slider from '../ui/Slider';
-import Evenement from './Evenement';
+import Event from './Event';
 
 const ids = {
   pagination: 'events-pagination',
@@ -9,7 +9,7 @@ const ids = {
   next: 'events-button-next',
 };
 
-export default function EvenementsSection() {
+export default function EventsSection() {
   return (
     <Section>
       <Slider
@@ -27,13 +27,13 @@ export default function EvenementsSection() {
           <Slider.Navigation />
         </div>
         <Slider.Slide>
-          <Evenement />
+          <Event />
         </Slider.Slide>
         <Slider.Slide>
-          <Evenement />
+          <Event />
         </Slider.Slide>
         <Slider.Slide>
-          <Evenement />
+          <Event />
         </Slider.Slide>
 
         <Slider.Pagination />

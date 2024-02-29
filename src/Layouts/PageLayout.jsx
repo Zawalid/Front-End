@@ -1,10 +1,10 @@
 import { PageTitle } from '../components/ui/PageTitle';
 import Section from '../components/ui/Section';
 
-export default function PageLayout({ children, title }) {
+export default function PageLayout({ children, title,image }) {
   return (
     <>
-      <PageTitle title={title} />
+      {title && <PageTitle title={title} image={image} />}
       <Section>{children}</Section>
     </>
   );

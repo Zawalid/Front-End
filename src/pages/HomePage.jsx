@@ -1,7 +1,7 @@
 import HeroSection from '../components/HeroSection';
 import FilieresSection from '../components/Filieres/FilieresSection';
 import ArticlesSection from '../components/Blog/ArticlesSection';
-import EvenementsSection from '../components/Evenements/EvenementsSection';
+import EventsSection from '../components/Events/EventsSection';
 
 export default function HomePage() {
   return (
@@ -9,7 +9,7 @@ export default function HomePage() {
       <HeroSection />
       <FilieresSection />
       <ArticlesSection />
-      <EvenementsSection />
+      <EventsSection />
     </>
   );
 }

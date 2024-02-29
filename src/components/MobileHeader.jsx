@@ -38,7 +38,7 @@ export function MobileHeader({ isOpen, onClose }) {
         ref={ref}
       >
         <div className='flex items-center justify-between  px-5 pt-5'>
-          <Logo className='w-32' />
+          <Logo className='w-20' />
           <button className='text-lg text-text-primary hover:text-text-secondary' onClick={onClose}>
             <i className='fa-solid fa-xmark'></i>
           </button>

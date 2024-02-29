@@ -6,7 +6,7 @@ import AppLayout from './Layouts/AppLayout';
 
 import Blog from './pages/Blog';
 import Filieres from './pages/Filieres';
-import Evenements from './pages/Evenements';
+import Events from './pages/Events';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import HomePage from './pages/HomePage';
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
       { path: 'blog/:id', element: <Article /> },
       { path: 'filieres', element: <Filieres /> },
       { path: 'filieres/:id', element: <Filieres /> },
-      { path: 'evenements', element: <Evenements /> },
-      { path: 'evenements/:id', element: <Evenements /> },
+      { path: 'evenements', element: <Events /> },
+      { path: 'evenements/:id', element: <Events /> },
       { path: 'about', element: <About /> },
       { path: 'contact', element: <Contact /> },
       { path: '*', element: <PageNotFound /> },
