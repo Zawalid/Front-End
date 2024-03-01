@@ -8,13 +8,13 @@
 - [x] Article Details Page 
 - [ ] Events Page
 - [ ] Event Details Page 
-- [ ] Contact Page
+- [x] Contact Page
 - [ ] About Page
 
 ---
 ### Sections
 - [x] Header
-- [ ] Hero (50%)
+- [x] Hero 
 - [ ] Filieres 
 - [x] Blog 
 - [ ] Events 

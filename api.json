@@ -6,7 +6,11 @@
       "content": "As AI continues to advance, we explore its impact on various industries and the ethical considerations surrounding its development.",
       "author": "Emily Johnson",
       "date": "2023-09-15",
-      "tags": ["AI", "Technology", "Future"],
+      "tags": [
+        "AI",
+        "Technology",
+        "Future"
+      ],
       "cover": "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
@@ -15,7 +19,10 @@
       "content": "In the face of climate change, we examine innovative approaches to sustainable energy, from solar power to green technology.",
       "author": "Michael Anderson",
       "date": "2023-08-22",
-      "tags": ["Sustainability", "Renewable Energy"],
+      "tags": [
+        "Sustainability",
+        "Renewable Energy"
+      ],
       "cover": "https://images.unsplash.com/photo-1554769945-af468c934022?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fFN1c3RhaW5hYmxlJTIwRW5lcmd8ZW58MHx8MHx8fDI%3D"
     },
     {
@@ -24,7 +31,11 @@
       "content": "Blockchain technology is reshaping the financial industry. We explore its transformative effects on transactions, security, and decentralization.",
       "author": "David Miller",
       "date": "2023-07-12",
-      "tags": ["Blockchain", "Finance", "Technology"],
+      "tags": [
+        "Blockchain",
+        "Finance",
+        "Technology"
+      ],
       "cover": "https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmxvY2tjaGFpbnxlbnwwfHwwfHx8Mg%3D%3D"
     },
     {
@@ -33,7 +44,11 @@
       "content": "In the quest for habitable planets beyond our solar system, astronomers uncover the mysteries of exoplanets and the potential for extraterrestrial life.",
       "author": "Ava Carter",
       "date": "2023-06-05",
-      "tags": ["Space", "Astronomy", "Exoplanets"],
+      "tags": [
+        "Space",
+        "Astronomy",
+        "Exoplanets"
+      ],
       "cover": "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
@@ -42,7 +57,11 @@
       "content": "Amidst the chaos of modern life, we explore the practice of mindfulness and its benefits for mental well-being and stress reduction.",
       "author": "Sophia Lee",
       "date": "2023-05-20",
-      "tags": ["Mindfulness", "Wellness", "Health"],
+      "tags": [
+        "Mindfulness",
+        "Wellness",
+        "Health"
+      ],
       "cover": "https://images.unsplash.com/photo-1499728603263-13726abce5fd?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWluZGZ1bG5lc3N8ZW58MHx8MHx8fDI%3D"
     },
     {
@@ -51,7 +70,11 @@
       "content": "Electric vehicles are reshaping the automotive industry. We delve into the advancements, challenges, and environmental impact of EVs.",
       "author": "Emma Harris",
       "date": "2023-04-10",
-      "tags": ["Electric Vehicles", "Transportation", "Environment"],
+      "tags": [
+        "Electric Vehicles",
+        "Transportation",
+        "Environment"
+      ],
       "cover": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RWxlY3RyaWMlMjBWZWhpY2xlc3xlbnwwfHwwfHx8Mg%3D%3D"
     },
     {
@@ -60,7 +83,11 @@
       "content": "Embark on a culinary journey as we explore diverse cuisines from around the world, savoring unique flavors and cultural influences.",
       "author": "Liam Garcia",
       "date": "2023-03-01",
-      "tags": ["Food", "Cuisine", "Travel"],
+      "tags": [
+        "Food",
+        "Cuisine",
+        "Travel"
+      ],
       "cover": "https://images.unsplash.com/photo-1626200081110-554e02151dfc?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEN1aXNpbmV8ZW58MHx8MHx8fDI%3D"
     },
     {
@@ -69,7 +96,11 @@
       "content": "Dive into the depths of the ocean to discover the incredible diversity of marine life and the importance of preserving our oceans.",
       "author": "Nathan Turner",
       "date": "2023-02-14",
-      "tags": ["Oceanography", "Marine Biology", "Conservation"],
+      "tags": [
+        "Oceanography",
+        "Marine Biology",
+        "Conservation"
+      ],
       "cover": "https://images.unsplash.com/photo-1517954622026-26ff0ab2bf96?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8T2NlYW4lMjBkZWVwfGVufDB8fDB8fHwy"
     },
     {
@@ -78,7 +109,11 @@
       "content": "Explore the latest breakthroughs in biotechnology and their potential to revolutionize healthcare, from personalized medicine to gene therapy.",
       "author": "Ethan Robinson",
       "date": "2023-01-05",
-      "tags": ["Biotechnology", "Medicine", "Innovation"],
+      "tags": [
+        "Biotechnology",
+        "Medicine",
+        "Innovation"
+      ],
       "cover": "https://images.unsplash.com/photo-1581594549595-35f6edc7b762?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmlvdGVjaG5vbG9neXxlbnwwfHwwfHx8Mg%3D%3D"
     }
   ],
@@ -182,6 +217,118 @@
     {
       "id": 25,
       "name": "Innovation"
+    }
+  ],
+  "filieres": [
+    {
+      "id": 1,
+      "title": "Digital Development",
+      "description": "Learn to develop digital solutions",
+      "images" : [],
+      "duration": "2 years",
+      "interns": 200,
+      "sector": "IT",
+      "isOpen": true,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 2,
+      "title": "Management",
+      "description": "Learn to manage businesses",
+      "images" : [],
+      "duration": "3 years",
+      "interns": 150,
+      "sector": "Business",
+      "isOpen": false,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 3,
+      "title": "Mechanical Engineering",
+      "description": "Learn to design mechanical systems",
+      "images" : [],
+      "duration": "4 years",
+      "interns": 100,
+      "sector": "Engineering",
+      "isOpen": true,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 4,
+      "title": "Electrical Engineering",
+      "description": "Learn to design electrical systems",
+      "images" : [],
+      "duration": "4 years",
+      "interns": 120,
+      "sector": "Engineering",
+      "isOpen": false,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 5,
+      "title": "Civil Engineering",
+      "description": "Learn to design civil structures",
+      "images" : [],
+      "duration": "4 years",
+      "interns": 140,
+      "sector": "Engineering",
+      "isOpen": true,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 6,
+      "title": "Computer Science",
+      "description": "Learn to develop software",
+      "images" : [],
+      "duration": "3 years",
+      "interns": 180,
+      "sector": "IT",
+      "isOpen": false,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 7,
+      "title": "Data Science",
+      "description": "Learn to analyze and interpret complex data",
+      "images" : [],
+      "duration": "2 years",
+      "interns": 150,
+      "sector": "IT",
+      "isOpen": true,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 8,
+      "title": "Marketing",
+      "description": "Learn to market products and services",
+      "images" : [],
+      "duration": "3 years",
+      "interns": 160,
+      "sector": "Business",
+      "isOpen": false,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 9,
+      "title": "Finance",
+      "description": "Learn to manage finances",
+      "images" : [],
+      "duration": "3 years",
+      "interns": 170,
+      "sector": "Business",
+      "isOpen": true,
+      "formationYear": "2023/2024"
+    },
+    {
+      "id": 10,
+      "title": "Human Resources",
+      "description": "Learn to manage human resources",
+      "images" : [],
+      "duration": "2 years",
+      "interns": 180,
+      "sector": "Business",
+      "isOpen": false,
+      "formationYear": "2023/2024"
     }
   ]
 }

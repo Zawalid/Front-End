@@ -1,5 +1,5 @@
 import Tippy from '@tippyjs/react';
-import { SearchInput } from './SearchInput';
+import { SearchInput } from './Search';
 
 const defaultOptions = {
   className: 'w-36  overflow-auto  max-h-[200px]',
@@ -102,7 +102,7 @@ function NestedMenu({ children, toggler, togglerClassName, options }) {
       togglerClassName={togglerClassName}
       options={{
         ...options,
-        trigger: 'mouseenter focus',
+        trigger: options.trigger || 'mouseenter focus',
       }}
     >
       {children}

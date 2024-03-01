@@ -29,7 +29,6 @@ export function Filter({ filter, onChange }) {
       options={{
         ...options,
         className: `${options.className} relative h-[280px]`,
-        shouldCloseOnClick: false,
       }}
     >
       <DropDown.SearchBar

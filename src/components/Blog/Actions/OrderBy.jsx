@@ -14,7 +14,7 @@ export function OrderBy({ direction, setDirection, sortBy}) {
             <FiChevronRight className='text-lg' />
           </DropDown.Button>
         }
-        options={options}
+        options={{...options,trigger : 'click'}}
       >
         <DropDown.Button onClick={() => setDirection('asc')
       } className='justify-between'

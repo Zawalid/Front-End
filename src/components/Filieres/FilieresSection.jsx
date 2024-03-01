@@ -1,7 +1,10 @@
+import { useFilieres } from '../../hooks/useFilieres';
 import { Button } from '../ui/Button';
+import { ErrorMessage } from '../ui/ErrorMessage';
 import Section from '../ui/Section';
 import Slider from '../ui/Slider';
 import Filiere from './Filiere';
+import FiliereSkeleton from './FiliereSkeleton';
 
 const ids = {
   pagination: 'filieres-pagination',
@@ -10,6 +13,10 @@ const ids = {
 };
 
 export default function FilieresSection() {
+  const { filieres, isLoading, error } = useFilieres();
+
+  if (error) return <ErrorMessage className='h-[70vh] text-xl' />;
+
   return (
     <Section>
       <Slider
@@ -21,18 +28,24 @@ export default function FilieresSection() {
       >
         <div className='mt-3 flex items-end justify-center md:justify-between'>
           <div className='text-center md:text-start'>
-          <h2 className='text-4xl tracking-widest font-bold text-text-primary sm:text-5xl'>
-            Filieres
-          </h2>
+            <h2 className='text-4xl font-bold tracking-widest text-text-primary sm:text-5xl'>
+              Filieres
+            </h2>
           </div>
           <Slider.Navigation />
         </div>
 
-        {Array.from({ length: 10 }).map((_, i) => (
-          <Slider.Slide key={i}>
-            <Filiere index={i} />
-          </Slider.Slide>
-        ))}
+        {isLoading
+          ? Array.from({ length: 5 }).map((_, i) => (
+              <Slider.Slide key={i}>
+                <FiliereSkeleton className='mt-12 justify-center' />
+              </Slider.Slide>
+            ))
+          : filieres?.map((filiere) => (
+              <Slider.Slide key={filiere.id}>
+                <Filiere filiere={filiere} />
+              </Slider.Slide>
+            ))}
 
         <Slider.Pagination />
       </Slider>
@@ -43,12 +56,13 @@ export default function FilieresSection() {
 
 function More() {
   return (
-    <div className='mx-auto mt-10 flex flex-col items-center gap-3 rounded-3xl border-2 border-text-tertiary p-2 md:w-fit md:flex-row md:gap-5 md:rounded-full'>
-      <p className='flex flex-col items-center gap-2 text-text-primary md:flex-row md:pl-7'>
-        <span className='font-bold  sm:text-lg'>23,000+</span>
-        <span className='text-sm  sm:text-base'>more skillful filieres you can explore</span>
+    <div className='mx-auto mt-10 flex w-fit flex-col items-center justify-between gap-3 rounded-3xl border-2 border-text-tertiary py-2 pl-6 pr-3 sm:flex-row sm:rounded-full md:gap-5'>
+      <p className='text-text-primary'>
+        <span className='text-sm  sm:text-base'>
+          <span className='font-bold  sm:text-lg'>1,000+</span> Filières compétentes à explorer
+        </span>
       </p>
-      <Button>Explore All Filieres</Button>
+      <Button href='/filieres'>Explorer Tous</Button>
     </div>
   );
 }

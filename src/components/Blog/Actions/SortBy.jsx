@@ -13,8 +13,8 @@ export function SortBy({ sortBy, setSortBy }) {
             <FiChevronRight className='text-lg' />
         </DropDown.Button>
       }
-      options={options}
-    >
+      options={{...options,trigger : 'click'}}
+      >
       <DropDown.Button
         onClick={() => setSortBy('date')}
         className='justify-between'

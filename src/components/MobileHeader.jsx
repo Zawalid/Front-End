@@ -43,13 +43,12 @@ export function MobileHeader({ isOpen, onClose }) {
         <div className='flex items-center justify-between  px-5 pt-5'>
           <Logo className='w-20' />
           <button className='text-lg text-text-primary hover:text-text-secondary' onClick={onClose}>
-            <HiMiniXMark />{' '}
+            <HiMiniXMark size={23}/>
           </button>
         </div>
         <Links />
         <div className='mt-auto grid grid-cols-5 border-t border-border p-2'>
-          <SocialMedia />
-        </div>
+        <SocialMedia color='text-text-primary' />        </div>
       </div>
     </>
   );

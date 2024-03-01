@@ -103,7 +103,7 @@ function ContactInfo() {
         <div className='space-y-2'>
           <h2 className=' font-bold text-text-primary'> Social Media</h2>
           <div className='flex gap-4'>
-            <SocialMedia />
+            <SocialMedia color='text-text-primary' />
           </div>
         </div>
       </div>

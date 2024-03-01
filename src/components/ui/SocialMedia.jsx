@@ -1,38 +1,37 @@
 import { GrYoutube, GrInstagram, GrTwitter, GrLinkedin, GrFacebookOption } from 'react-icons/gr';
 
-
-export function SocialMedia() {
+export function SocialMedia({ color }) {
   return (
     <>
       <a
         href='https://www.facebook.com/ofppt.page.officielle/'
-        className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border transition-colors duration-300 hover:bg-[#1877f2]'
+        className='group grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border hover:border-transparent transition-colors duration-300 hover:bg-[#1877f2]'
       >
-        <GrFacebookOption className='text-text-primary' />
+        <GrFacebookOption className={`transition-colors duration-300 group-hover:text-white ${color}`} />
       </a>
       <a
         href='https://www.youtube.com/c/ofpptchaineofficielle'
-        className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border transition-colors duration-300 hover:bg-[#ff0000]'
+        className='group grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border hover:border-transparent transition-colors duration-300 hover:bg-[#ff0000]'
       >
-        <GrYoutube className='text-text-primary' />
+        <GrYoutube className={`transition-colors duration-300 group-hover:text-white ${color}`} />
       </a>
       <a
         href='https://twitter.com/OFPPT_Officiel'
-        className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border transition-colors duration-300 hover:bg-[#1da1f2]'
+        className='group grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border hover:border-transparent transition-colors duration-300 hover:bg-[#1da1f2]'
       >
-        <GrTwitter className='text-text-primary' />
+        <GrTwitter className={`transition-colors duration-300 group-hover:text-white ${color}`} />
       </a>
       <a
         href='https://www.instagram.com/ofppt.officiel/'
-        className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border transition-colors duration-300 hover:bg-[#e1306c]'
+        className='group grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border hover:border-transparent transition-colors duration-300 hover:bg-[#e1306c]'
       >
-        <GrInstagram className='text-text-primary' />
+        <GrInstagram className={`transition-colors duration-300 group-hover:text-white ${color}`} />
       </a>
       <a
         href='https://www.linkedin.com/company/ofpptpageofficielle/'
-        className='grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border transition-colors duration-300 hover:bg-[#0a66c2]'
+        className='group grid h-8 w-8 cursor-pointer place-content-center rounded-full border border-border hover:border-transparent transition-colors duration-300 hover:bg-[#0a66c2]'
       >
-        <GrLinkedin className='text-text-primary' />
+        <GrLinkedin className={`transition-colors duration-300 group-hover:text-white ${color}`} />
       </a>
     </>
   );

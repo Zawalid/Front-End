@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PageLayout from '../Layouts/PageLayout';
 import ArticlesList from '../components/Blog/ArticlesList';
 import Actions from '../components/Blog/Actions/Actions';
-import { SearchInput } from '../components/ui/SearchInput';
 import { useLocalStorageState } from '../hooks/useLocalStorageState';
-import { PiGridFourFill, PiListBold } from 'react-icons/pi';
+import { Search } from '../components/ui/Search';
+import { ViewControl } from '../components/ui/ViewControl';
 
 export default function Blog() {
   const [view, setView] = useLocalStorageState('grid', 'blog-view');
@@ -59,7 +59,11 @@ export default function Blog() {
               filter={filter}
               onFilterChange={(filter) => setParam({ filter })}
             />
-            <Search query={query} onChange={(query) => setParam({ s: query })} />
+            <Search
+              placeholder='Search Articles...'
+              query={query}
+              onChange={(query) => setParam({ s: query })}
+            />
           </div>
           <ViewControl view={view} setView={setView} />
         </div>
@@ -72,48 +76,5 @@ export default function Blog() {
         />
       </div>
     </PageLayout>
-  );
-}
-
-function ViewControl({ view, setView }) {
-  return (
-    <div className='flex items-center gap-3'>
-      <button
-        className={`button-icon ${view === 'list' ? 'active' : ''}`}
-        onClick={() => setView('list')}
-      >
-        <PiListBold className='text-lg' />
-      </button>
-      <button
-        className={`button-icon ${view === 'grid' ? 'active' : ''}`}
-        onClick={() => setView('grid')}
-      >
-        <PiGridFourFill className='text-lg' />
-      </button>
-    </div>
-  );
-}
-function Search({ query, onChange }) {
-  const [searchQuery, setSearchQuery] = useState(query || '');
-
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onChange(searchQuery);
-      }}
-      className='w-full '
-    >
-      <SearchInput
-        placeholder='Search Articles'
-        value={searchQuery}
-        onChange={(e) => {
-          const query = e.target.value;
-          setSearchQuery(query);
-          onChange(query);
-        }}
-        iconClassName='text-lg'
-      />
-    </form>
   );
 }

@@ -43,7 +43,7 @@ function Info() {
           <h4 className='font-medium text-text-tertiary'>10 jours</h4>
         </div>
       </div>
-      <Button className='w-full md:w-fit'>MORE DETAILS</Button>
+      <Button className='w-full md:w-fit'>More Details</Button>
     </div>
   );
 }

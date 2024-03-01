@@ -2,7 +2,7 @@ import { useArticles } from '../../hooks/useArticles';
 import { ErrorMessage } from '../ui/ErrorMessage';
 import Section from '../ui/Section';
 import Article from './Article';
-import ArticlesListSkeleton from '../ui/ArticlesListSkeleton';
+import ArticlesListSkeleton from './ArticlesListSkeleton';
 
 export default function ArticlesSection() {
   const { articles, isLoading, error } = useArticles();

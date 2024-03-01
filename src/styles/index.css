@@ -1,11 +1,9 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --color-primary: #7054e6; 
-  /* --color-primary: #00c7c4; */
   --color-secondary: #f89321;
   --color-text-secondary: #7d8185;
   --color-text-tertiary: #00c7c4;

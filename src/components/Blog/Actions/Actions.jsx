@@ -8,6 +8,7 @@ import { Filter } from './Filter';
 export const options = {
   className: 'w-52 sm:w-60 max-h-[280px] overflow-auto',
   placement: 'auto-start',
+  shouldCloseOnClick: false
 };
 
 export default function Actions({ sortBy, setSortBy, direction, setDirection, filter, onFilterChange }) {
@@ -15,7 +16,7 @@ export default function Actions({ sortBy, setSortBy, direction, setDirection, fi
     <DropDown
       toggler={<IoEllipsisVertical />}
       togglerClassName='button-icon'
-      options={{ ...options, placement: 'bottom-start', shouldCloseOnClick: false }}
+      options={{ ...options, placement: 'bottom-start' }}
     >
       <SortBy sortBy={sortBy} setSortBy={setSortBy} />
       <OrderBy direction={direction} setDirection={setDirection} sortBy={sortBy} />

@@ -11,7 +11,7 @@ export default function Footer() {
         <Contact />
       </div>
       <div className='flex justify-center gap-4'>
-        <SocialMedia />
+      <SocialMedia color='text-white' />
       </div>
       <div className='relative z-10 border-t border-border p-5'>
         <p className='text-center text-text-tertiary'>© 2024 All Rights Reserved.</p>

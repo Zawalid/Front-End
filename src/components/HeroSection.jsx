@@ -4,7 +4,7 @@ import Section from './ui/Section';
 export default function HeroSection() {
   return (
     <Section>
-      <div className='flex h-[70vh]  items-center justify-between gap-14 lg:h-auto'>
+      <div className='flex h-[70vh] w-full items-center justify-between gap-14 lg:h-auto'>
         <LeftSide />
         <RightSide />
       </div>
@@ -14,7 +14,7 @@ export default function HeroSection() {
 
 function LeftSide() {
   return (
-    <div className='flex  max-w-[40%] flex-col items-center lg:items-start '>
+    <div className='flex flex-1 lg:flex-0 lg:max-w-[40%] flex-col items-center lg:items-start '>
       <h3 className='mb-3 font-bold text-text-tertiary'>COURS DU SOIR</h3>
       <h1 className='mb-6 text-center text-5xl font-extrabold tracking-wide text-text-primary lg:text-start lg:text-7xl'>
         Bienvenue à <span className='italic text-secondary'>l&apos;OFPPT </span>
@@ -23,7 +23,7 @@ function LeftSide() {
         Vous êtes sur la bonne voie, pour devenir acteur du Maroc des Compétences ! Bien choisir
         votre métier est votre premier pas sur le chemin de la réussite.
       </p>
-      <Button>EXPLORE FILIERES</Button>
+      <Button href='/filieres'>Explorer Les Filieres</Button>
     </div>
   );
 }
@@ -31,9 +31,9 @@ function LeftSide() {
 
 function RightSide() {
   return (
-    <main
-      className='mx-auto overflow-hidden grid grid-cols-[repeat(4,200px)]
-    grid-rows-[repeat(3,150px)]  gap-4 p-4'
+    <div
+      className='hidden w-1/2 overflow-hidden lg:grid grid-cols-[repeat(4,200px)]
+    grid-rows-[repeat(3,150px)] gap-4'
     >
       <div className='row-start-1 row-end-3'>
         <img
@@ -83,6 +83,6 @@ function RightSide() {
            src={`/images/filiere-image-${8}.jpeg`}
         />
       </div>
-    </main>
+    </div>
   );
 }
