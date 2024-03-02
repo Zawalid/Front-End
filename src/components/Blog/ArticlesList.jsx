@@ -5,12 +5,13 @@ import { List } from '../List';
 
 Array.prototype.customFilter = function (filter, tags) {
   if (filter === 'all') return this;
-  if (filter === 'other')
+  if (filter === 'other') {
     return this.filter((article) =>
       article.tags
         .map((c) => c.toLowerCase())
-        .every((tag) => !tags?.map((t) => t.name).includes(tag.toLowerCase())),
+        .some((tag) => !tags?.map((t) => t.name.toLowerCase()).includes(tag)),
     );
+  }
   return this.filter((article) =>
     article.tags.map((t) => t.toLowerCase()).includes(filter.toLowerCase()),
   );
@@ -20,11 +21,8 @@ export default function ArticlesList({ view, searchQuery, filter, sortBy, direct
   const { articles, isLoading, error } = useArticles();
   const { tags } = useTags();
 
-  function render() {
-    return (
-      articles?.search(searchQuery).customSort(sortBy, direction).customFilter(filter, tags) || []
-    );
-  }
+  const render = () =>
+    articles?.search(searchQuery).customSort(sortBy, direction).customFilter(filter, tags) || [];
 
   if (isLoading) return <ArticlesListSkeleton className='lg:justify-start' />;
   return (

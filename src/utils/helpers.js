@@ -27,10 +27,10 @@ Array.prototype.customSort = function (sortBy, direction) {
           : b.title.localeCompare(a.title);
 
       case 'duration':
-        return direction === 'asc' ? a.duration - b.duration : b.duration - a.duration;
+        return direction === 'asc' ? parseInt(a.duration) - parseInt(b.duration) : parseInt(b.duration) - parseInt(a.duration);
 
       case 'interns':
-        return direction === 'asc' ? a.interns - b.interns : b.interns - a.interns;
+        return direction === 'asc' ? parseInt(a.interns) - parseInt(b.interns) : parseInt(b.interns) - parseInt(a.interns);
 
       default:
         return 0;

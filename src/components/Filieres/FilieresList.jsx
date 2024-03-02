@@ -3,22 +3,18 @@ import Filiere from './Filiere';
 import FiliereSkeleton from './FiliereSkeleton';
 import { List } from '../List';
 
-export default function FilieresList({ searchQuery }) {
+export default function FilieresList({ searchQuery, sortBy, direction }) {
   const { filieres, isLoading, error } = useFilieres();
-  function render() {
-    return (
-      filieres?.search(searchQuery || '') ||
-      //   .customSort(sortBy, direction).customFilter(filter, tags)
-      []
-    );
-  }
+
+  const render = () => filieres?.search(searchQuery || '').customSort(sortBy, direction) || [];
+  // .customFilter(filter, tags)
 
   if (isLoading) return <FilieresSkeleton />;
   return (
     <List
       renderList={render}
       renderItem={(filiere) => <Filiere key={filiere.id} filiere={filiere} />}
-      itemsName='Articles'
+      itemsName='Filieres'
       error={error}
       className='flex flex-wrap justify-center gap-8 lg:justify-start'
     />
