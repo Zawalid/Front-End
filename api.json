@@ -224,7 +224,7 @@
       "id": 1,
       "title": "Digital Development",
       "description": "Learn to develop digital solutions",
-      "images" : [],
+      "images": [],
       "duration": "2 years",
       "interns": 200,
       "sector": "IT",
@@ -235,7 +235,7 @@
       "id": 2,
       "title": "Management",
       "description": "Learn to manage businesses",
-      "images" : [],
+      "images": [],
       "duration": "3 years",
       "interns": 150,
       "sector": "Business",
@@ -246,7 +246,7 @@
       "id": 3,
       "title": "Mechanical Engineering",
       "description": "Learn to design mechanical systems",
-      "images" : [],
+      "images": [],
       "duration": "4 years",
       "interns": 100,
       "sector": "Engineering",
@@ -257,7 +257,7 @@
       "id": 4,
       "title": "Electrical Engineering",
       "description": "Learn to design electrical systems",
-      "images" : [],
+      "images": [],
       "duration": "4 years",
       "interns": 120,
       "sector": "Engineering",
@@ -268,7 +268,7 @@
       "id": 5,
       "title": "Civil Engineering",
       "description": "Learn to design civil structures",
-      "images" : [],
+      "images": [],
       "duration": "4 years",
       "interns": 140,
       "sector": "Engineering",
@@ -279,7 +279,7 @@
       "id": 6,
       "title": "Computer Science",
       "description": "Learn to develop software",
-      "images" : [],
+      "images": [],
       "duration": "3 years",
       "interns": 180,
       "sector": "IT",
@@ -290,7 +290,7 @@
       "id": 7,
       "title": "Data Science",
       "description": "Learn to analyze and interpret complex data",
-      "images" : [],
+      "images": [],
       "duration": "2 years",
       "interns": 150,
       "sector": "IT",
@@ -301,7 +301,7 @@
       "id": 8,
       "title": "Marketing",
       "description": "Learn to market products and services",
-      "images" : [],
+      "images": [],
       "duration": "3 years",
       "interns": 160,
       "sector": "Business",
@@ -312,7 +312,7 @@
       "id": 9,
       "title": "Finance",
       "description": "Learn to manage finances",
-      "images" : [],
+      "images": [],
       "duration": "3 years",
       "interns": 170,
       "sector": "Business",
@@ -323,12 +323,50 @@
       "id": 10,
       "title": "Human Resources",
       "description": "Learn to manage human resources",
-      "images" : [],
+      "images": [],
       "duration": "2 years",
       "interns": 180,
       "sector": "Business",
       "isOpen": false,
       "formationYear": "2023/2024"
+    }
+  ],
+  "sectors": [
+    {
+      "id": 1,
+      "name": "Gestion et Commerce"
+    },
+    {
+      "id": 2,
+      "name": "Agriculture"
+    },
+    {
+      "id": 3,
+      "name": "Agro-Industrie"
+    },
+    {
+      "id": 4,
+      "name": "Arts et Industries Graphiques"
+    },
+    {
+      "id": 5,
+      "name": "Artisanat"
+    },
+    {
+      "id": 6,
+      "name": "Digital et Intelligence Artificielle"
+    },
+    {
+      "id": 7,
+      "name": "Audiovisuel et Cinema"
+    },
+    {
+      "id": 8,
+      "name": "Materiaux de Construction"
+    },
+    {
+      "id": 9,
+      "name": "Batiment et Travaux Publics"
     }
   ]
 }

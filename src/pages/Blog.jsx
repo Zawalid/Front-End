@@ -76,7 +76,8 @@ export default function Blog() {
               <Actions.Filter
                 filter={filter}
                 onFilterChange={(filter) => setParam({ f: filter })}
-                items={tags ? ['all', ...tags.map((t) => t.name).toSorted(), 'other'] : []}
+                itemsName='tags'
+                items={tags|| []}
                 isLoading={isLoading}
               />
             </Actions>

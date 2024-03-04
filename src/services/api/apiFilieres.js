@@ -15,3 +15,12 @@ export async function getFiliere(id) {
   }
   return data;
 }
+
+export async function getSectors() {
+  const response = await fetch(import.meta.env.VITE_API_URL + '/sectors');
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error('No sectors found');
+  }
+  return data;
+}

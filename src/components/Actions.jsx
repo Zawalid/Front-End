@@ -114,7 +114,6 @@ function DropDownSearch({ items, isLoading, itemsName, selected, onSelect }) {
     .map((item) => item.toLowerCase())
     .filter((item) => item.includes(searchedTag.toLowerCase()));
 
-
   return (
     <DropDown
       toggler={
@@ -163,12 +162,12 @@ function DropDownSearch({ items, isLoading, itemsName, selected, onSelect }) {
     </DropDown>
   );
 }
-function Filter({ filter, onFilterChange, items, isLoading }) {
+function Filter({ filter, onFilterChange, itemsName, items, isLoading }) {
   return (
     <DropDownSearch
-      items={items}
+      items={['all', ...items.map((t) => t.name).toSorted(), 'other']}
       isLoading={isLoading}
-      itemsName='tags'
+      itemsName={itemsName}
       selected={filter}
       onSelect={onFilterChange}
     />

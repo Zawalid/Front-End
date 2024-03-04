@@ -4,9 +4,11 @@ import FilieresList from '../components/Filieres/FilieresList';
 import { Search } from '../components/ui/Search';
 import Actions from '../components/Actions';
 import { useEffect } from 'react';
+import { useSectors } from '../hooks/useFilieres';
 
 export default function Filieres() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { sectors, isLoading } = useSectors();
 
   const sortBy = searchParams.get('s') || 'title';
   const direction = searchParams.get('d') || 'asc';
@@ -75,9 +77,9 @@ export default function Filieres() {
               <Actions.Filter
                 filter={filter}
                 onFilterChange={(filter) => setParam({ f: filter })}
-                // items={tags ? ['all', ...tags.map((t) => t.name).toSorted(), 'other'] : []}
-                // isLoading={isLoading}
-                items={[]}
+                itemsName='sectors'
+                items={sectors || []}
+                isLoading={isLoading}
               />
             </Actions>
             <Search
