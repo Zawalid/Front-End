@@ -2,11 +2,15 @@ import { useFilieres } from '../../hooks/useFilieres';
 import Filiere from './Filiere';
 import FiliereSkeleton from './FiliereSkeleton';
 import { List } from '../List';
+import { useSearchParams } from 'react-router-dom';
+import { getParams } from '../../utils/helpers';
 
-export default function FilieresList({ searchQuery, sortBy, direction }) {
+export default function FilieresList({ defaultParams }) {
   const { filieres, isLoading, error } = useFilieres();
+  const [searchParams] = useSearchParams();
+  const { sortBy, direction, query } = getParams(searchParams, defaultParams);
 
-  const render = () => filieres?.search(searchQuery || '').customSort(sortBy, direction) || [];
+  const render = () => filieres?.search(query || '').customSort(sortBy, direction) || [];
   // .customFilter(filter, tags)
 
   if (isLoading) return <FilieresSkeleton />;

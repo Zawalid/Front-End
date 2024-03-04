@@ -7,6 +7,15 @@ export function getCover(cover) {
   return cover;
 }
 
+
+export const getParams = (searchParams, defaults) => {
+  const sortBy = searchParams.get('s') || defaults.sortBy;
+  const direction = searchParams.get('d') || defaults.direction;
+  const filter = searchParams.get('f') || 'all';
+  const query = searchParams.get('q') || '';
+  return { sortBy, direction, filter, query };
+};
+
 // Array Methods For Sorting And Searching : Articles/Filieres
 Array.prototype.search = function (searchQuery) {
   return this.filter((el) =>

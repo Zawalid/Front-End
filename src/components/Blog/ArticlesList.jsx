@@ -2,6 +2,8 @@ import Article from './Article';
 import { useArticles, useTags } from '../../hooks/useArticles';
 import ArticlesListSkeleton from './ArticlesListSkeleton';
 import { List } from '../List';
+import { getParams } from '../../utils/helpers';
+import { useSearchParams } from 'react-router-dom';
 
 Array.prototype.customFilter = function (filter, tags) {
   if (filter === 'all') return this;
@@ -17,12 +19,14 @@ Array.prototype.customFilter = function (filter, tags) {
   );
 };
 
-export default function ArticlesList({ view, searchQuery, filter, sortBy, direction }) {
+export default function ArticlesList({ view, defaultParams }) {
   const { articles, isLoading, error } = useArticles();
   const { tags } = useTags();
+  const [searchParams] = useSearchParams();
+  const { sortBy, direction, query, filter } = getParams(searchParams, defaultParams);
 
   const render = () =>
-    articles?.search(searchQuery).customSort(sortBy, direction).customFilter(filter, tags) || [];
+    articles?.search(query).customSort(sortBy, direction).customFilter(filter, tags) || [];
 
   if (isLoading) return <ArticlesListSkeleton className='lg:justify-start' />;
   return (
