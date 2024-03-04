@@ -114,6 +114,7 @@ function DropDownSearch({ items, isLoading, itemsName, selected, onSelect }) {
     .map((item) => item.toLowerCase())
     .filter((item) => item.includes(searchedTag.toLowerCase()));
 
+
   return (
     <DropDown
       toggler={

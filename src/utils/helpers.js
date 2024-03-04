@@ -1,4 +1,5 @@
 export function getCover(cover) {
+  console.log(cover)
   if (!cover) return '';
   if (Array.isArray(cover)) {
     return `${import.meta.env.VITE_IMAGE_URL}/${cover[0]}`;
