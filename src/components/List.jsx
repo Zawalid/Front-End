@@ -2,7 +2,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { usePagination } from '../hooks/usePagination';
 import { ErrorMessage } from './ui/ErrorMessage';
 
-export function List({ renderList, renderItem, itemsName, error, className }) {
+export function List({ renderList, renderItem, itemsName, error, view }) {
   const { Pagination, currentPage, rowsPerPage } = usePagination(renderList()?.length, itemsName);
   const [parent] = useAutoAnimate({ duration: 500 });
 
@@ -17,7 +17,12 @@ export function List({ renderList, renderItem, itemsName, error, className }) {
 
   return (
     <>
-      <div className={className} ref={parent}>
+      <div
+        className={
+          view === 'grid' ? 'flex flex-wrap  justify-center gap-8 lg:justify-start' : 'space-y-5'
+        }
+        ref={parent}
+      >
         {renderList()
           .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
           .map((item) => renderItem(item))}

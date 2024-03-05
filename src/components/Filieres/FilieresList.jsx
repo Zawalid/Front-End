@@ -5,26 +5,24 @@ import { List } from '../List';
 import { useSearchParams } from 'react-router-dom';
 import { getParams } from '../../utils/helpers';
 
-export default function FilieresList({ defaultParams }) {
+export default function FilieresList({ view, defaultParams }) {
   const { filieres, isLoading, error } = useFilieres();
   const { sectors } = useSectors();
   const [searchParams] = useSearchParams();
   const { sortBy, direction, filter, query } = getParams(searchParams, defaultParams);
 
   const render = () =>
-    filieres
-      ?.search(query || '')
-      .customSort(sortBy, direction)
-      .customFilter(filter, sectors, 'sector') || [];
+    filieres?.search(query).customSort(sortBy, direction).customFilter(filter, sectors, 'sector') ||
+    [];
 
   if (isLoading) return <FilieresSkeleton />;
   return (
     <List
       renderList={render}
-      renderItem={(filiere) => <Filiere key={filiere.id} filiere={filiere} />}
+      renderItem={(filiere) => <Filiere key={filiere.id} filiere={filiere} view={view} />}
       itemsName='Filieres'
       error={error}
-      className='flex flex-wrap justify-center gap-8 lg:justify-start'
+     view={view}
     />
   );
 }

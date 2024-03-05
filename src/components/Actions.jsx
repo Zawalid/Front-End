@@ -8,6 +8,7 @@ import { DropDown } from './ui/DropDown';
 import { Search as S } from './ui/Search';
 import { useSearchParams } from 'react-router-dom';
 import { getParams } from '../utils/helpers';
+import { ViewControl } from './ui/ViewControl';
 
 const dropDownOptions = {
   className: 'w-52 sm:w-60 max-h-[280px] overflow-auto',
@@ -17,7 +18,7 @@ const dropDownOptions = {
 
 const ActionsContext = createContext();
 
-export default function Actions({ children, defaults, validSortBy }) {
+export default function Actions({ children, defaults, validSortBy, view, setView }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { sortBy, direction, filter, query } = getParams(searchParams, defaults);
 
@@ -65,15 +66,18 @@ export default function Actions({ children, defaults, validSortBy }) {
         setQuery: (query) => setParam({ q: query }),
       }}
     >
-      <div className='flex flex-1 items-center gap-3 sm:w-[40%] sm:flex-none'>
-        <DropDown
-          toggler={<IoEllipsisVertical />}
-          togglerClassName='button-icon'
-          options={{ ...dropDownOptions, placement: 'bottom-start' }}
-        >
-          {children.filter((child) => child.type.name !== 'Search')}
-        </DropDown>
-        {children.filter((child) => child.type.name === 'Search')?.[0]}
+      <div className='flex items-center justify-between gap-8'>
+        <div className='flex flex-1 items-center gap-3 sm:w-[40%] sm:flex-none'>
+          <DropDown
+            toggler={<IoEllipsisVertical />}
+            togglerClassName='button-icon'
+            options={{ ...dropDownOptions, placement: 'bottom-start' }}
+          >
+            {children.filter((child) => child.type.name !== 'Search')}
+          </DropDown>
+          {children.filter((child) => child.type.name === 'Search')?.[0]}
+        </div>
+        <ViewControl view={view} setView={setView} />
       </div>
     </ActionsContext.Provider>
   );

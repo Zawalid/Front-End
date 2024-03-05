@@ -29,32 +29,31 @@ export default function Article({ article, view = 'grid' }) {
       </div>
     );
 
-  if (view === 'grid')
-    return (
-      <div className='group flex h-[350px] min-w-[300px] max-w-[340px] flex-col rounded-lg border-border  transition-all duration-500'>
-        <div className='h-[300px] flex-1 overflow-hidden rounded-lg'>
-          <Link to={`/blog/${id}`}>
-            <img src={getCover(cover)} alt={title} className='h-full w-full object-cover' />
-          </Link>
-        </div>
-        <div className='-mt-[100px] ml-[50%] flex w-[90%] -translate-x-1/2 flex-col rounded-2xl bg-background-primary p-5 shadow-md transition-transform duration-500 group-hover:-translate-y-2'>
-          <div className='mb-3 flex justify-between gap-5 text-xs text-text-tertiary'>
-            <Info author={author} date={date} />
-          </div>
-          <Link to={`/blog/${id}`}>
-            <h4
-              className='max-h-[55px] overflow-hidden text-wrap font-bold leading-tight text-text-primary transition-colors duration-300 hover:text-secondary sm:text-lg'
-              title={title}
-            >
-              {title}
-            </h4>
-          </Link>
-
-          <hr className='my-4 border-border' />
-          <ArticleTags tags={tags} />
-        </div>
+  return (
+    <div className='group flex h-[350px] min-w-[300px] max-w-[340px] flex-col rounded-lg border-border  transition-all duration-500'>
+      <div className='h-[300px] flex-1 overflow-hidden rounded-lg'>
+        <Link to={`/blog/${id}`}>
+          <img src={getCover(cover)} alt={title} className='h-full w-full object-cover' />
+        </Link>
       </div>
-    );
+      <div className='-mt-[100px] ml-[50%] flex w-[90%] -translate-x-1/2 flex-col rounded-2xl bg-background-primary p-5 shadow-md transition-transform duration-500 group-hover:-translate-y-2'>
+        <div className='mb-3 flex justify-between gap-5 text-xs text-text-tertiary'>
+          <Info author={author} date={date} />
+        </div>
+        <Link to={`/blog/${id}`}>
+          <h4
+            className='max-h-[55px] overflow-hidden text-wrap font-bold leading-tight text-text-primary transition-colors duration-300 hover:text-secondary sm:text-lg'
+            title={title}
+          >
+            {title}
+          </h4>
+        </Link>
+
+        <hr className='my-4 border-border' />
+        <ArticleTags tags={tags} />
+      </div>
+    </div>
+  );
 }
 
 function Info({ author, date }) {
