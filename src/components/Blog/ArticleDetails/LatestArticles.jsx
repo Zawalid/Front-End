@@ -42,7 +42,7 @@ function Article({ article: { id, title, cover, author, date } }) {
     <li>
       <Link
         to={`/blog/${id}`}
-        className='grid grid-cols-[100px_auto] gap-5 rounded-lg p-4 transition-colors duration-300 hover:bg-background-primary'
+        className='grid grid-cols-[100px_auto] gap-5 rounded-lg p-4 transition-transform duration-300 hover:scale-95'
       >
         <img src={getCover(cover)} alt='blog' className='h-20 w-full rounded-lg object-cover' />
         <div className=' space-y-2 overflow-hidden'>

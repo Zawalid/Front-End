@@ -1,3 +1,12 @@
+export async function customFetch(endpoint, resourceName) {
+  const response = await fetch(import.meta.env.VITE_API_URL + endpoint);
+  if (!response.ok) {
+    throw new Error(`${resourceName} not found !`);
+  }
+  const data = await response.json();
+  return data.data ? data.data : data;
+}
+
 export function getCover(cover) {
   if (!cover) return '';
   if (Array.isArray(cover)) {

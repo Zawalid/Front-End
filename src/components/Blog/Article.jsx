@@ -8,7 +8,7 @@ export default function Article({ article, view = 'grid' }) {
 
   if (view === 'list')
     return (
-      <div className='grid grid-cols-[100px_auto] overflow-hidden rounded-lg border border-border shadow-md transition-all duration-500 hover:translate-x-2 sm:grid-cols-[140px_auto] md:h-[120px]'>
+      <div className='grid grid-cols-[100px_auto] overflow-hidden rounded-lg border border-border shadow-sm transition-all duration-500 hover:translate-x-2 sm:grid-cols-[140px_auto] md:h-[120px]'>
         <Link to={`/blog/${id}`}>
           <img src={getCover(cover)} alt={title} className='h-full object-cover' />
         </Link>

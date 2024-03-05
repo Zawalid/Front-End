@@ -1,4 +1,3 @@
-import { Button } from './ui/Button';
 import Section from './ui/Section';
 
 export default function HeroSection() {
@@ -17,13 +16,12 @@ function LeftSide() {
     <div className='flex flex-1 lg:flex-0 lg:max-w-[40%] flex-col items-center lg:items-start '>
       <h3 className='mb-3 font-bold text-text-tertiary'>COURS DU SOIR</h3>
       <h1 className='mb-6 text-center text-5xl font-extrabold tracking-wide text-text-primary lg:text-start lg:text-7xl'>
-        Bienvenue à <span className='italic text-secondary'>l&apos;OFPPT </span>
+        Bienvenue à <span className='italic text-secondary selection:bg-secondary selection:text-white'>l&apos;OFPPT </span>
       </h1>
       <p className='mb-6 text-center font-medium text-text-secondary lg:text-start'>
         Vous êtes sur la bonne voie, pour devenir acteur du Maroc des Compétences ! Bien choisir
         votre métier est votre premier pas sur le chemin de la réussite.
       </p>
-      <Button href='/filieres'>Explorer Les Filieres</Button>
     </div>
   );
 }

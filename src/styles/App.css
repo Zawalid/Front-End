@@ -75,7 +75,7 @@ a.active li {
 /*  */
 header,
 main,
-footer > div {
+footer {
   @apply xl:container xl:mx-auto;
 }
 

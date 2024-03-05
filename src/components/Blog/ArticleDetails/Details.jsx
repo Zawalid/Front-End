@@ -40,7 +40,7 @@ function ArticleTags({ tags }) {
   return (
     <div className='flex flex-wrap items-center gap-x-3 gap-y-2'>
       {tags?.map((tag) => (
-        <Link key={tag} to={`/blog?filter=${tag.toLowerCase()}`}>
+        <Link key={tag} to={`/blog?f=${tag.toLowerCase()}`}>
           <Tag tag={tag} />
         </Link>
       ))}

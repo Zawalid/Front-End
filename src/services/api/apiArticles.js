@@ -1,26 +1,7 @@
-export async function getArticles() {
-  const response = await fetch(import.meta.env.VITE_API_URL + '/articles');
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error('No articles found');
-  }
-  return data;
-}
+import { customFetch } from '../../utils/helpers';
 
-export async function getArticle(id) {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${id}`);
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error('No article found');
-  }
-  return data;
-}
+export const getArticles = async () => await customFetch('/articles', 'Articles');
 
-export async function getTags() {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/tags`);
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error('No tags found');
-  }
-  return data;
-}
+export const getArticle = async (id) => await customFetch(`/articles/${id}`, 'Article');
+
+export const getTags = async () => await customFetch('/tags', 'Tags');

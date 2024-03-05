@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #7054e6; 
+  --color-primary: #7054e6;
   --color-secondary: #f89321;
   --color-text-secondary: #7d8185;
   --color-text-tertiary: #00c7c4;
@@ -11,9 +11,9 @@
   &,
   &.light {
     --color-background-primary: #ffffff;
-    --color-background-secondary: #f2f8f8;
+    --color-background-secondary: #f6f6f6;
     --color-text-primary: #191e24;
-    --color-border: rgb(229, 231, 235);
+    --color-border: rgb(219 220 224);
   }
 
   &.dark {
@@ -30,20 +30,20 @@
 }
 body {
   font-family: 'DM Sans', sans-serif;
-  @apply bg-background-primary  h-dvh;
+  @apply bg-background-primary h-dvh
 }
 #root {
   @apply h-full;
 }
 
 ::-webkit-scrollbar {
-  @apply h-[6px] w-[6px];
+  @apply w-[4px];
 }
 ::-webkit-scrollbar-track {
   @apply bg-background-primary;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-text-secondary;
+  @apply rounded-lg bg-text-primary;
 }
 
 ::selection {

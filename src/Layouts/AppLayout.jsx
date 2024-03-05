@@ -7,7 +7,7 @@ export default function AppLayout() {
   const [parent] = useAutoAnimate({ duration: 400, easing: 'ease-in-out' });
 
   return (
-    <div className='flex h-full flex-col'>
+    <div className='flex overflow-x-hidden overflow-y-auto h-full flex-col'>
       <Header />
       <main className='flex-1' ref={parent}>
         <Outlet />

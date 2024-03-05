@@ -1,8 +1,8 @@
 import Tippy from '@tippyjs/react';
 import { NavLink, useHref } from 'react-router-dom';
-import { FaChevronDown} from "react-icons/fa6";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { LuMoonStar, LuSun } from "react-icons/lu";
+import { FaChevronDown } from 'react-icons/fa6';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { LuMoonStar, LuSun } from 'react-icons/lu';
 import { Logo } from './ui/Logo';
 import { routes } from '../utils/constants';
 import { MobileHeader } from './MobileHeader';
@@ -19,24 +19,21 @@ export default function Header() {
   }, [currentPath]);
 
   return (
-    <header className='sticky top-0 z-50 flex items-center justify-between  border-b border-border bg-background-primary  p-5 shadow-sm  transition-opacity duration-500'>
+    <header className='flex items-center justify-between  border-b border-border bg-background-primary p-5 shadow-md'>
       <Logo className='w-20' />
       <Links />
 
-     <div className='flex items-center gap-4'>
-      
-       <button onClick={toggleDarkMode} className='text-xl text-text-primary transition-colors duration-300 hover:text-text-tertiary'>
-         {isDarkMode ? (
-            <LuSun />
-          ) : (
-            <LuMoonStar  />
-         ) }
-      
-       </button>
-       <button onClick={() => setIsMobileMenuOpen(true)} className='lg:hidden'>
-         <RxHamburgerMenu className='text-xl text-text-primary transition-colors duration-300 hover:text-text-tertiary '/>
-       </button>
-     </div>
+      <div className='flex items-center gap-4'>
+        <button
+          onClick={toggleDarkMode}
+          className='text-xl text-text-primary transition-colors duration-300 hover:text-text-tertiary'
+        >
+          {isDarkMode ? <LuSun /> : <LuMoonStar />}
+        </button>
+        <button onClick={() => setIsMobileMenuOpen(true)} className='lg:hidden'>
+          <RxHamburgerMenu className='text-xl text-text-primary transition-colors duration-300 hover:text-text-tertiary ' />
+        </button>
+      </div>
 
       <MobileHeader isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>

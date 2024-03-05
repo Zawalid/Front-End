@@ -20,7 +20,7 @@ export function Tags() {
     return (
       <ul className='flex max-h-[250px] flex-wrap gap-x-3 gap-y-1 overflow-auto py-1.5'>
       {tags?.map(({ id,name }) => (
-        <Link key={id} to={`/blog?filter=${name.toLowerCase()}`}>
+        <Link key={id} to={`/blog?f=${name.toLowerCase()}`}>
           <Tag tag={name} />
         </Link>
       ))}

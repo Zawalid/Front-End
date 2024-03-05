@@ -1,26 +1,7 @@
-export async function getFilieres() {
-  const response = await fetch(import.meta.env.VITE_API_URL + '/filieres');
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error('No filieres found');
-  }
-  return data;
-}
+import { customFetch } from '../../utils/helpers';
 
-export async function getFiliere(id) {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/filieres/${id}`);
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error('No filiere found');
-  }
-  return data;
-}
+export const getFilieres = async () => await customFetch('/filieres', 'Filieres');
 
-export async function getSectors() {
-  const response = await fetch(import.meta.env.VITE_API_URL + '/sectors');
-  const data = await response.json();
-  if (!response.ok) {
-    throw new Error('No sectors found');
-  }
-  return data;
-}
+export const getFiliere = async (id) => await customFetch(`/filieres/${id}`, 'Filiere');
+
+export const getSectors = async () => await customFetch('/sectors', 'Sectors');

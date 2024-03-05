@@ -41,7 +41,7 @@ export default function Filiere({ filiere, view = 'grid' }) {
     );
   }
   return (
-    <div className='relative w-full overflow-hidden rounded-lg border border-border shadow-md '>
+    <div className='relative w-full overflow-hidden rounded-lg border border-border shadow-sm '>
       {isOpen && (
         <div className='absolute -left-[55px] top-[38px] z-20 -rotate-45 bg-red-500  px-10 py-1.5 text-sm font-semibold text-white'>
           Inscription Fermée

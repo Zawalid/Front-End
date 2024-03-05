@@ -3,10 +3,10 @@ import { Logo } from './ui/Logo';
 
 export default function Footer() {
   return (
-    <footer className='relative flex mt-auto items-center justify-between gap-6 bg-[#191e24] px-5 py-3'>
+    <footer className='relative flex mt-auto items-center justify-between gap-6  border-t shadow-md border-border bg-background-primary px-5 py-3'>
       <Logo className='w-20' />
       <div className='flex justify-end gap-4'>
-        <SocialMedia color='text-white' />
+        <SocialMedia />
       </div>
     </footer>
   );
