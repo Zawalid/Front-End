@@ -10,7 +10,9 @@ export default function ArticleDetails({ id }) {
 
   return (
     <>
-      <Breadcrumbs />
+      <div className='text-text-primary'>
+        <Breadcrumbs />
+      </div>
       <div className=' mt-3 grid-cols-3 gap-10 lg:grid '>
         {isLoading && <DetailsSkeleton />}
         {error && <ErrorMessage className='col-span-2 h-full text-xl' message={error.message} />}

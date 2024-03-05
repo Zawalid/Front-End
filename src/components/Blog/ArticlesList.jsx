@@ -5,19 +5,6 @@ import { List } from '../List';
 import { getParams } from '../../utils/helpers';
 import { useSearchParams } from 'react-router-dom';
 
-Array.prototype.customFilter = function (filter, tags) {
-  if (filter === 'all') return this;
-  if (filter === 'other') {
-    return this.filter((article) =>
-      article.tags
-        .map((c) => c.toLowerCase())
-        .some((tag) => !tags?.map((t) => t.name.toLowerCase()).includes(tag)),
-    );
-  }
-  return this.filter((article) =>
-    article.tags.map((t) => t.toLowerCase()).includes(filter.toLowerCase()),
-  );
-};
 
 export default function ArticlesList({ view, defaultParams }) {
   const { articles, isLoading, error } = useArticles();
@@ -26,7 +13,7 @@ export default function ArticlesList({ view, defaultParams }) {
   const { sortBy, direction, query, filter } = getParams(searchParams, defaultParams);
 
   const render = () =>
-    articles?.search(query).customSort(sortBy, direction).customFilter(filter, tags) || [];
+    articles?.search(query).customSort(sortBy, direction).customFilter(filter, tags, 'tags') || [];
 
   if (isLoading) return <ArticlesListSkeleton className='lg:justify-start' />;
   return (

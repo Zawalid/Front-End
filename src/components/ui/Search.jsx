@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { HiMiniXMark } from 'react-icons/hi2';
 import { InputField } from './InputField';
 
-export function Search({ placeholder,query, onChange }) {
+export function Search({ placeholder, query, onChange }) {
   const [searchQuery, setSearchQuery] = useState(query || '');
 
   return (
@@ -10,7 +11,7 @@ export function Search({ placeholder,query, onChange }) {
         e.preventDefault();
         onChange(searchQuery);
       }}
-      className='w-full '
+      className='relative w-full'
     >
       <SearchInput
         placeholder={placeholder}
@@ -22,6 +23,15 @@ export function Search({ placeholder,query, onChange }) {
         }}
         iconClassName='text-lg'
       />
+
+      <button
+        className={`absolute right-1.5 top-1/2 -translate-y-1/2 text-xl text-text-tertiary transition-transform duration-300 ${
+          searchQuery ? 'scale-100' : 'scale-0'
+        }`}
+        onClick={() => setSearchQuery('')}
+      >
+        <HiMiniXMark />
+      </button>
     </form>
   );
 }

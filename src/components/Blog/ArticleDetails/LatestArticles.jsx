@@ -8,23 +8,32 @@ import { FaCalendar } from 'react-icons/fa6';
 export function LatestArticles({ currentArticleId }) {
   const { articles, isLoading, error } = useArticles();
 
+  const latestArticles = articles?.filter((article) => +article.id !== +currentArticleId).slice(-3);
+
+  const render = () => {
+    if (isLoading) return <LatestArticlesSkeleton />;
+    if (error) {
+      return <ErrorMessage className='absolute top-0 h-full w-full' message={error.message} />;
+    }
+    if (!latestArticles.length)
+      return (
+        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform'>
+          <p className='font-bold text-text-tertiary'>No articles found</p>
+        </div>
+      );
+    return (
+      <ul>
+        {latestArticles.map((article) => (
+          <Article key={article.id} article={article} />
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <div className='relative min-h-[400px]  rounded-xl bg-background-secondary p-4'>
       <h4 className='mb-6 text-lg font-bold text-text-primary'>Latest Articles</h4>
-      {isLoading ? (
-        <LatestArticlesSkeleton />
-      ) : error ? (
-        <ErrorMessage className='absolute top-0 h-full w-full' message={error.message} />
-      ) : (
-        <ul>
-          {articles
-            .filter((article) => +article.id !== +currentArticleId)
-            .slice(-3)
-            .map((article) => (
-              <Article key={article.id} article={article} />
-            ))}
-        </ul>
-      )}
+      {render()}
     </div>
   );
 }

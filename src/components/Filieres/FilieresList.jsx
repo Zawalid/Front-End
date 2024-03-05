@@ -1,4 +1,4 @@
-import { useFilieres } from '../../hooks/useFilieres';
+import { useFilieres, useSectors } from '../../hooks/useFilieres';
 import Filiere from './Filiere';
 import FiliereSkeleton from './FiliereSkeleton';
 import { List } from '../List';
@@ -7,11 +7,15 @@ import { getParams } from '../../utils/helpers';
 
 export default function FilieresList({ defaultParams }) {
   const { filieres, isLoading, error } = useFilieres();
+  const { sectors } = useSectors();
   const [searchParams] = useSearchParams();
-  const { sortBy, direction, query } = getParams(searchParams, defaultParams);
+  const { sortBy, direction, filter, query } = getParams(searchParams, defaultParams);
 
-  const render = () => filieres?.search(query || '').customSort(sortBy, direction) || [];
-  // .customFilter(filter, tags)
+  const render = () =>
+    filieres
+      ?.search(query || '')
+      .customSort(sortBy, direction)
+      .customFilter(filter, sectors, 'sector') || [];
 
   if (isLoading) return <FilieresSkeleton />;
   return (

@@ -1,12 +1,10 @@
 export function getCover(cover) {
-  console.log(cover)
   if (!cover) return '';
   if (Array.isArray(cover)) {
     return `${import.meta.env.VITE_IMAGE_URL}/${cover[0]}`;
   }
   return cover;
 }
-
 
 export const getParams = (searchParams, defaults) => {
   const sortBy = searchParams.get('s') || defaults.sortBy;
@@ -16,7 +14,7 @@ export const getParams = (searchParams, defaults) => {
   return { sortBy, direction, filter, query };
 };
 
-// Array Methods For Sorting And Searching : Articles/Filieres
+// Array Methods For Sorting, Searching And Filtering : Articles/Filieres
 Array.prototype.search = function (searchQuery) {
   return this.filter((el) =>
     el.title?.trim().toLowerCase().includes(searchQuery?.trim().toLowerCase()),
@@ -37,13 +35,39 @@ Array.prototype.customSort = function (sortBy, direction) {
           : b.title.localeCompare(a.title);
 
       case 'duration':
-        return direction === 'asc' ? parseInt(a.duration) - parseInt(b.duration) : parseInt(b.duration) - parseInt(a.duration);
+        return direction === 'asc'
+          ? parseInt(a.duration) - parseInt(b.duration)
+          : parseInt(b.duration) - parseInt(a.duration);
 
       case 'interns':
-        return direction === 'asc' ? parseInt(a.interns) - parseInt(b.interns) : parseInt(b.interns) - parseInt(a.interns);
+        return direction === 'asc'
+          ? parseInt(a.interns) - parseInt(b.interns)
+          : parseInt(b.interns) - parseInt(a.interns);
 
       default:
         return 0;
+    }
+  });
+};
+
+Array.prototype.customFilter = function (filter, filters, filtersName) {
+  if (filter === 'all') return this;
+  if (filter === 'other') {
+    return this.filter((item) => {
+      if (Array.isArray(item[filtersName])) {
+        return item[filtersName]
+          .map((el) => el.toLowerCase())
+          .some((el) => !filters?.map((f) => f.name.toLowerCase()).includes(el));
+      } else {
+        return !filters?.map((f) => f.name.toLowerCase()).includes(item[filtersName].toLowerCase());
+      }
+    });
+  }
+  return this.filter((item) => {
+    if (Array.isArray(item[filtersName])) {
+      return item[filtersName].map((el) => el.toLowerCase()).includes(filter.toLowerCase());
+    } else {
+      return item[filtersName].toLowerCase() === filter.toLowerCase();
     }
   });
 };

@@ -7,7 +7,7 @@ export function Breadcrumbs() {
     return (
       <Link
         key={crumb}
-        className='font-bold capitalize text-white transition-colors duration-300 before:mr-2 before:text-white before:content-[">"] first:before:content-none hover:text-text-tertiary'
+        className='font-bold capitalize  transition-colors duration-300 before:mr-2  before:content-[">"] first:before:content-none hover:text-text-tertiary'
         to={`/${crumb}`}
       >
         {crumb === '' ? 'home' : crumb}

@@ -7,6 +7,9 @@ a.active li {
 }
 
 /* Slider */
+.swiper-slide {
+  @apply flex justify-center items-center;
+}
 .swiper-pagination-bullet {
   @apply m-0 h-3 w-3 bg-border opacity-100 transition-colors duration-300 hover:bg-text-primary !important;
 }
