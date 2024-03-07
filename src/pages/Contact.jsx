@@ -13,7 +13,6 @@ import PageLayout from '../Layouts/PageLayout';
 import { SocialMedia } from '../components/ui/SocialMedia';
 import { useSendMessage } from '../hooks/useSendMessage';
 import { useForm } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
 
 export default function Contact() {
   return (
@@ -144,7 +143,6 @@ function MessageForm({ onSend }) {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors, isValid, isDirty },
   } = useForm({
     defaultValues: {
@@ -154,7 +152,7 @@ function MessageForm({ onSend }) {
       subject: '',
       details: '',
     },
-    mode : 'onChange'
+    mode: 'onChange',
   });
 
   return (
@@ -171,6 +169,7 @@ function MessageForm({ onSend }) {
           e.preventDefault();
           handleSubmit((data) => onSend(data))();
         }}
+        method='post'
       >
         <div className='flex gap-3'>
           <InputField
@@ -231,15 +230,22 @@ function MessageForm({ onSend }) {
                 value: true,
                 message: 'Message is required',
               },
+              minLength: {
+                value: 10,
+                message: 'Message must be at least 10 characters',
+              },
+              maxLength: {
+                value: 500,
+                message: 'Message must not exceed 500 characters',
+              },
             })}
           />
-          <ErrorTooltip message={errors.message?.message} className='top-5' />
+          <ErrorTooltip message={errors.details?.message} className='top-5' />
         </div>
         <Button className='self-start' disabled={!isValid || !isDirty}>
           Send Message
         </Button>
       </form>
-      <DevTool control={control} />
     </>
   );
 }

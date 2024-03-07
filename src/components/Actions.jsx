@@ -175,6 +175,36 @@ function DropDownSearch({ items, isLoading, itemsName, selected, onSelect }) {
     .map((item) => item.toLowerCase())
     .filter((item) => item.includes(searchedTag.toLowerCase()));
 
+  const render = () => {
+    if (isLoading)
+      return (
+        <div className='absolute  bottom-0 left-0 grid h-[calc(100%-50px)] w-full place-content-center'>
+          <p className='flex items-center gap-1 text-sm font-medium text-text-secondary'>
+            <FaSpinner className='mr-2 animate-spin' /> Loading...
+          </p>
+        </div>
+      );
+
+    if (updatedItems.length === 0)
+      return (
+        <div className='absolute  bottom-0 left-0 grid h-[calc(100%-50px)] w-full place-content-center'>
+          <p className='text-sm font-medium text-text-secondary'>No {itemsName} found</p>
+        </div>
+      );
+
+    return updatedItems.map((item) => (
+      <DropDown.Button
+        key={item}
+        onClick={() => onSelect(item)}
+        className='justify-between'
+        isCurrent={selected === item}
+      >
+        <span className='capitalize'>{item}</span>
+        {selected === item && <FiCheck />}
+      </DropDown.Button>
+    ));
+  };
+
   return (
     <DropDown
       toggler={
@@ -195,31 +225,7 @@ function DropDownSearch({ items, isLoading, itemsName, selected, onSelect }) {
         onChange={(e) => setSearchedTag(e.target.value)}
       />
 
-      {isLoading && (
-        <div className='absolute  bottom-0 left-0 grid h-[calc(100%-50px)] w-full place-content-center'>
-          <p className='flex items-center gap-1 text-sm font-medium text-text-secondary'>
-            <FaSpinner className='mr-2 animate-spin' /> Loading...
-          </p>
-        </div>
-      )}
-
-      {updatedItems.length === 0 && !isLoading && (
-        <div className='absolute  bottom-0 left-0 grid h-[calc(100%-50px)] w-full place-content-center'>
-          <p className='text-sm font-medium text-text-secondary'>No {itemsName} found</p>
-        </div>
-      )}
-
-      {updatedItems.map((item) => (
-        <DropDown.Button
-          key={item}
-          onClick={() => onSelect(item)}
-          className='justify-between'
-          isCurrent={selected === item}
-        >
-          <span className='capitalize'>{item}</span>
-          {selected === item && <FiCheck />}
-        </DropDown.Button>
-      ))}
+      {render()}
     </DropDown>
   );
 }

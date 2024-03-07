@@ -22,7 +22,7 @@ export default function FilieresList({ view, defaultParams }) {
       renderItem={(filiere) => <Filiere key={filiere.id} filiere={filiere} view={view} />}
       itemsName='Filieres'
       error={error}
-     view={view}
+      view={view}
     />
   );
 }

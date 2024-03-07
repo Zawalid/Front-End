@@ -9,6 +9,8 @@ const sendMessage = async (body) => {
     body: JSON.stringify(body),
   });
 
+  console.log(res)
+
   if (!res.ok) {
     throw new Error('Network response was not ok');
   }

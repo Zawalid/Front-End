@@ -25,6 +25,8 @@ export const getParams = (searchParams, defaults) => {
 
 // Array Methods For Sorting, Searching And Filtering : Articles/Filieres
 Array.prototype.search = function (searchQuery) {
+  if (!searchQuery) return this;
+
   return this.filter((el) =>
     el.title?.trim().toLowerCase().includes(searchQuery?.trim().toLowerCase()),
   );

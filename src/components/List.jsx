@@ -18,9 +18,9 @@ export function List({ renderList, renderItem, itemsName, error, view }) {
   return (
     <>
       <div
-        className={
+        className={`min-h-dvh ${
           view === 'grid' ? 'flex flex-wrap  justify-center gap-8 lg:justify-start' : 'space-y-5'
-        }
+        }`}
         ref={parent}
       >
         {renderList()

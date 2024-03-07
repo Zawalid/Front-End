@@ -10,7 +10,7 @@ export default function Filiere({ filiere, view = 'grid' }) {
 
   if (view === 'grid') {
     return (
-      <div className='relative min-w-[300px] max-w-[340px] overflow-hidden rounded-lg border-border shadow-md '>
+      <div className='h-fit relative min-w-[300px] max-w-[340px] overflow-hidden rounded-lg border-border shadow-md '>
         {isOpen && (
           <div className='absolute -right-[55px] top-[38px] z-20 rotate-45 bg-red-500  px-10 py-1.5 text-sm font-semibold text-white'>
             Inscription Fermée
