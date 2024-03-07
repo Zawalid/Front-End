@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export function Button({ children, className, href }) {
+export function Button({ children, className, href,onClick }) {
   const buttonClass = `rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white  transition-colors duration-300 hover:bg-indigo-600 ${className}`;
 
   if (href)
@@ -9,5 +9,7 @@ export function Button({ children, className, href }) {
         {children}
       </Link>
     );
-  return <button className={buttonClass}>{children}</button>;
+  return <button className={buttonClass}
+  onClick={onClick}
+  >{children}</button>;
 }
