@@ -7,11 +7,13 @@ import { FiCheck } from 'react-icons/fi';
 import { ImSpinner5 } from 'react-icons/im';
 import { HiMiniXMark } from 'react-icons/hi2';
 import { Button } from '../components/ui/Button';
-import { InputField } from '../components/ui/InputField';
+import { ErrorTooltip, InputField } from '../components/ui/InputField';
 
 import PageLayout from '../Layouts/PageLayout';
 import { SocialMedia } from '../components/ui/SocialMedia';
 import { useSendMessage } from '../hooks/useSendMessage';
+import { useForm } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 
 export default function Contact() {
   return (
@@ -139,11 +141,21 @@ function SendMessage() {
 }
 
 function MessageForm({ onSend }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors, isValid, isDirty },
+  } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      phoneNumber: '',
+      subject: '',
+      details: '',
+    },
+    mode : 'onChange'
+  });
 
   return (
     <>
@@ -157,42 +169,77 @@ function MessageForm({ onSend }) {
         className='flex flex-1 flex-col gap-4'
         onSubmit={(e) => {
           e.preventDefault();
-          onSend({ name, email, phoneNumber, subject, message });
+          handleSubmit((data) => onSend(data))();
         }}
       >
         <div className='flex gap-3'>
           <InputField
             placeholder='You Name'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            {...register('name', {
+              required: {
+                value: true,
+                message: 'Name is required',
+              },
+            })}
+            errorMessage={errors.name?.message}
           />
           <InputField
             placeholder='Email Address'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            {...register('email', {
+              required: {
+                value: true,
+                message: 'Email is required',
+              },
+              pattern: {
+                value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                message: 'Invalid email format',
+              },
+            })}
+            errorMessage={errors.email?.message}
           />
         </div>
         <div className='flex gap-3'>
           <InputField
             type='tel'
             placeholder='Phone Number'
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            {...register('phoneNumber', {
+              required: { value: true, message: 'Phone number is required' },
+              pattern: {
+                value: /^(\+212\s)?(05|06|07)\d{8}$/,
+                message: 'Invalid phone number format. \n Ex: +212 0737814207 or 0737814207',
+              },
+            })}
+            errorMessage={errors.phoneNumber?.message}
           />
           <InputField
             placeholder='Subject'
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            {...register('subject', {
+              required: {
+                value: true,
+                message: 'Subject is required',
+              },
+            })}
+            errorMessage={errors.subject?.message}
           />
         </div>
-        <textarea
-          className='h-32 w-full resize-none rounded-lg border border-border bg-background-secondary py-1.5 pl-4 pr-10 font-medium text-text-primary outline-none md:flex-1'
-          placeholder='Your Message'
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <Button className='self-start'>Send Message</Button>
+        <div className='relative'>
+          <textarea
+            className='h-32 w-full resize-none rounded-lg border border-border bg-background-secondary py-1.5 pl-4 pr-10 font-medium text-text-primary outline-none md:flex-1'
+            placeholder='Your Message'
+            {...register('details', {
+              required: {
+                value: true,
+                message: 'Message is required',
+              },
+            })}
+          />
+          <ErrorTooltip message={errors.message?.message} className='top-5' />
+        </div>
+        <Button className='self-start' disabled={!isValid || !isDirty}>
+          Send Message
+        </Button>
       </form>
+      <DevTool control={control} />
     </>
   );
 }
