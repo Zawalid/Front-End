@@ -67,7 +67,7 @@ export default function Actions({ children, defaults, validSortBy, view, setView
       }}
     >
       <div className='flex items-center justify-between gap-8'>
-        <div className='flex flex-1 items-center gap-3 sm:w-[40%] sm:flex-none'>
+        <div className='flex flex-1 items-center gap-3 sm:w-1/2 md:w-[40%] sm:flex-none'>
           <DropDown
             toggler={<IoEllipsisVertical />}
             togglerClassName='button-icon'
