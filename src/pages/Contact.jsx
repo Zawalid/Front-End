@@ -146,11 +146,11 @@ function MessageForm({ onSend }) {
     formState: { errors, isValid, isDirty },
   } = useForm({
     defaultValues: {
-      name: '',
+      fullName: '',
       email: '',
-      phoneNumber: '',
+      phone: '',
       subject: '',
-      details: '',
+      message: '',
     },
     mode: 'onChange',
   });
@@ -201,14 +201,14 @@ function MessageForm({ onSend }) {
           <InputField
             type='tel'
             placeholder='Phone Number'
-            {...register('phoneNumber', {
+            {...register('phone', {
               required: { value: true, message: 'Phone number is required' },
               pattern: {
                 value: /^(\+212\s)?(05|06|07)\d{8}$/,
                 message: 'Invalid phone number format. \n Ex: +212 0737814207 or 0737814207',
               },
             })}
-            errorMessage={errors.phoneNumber?.message}
+            errorMessage={errors.phone?.message}
           />
           <InputField
             placeholder='Subject'
@@ -225,7 +225,7 @@ function MessageForm({ onSend }) {
           <textarea
             className='h-32 w-full resize-none rounded-lg border border-border bg-background-secondary py-1.5 pl-4 pr-10 font-medium text-text-primary outline-none md:flex-1'
             placeholder='Your Message'
-            {...register('details', {
+            {...register('message', {
               required: {
                 value: true,
                 message: 'Message is required',
@@ -240,7 +240,7 @@ function MessageForm({ onSend }) {
               },
             })}
           />
-          <ErrorTooltip message={errors.details?.message} className='top-5' />
+          <ErrorTooltip message={errors.message?.message} className='top-5' />
         </div>
         <Button className='self-start' disabled={!isValid || !isDirty}>
           Send Message
