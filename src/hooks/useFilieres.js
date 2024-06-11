@@ -29,7 +29,7 @@ export function useFiliere(id) {
 export function useSectors() {
   const { data, isLoading, error } = useQuery({
     queryKey: ['sectors'],
-    queryFn:  getSectors,
+    queryFn: getSectors,
   });
 
   return {

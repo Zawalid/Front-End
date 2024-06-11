@@ -30,10 +30,6 @@ export const routes = [
     label: 'Evenements',
   },
   {
-    path: '/about',
-    label: 'About',
-  },
-  {
     path: '/contact',
     label: 'Contact',
   },

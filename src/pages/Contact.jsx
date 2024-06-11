@@ -123,8 +123,7 @@ function SendMessage() {
   const [parent] = useAutoAnimate({ duration: 400 });
 
   const render = () => {
-    if (isSuccess) return <MessageSent />;
-    if (error) return <MessageError onRetry={reset} />;
+    if (isSuccess || error) return <MessageSent />;
     if (isPending) return <SendingMessage />;
     return <MessageForm onSend={mutate} />;
   };
@@ -148,7 +147,6 @@ function MessageForm({ onSend }) {
     defaultValues: {
       fullName: '',
       email: '',
-      phone: '',
       subject: '',
       message: '',
     },
@@ -174,7 +172,7 @@ function MessageForm({ onSend }) {
         <div className='flex gap-3'>
           <InputField
             placeholder='You Name'
-            {...register('name', {
+            {...register('fullName', {
               required: {
                 value: true,
                 message: 'Name is required',
@@ -198,18 +196,6 @@ function MessageForm({ onSend }) {
           />
         </div>
         <div className='flex gap-3'>
-          <InputField
-            type='tel'
-            placeholder='Phone Number'
-            {...register('phone', {
-              required: { value: true, message: 'Phone number is required' },
-              pattern: {
-                value: /^(\+212\s)?(05|06|07)\d{8}$/,
-                message: 'Invalid phone number format. \n Ex: +212 0737814207 or 0737814207',
-              },
-            })}
-            errorMessage={errors.phone?.message}
-          />
           <InputField
             placeholder='Subject'
             {...register('subject', {

@@ -8,7 +8,10 @@ export function useArticles() {
   });
 
   return {
-    articles: data,
+    articles: data?.map(a => ({
+      ...a,
+      cover : a.files
+    })),
     isLoading,
     error,
   };
@@ -21,7 +24,7 @@ export function useArticle(id) {
   });
 
   return {
-    article: data,
+    article: {...data,cover : data?.files},
     isLoading,
     error,
   };

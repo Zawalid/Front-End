@@ -1,28 +1,33 @@
 ## **Features**
 
 ### Pages
+
 - [x] HomePage
 - [x] Filieres Page
-- [ ] Filiere Details Page 
+- [ ] Filiere Details Page
 - [x] Blog Page
-- [x] Article Details Page 
+- [x] Article Details Page
 - [ ] Events Page
-- [ ] Event Details Page 
+- [ ] Event Details Page
 - [x] Contact Page
 - [ ] About Page
 
 ---
+
 ### Sections
+
 - [x] Header
-- [x] Hero 
-- [x] Filieres 
-- [x] Blog 
-- [ ] Events 
+- [x] Hero
+- [x] Filieres
+- [x] Blog
+- [ ] Events
 - [x] Footer
 
 ---
+
 ### Functionalities
-- [x] Blog search 
+
+- [x] Blog search
 - [x] Blog filter
 - [x] Blog sort
 - [x] Blog pagination
@@ -36,6 +41,7 @@
 - [x] Dark mode toggle
 - [x] Add loading skeletons instead of message
 - [ ] Add multi language (i18n)
+
 ---
 
 ## **Bugs**

@@ -5,6 +5,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { FaCalendar } from 'react-icons/fa6';
 
 export function Details({ article: { title, content, date, cover, tags, author } }) {
+  console.log(cover);
   return (
     <div className='col-span-2'>
       <div className='mb-5 space-y-4'>

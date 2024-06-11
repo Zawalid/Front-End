@@ -3,7 +3,7 @@ import { GoClockFill } from 'react-icons/go';
 import { Button } from '../ui/Button';
 import { Link } from 'react-router-dom';
 import VerticalShareButtons from '../ui/VerticalShareButtons';
-import { getMonthName } from '../../utils/helpers';
+import { getCover, getMonthName } from '../../utils/helpers';
 import { FaCalendar } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 
@@ -32,7 +32,7 @@ export default function EventSliderItem({ event }) {
           <div className='relative h-full'>
             <div className='h-full overflow-hidden'>
               <img
-                src='/images/events.jpg'
+                src={getCover(event?.files)}
                 className='h-full w-full rounded-t-sm object-cover transition-transform hover:scale-105'
               />
             </div>

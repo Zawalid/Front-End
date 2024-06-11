@@ -172,8 +172,8 @@ function OrderBy() {
 function DropDownSearch({ items, isLoading, itemsName, selected, onSelect }) {
   const [searchedTag, setSearchedTag] = useState('');
   const updatedItems = items
-    .map((item) => item.toLowerCase())
-    .filter((item) => item.includes(searchedTag.toLowerCase()));
+    .map((item) => item?.toLowerCase())
+    .filter((item) => item?.includes(searchedTag.toLowerCase()));
 
   const render = () => {
     if (isLoading)

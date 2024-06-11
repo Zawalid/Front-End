@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import VerticalShareButtons from '../ui/VerticalShareButtons';
-import { getMonthName } from '../../utils/helpers';
+import { getCover, getMonthName } from '../../utils/helpers';
 import { FaCalendar, FaLocationDot } from 'react-icons/fa6';
 import HorizontalShareButtons from '../ui/HorizontalShareButtons';
 import { FaShareAlt } from 'react-icons/fa';
@@ -32,7 +32,7 @@ function EventItem({ event, view = 'grid' }) {
             <div className='relative h-full'>
               <div className='h-full overflow-hidden'>
                 <img
-                  src='/images/events.jpg'
+                  src={getCover(event?.files)}
                   className='h-full w-full rounded-t-sm object-cover transition-transform hover:scale-105'
                 />
               </div>
@@ -84,7 +84,7 @@ function EventItem({ event, view = 'grid' }) {
           <Link to={`/evenements/${event?.id}`}>
             <div className='h-full'>
               <img
-                src='/images/events.jpg'
+                src={getCover(event?.files)}
                 className='h-full w-full object-cover transition-transform hover:scale-105'
               />
             </div>

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useEvent, useEvents } from '../hooks/useEvents';
 import TopFixedEvent from '../components/Blog/ArticleDetails/TopFixedEvent';
 import Details from '../components/Events/EventDetails/Details';
-import { getMonthName } from '../utils/helpers';
+import { getCover, getMonthName } from '../utils/helpers';
 import { FaShareAlt } from 'react-icons/fa';
 import { FaRegClock } from 'react-icons/fa6';
 import { LuCalendarPlus } from 'react-icons/lu';
@@ -64,14 +64,15 @@ function Event() {
     },
     [id],
   );
+  console.log(getCover(event?.files));
 
   return (
     <>
       <div>
         <div
-          className="h-[550px] bg-[url('/images/event-hero.png')] bg-cover bg-center"
+          className='h-[550px]  bg-cover bg-center'
           style={{
-            backgroundImage: `url(/images/events.jpg)`,
+            backgroundImage: `url(${getCover(event?.files)})`,
           }}
           ref={observedElement}
         ></div>

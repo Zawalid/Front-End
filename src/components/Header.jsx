@@ -47,40 +47,11 @@ function Links() {
     <ul className='hidden gap-8 lg:flex lg:flex-1 lg:justify-center '>
       {routes.map((route) => (
         <NavLink key={route.label} to={route.path}>
-          <DropDown paths={route.nested || []}>
-            <li className='relative flex items-center gap-3 font-semibold text-text-secondary transition-colors duration-300 before:absolute before:-bottom-2 before:left-1/2 before:h-[2px] before:w-full before:-translate-x-1/2 before:scale-0 before:bg-text-tertiary before:transition-transform before:duration-500 hover:text-text-tertiary hover:before:scale-100'>
-              <span>{route.label}</span>
-              {route.nested && <FaChevronDown />}
-            </li>
-          </DropDown>
+          <li className='relative flex items-center gap-3 font-semibold text-text-secondary transition-colors duration-300 before:absolute before:-bottom-2 before:left-1/2 before:h-[2px] before:w-full before:-translate-x-1/2 before:scale-0 before:bg-text-tertiary before:transition-transform before:duration-500 hover:text-text-tertiary hover:before:scale-100'>
+            <span>{route.label}</span>
+          </li>
         </NavLink>
       ))}
     </ul>
-  );
-}
-
-function DropDown({ children, paths }) {
-  return (
-    <Tippy
-      content={
-        <ul>
-          {paths.map((option) => (
-            <li
-              key={option.label}
-              className='border-t border-border px-5 py-3 font-semibold text-text-secondary first:border-none hover:text-text-tertiary '
-            >
-              {option.label}
-            </li>
-          ))}
-        </ul>
-      }
-      arrow={false}
-      interactive={true}
-      trigger='mouseenter'
-      className='mt-3 border border-border bg-background-primary  shadow-lg'
-      placement='bottom-start'
-    >
-      {children}
-    </Tippy>
   );
 }

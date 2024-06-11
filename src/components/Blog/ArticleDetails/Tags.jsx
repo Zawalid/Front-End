@@ -3,14 +3,10 @@ import { useTags } from '../../../hooks/useArticles';
 import { Tag } from '../../ui/Tag';
 import { ErrorMessage } from '../../ui/ErrorMessage';
 
-export function Tags() {
-  const { tags, isLoading, error } = useTags();
+export function Tags({tags}) {
+
 
   const render = () => {
-    if (isLoading) return <TagsSkeleton />;
-    if (error) {
-      return <ErrorMessage className='absolute top-0 h-full w-full' message={error.message} />;
-    }
     if (!tags.length)
       return (
         <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform'>
@@ -19,9 +15,9 @@ export function Tags() {
       );
     return (
       <ul className='flex max-h-[250px] flex-wrap gap-x-3 gap-y-1 overflow-auto py-1.5'>
-      {tags?.map(({ id,name }) => (
-        <Link key={id} to={`/blog?f=${name.toLowerCase()}`}>
-          <Tag tag={name} />
+      {tags?.map((tag) => (
+        <Link key={tag} to={`/blog?f=${tag.toLowerCase()}`}>
+          <Tag tag={tag} />
         </Link>
       ))}
     </ul>

@@ -17,17 +17,17 @@ export default function ArticleDetails({ id }) {
         {isLoading && <DetailsSkeleton />}
         {error && <ErrorMessage className='col-span-2 h-full text-xl' message={error.message} />}
         {!error && !isLoading && Object.keys(article).length > 0 && <Details article={article} />}
-        <Aside currentArticleId={id} />
+        <Aside currentArticleId={id} tags={article?.tags || []} />
       </div>
     </>
   );
 }
 
-function Aside({ currentArticleId }) {
+function Aside({ currentArticleId, tags = []}) {
   return (
     <aside className='mt-10 space-y-8 lg:mt-0'>
       <LatestArticles currentArticleId={currentArticleId} />
-      <Tags />
+      <Tags tags={tags} />
     </aside>
   );
 }
