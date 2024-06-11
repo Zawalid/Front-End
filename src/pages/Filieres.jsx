@@ -20,18 +20,9 @@ export default function Filieres() {
         >
           <Actions.SortBy
             options={[
-              {
-                name: 'Title',
-                value: 'title',
-              },
-              {
-                name: 'Duration',
-                value: 'duration',
-              },
-              {
-                name: 'Interns',
-                value: 'interns',
-              },
+              { key: 'title', display: 'Title', type: 'string' },
+              { key: 'duration', display: 'Duration', type: 'number' },
+              { key: 'interns', display: 'Interns', type: 'number' },
             ]}
           />
           <Actions.OrderBy />

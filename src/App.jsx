@@ -12,13 +12,14 @@ import Contact from './pages/Contact';
 import HomePage from './pages/HomePage';
 import Article from './pages/Article';
 import PageNotFound from './pages/PageNotFound';
+import Event from './pages/Event';
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: '/',
-  element: <AppLayout />,
+    element: <AppLayout />,
     children: [
       { element: <Navigate replace to='home' />, index: true },
       {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       { path: 'filieres', element: <Filieres /> },
       { path: 'filieres/:id', element: <Filieres /> },
       { path: 'evenements', element: <Events /> },
-      { path: 'evenements/:id', element: <Events /> },
+      { path: 'evenements/:id', element: <Event /> },
       { path: 'about', element: <About /> },
       { path: 'contact', element: <Contact /> },
       { path: '*', element: <PageNotFound /> },
@@ -40,12 +41,11 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-      <DarkModeProvider>
-
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-      </DarkModeProvider>
+    <DarkModeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </DarkModeProvider>
   );
 }

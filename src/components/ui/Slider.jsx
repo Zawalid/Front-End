@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { Navigation, Pagination, A11y, Keyboard, Autoplay, Virtual } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { IoMdArrowForward,IoMdArrowBack } from "react-icons/io";
+import { IoMdArrowForward, IoMdArrowBack } from 'react-icons/io';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -73,16 +73,10 @@ function SliderNavigation() {
   } = useContext(SliderContext);
   return (
     <div className='hidden gap-3 md:flex'>
-      <button
-        id={prev}
-        className='slider-button '
-      >
+      <button id={prev} className='slider-button '>
         <IoMdArrowBack />
       </button>
-      <button
-        id={next}
-        className='slider-button'
-      >
+      <button id={next} className='slider-button'>
         <IoMdArrowForward />
       </button>
     </div>

@@ -67,7 +67,7 @@ export default function Actions({ children, defaults, validSortBy, view, setView
       }}
     >
       <div className='flex items-center justify-between gap-8'>
-        <div className='flex flex-1 items-center gap-3 sm:w-1/2 md:w-[40%] sm:flex-none'>
+        <div className='flex flex-1 items-center gap-3 sm:w-1/2 sm:flex-none md:w-[40%]'>
           <DropDown
             toggler={<IoEllipsisVertical />}
             togglerClassName='button-icon'
@@ -99,13 +99,13 @@ function SortBy({ options }) {
     >
       {options.map((option) => (
         <DropDown.Button
-          key={option.value}
-          onClick={() => setSortBy(option.value)}
+          key={option.key}
+          onClick={() => setSortBy(option.key)}
           className='justify-between'
-          isCurrent={sortBy === option.value}
+          isCurrent={sortBy === option.key}
         >
-          <span>{option.name}</span>
-          {sortBy === option.value && <FiCheck />}
+          <span>{option.display}</span>
+          {sortBy === option.key && <FiCheck />}
         </DropDown.Button>
       ))}
     </DropDown.NestedMenu>

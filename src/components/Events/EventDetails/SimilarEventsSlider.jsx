@@ -1,7 +1,7 @@
-import { useEvents } from '../../hooks/useEvents';
-import Section from '../ui/Section';
-import Slider from '../ui/Slider';
-import EventSliderItem from './EventSliderItem';
+import { useEvents } from '../../../hooks/useEvents';
+import Slider from '../../ui/Slider';
+import Section from '../../ui/Section';
+import EventSliderItem from '../EventSliderItem';
 
 const ids = {
   pagination: 'events-pagination',
@@ -9,7 +9,7 @@ const ids = {
   next: 'events-button-next',
 };
 
-export default function EventsSection() {
+function SimilarEventsSlider() {
   const { events } = useEvents();
   return (
     <Section>
@@ -24,7 +24,7 @@ export default function EventsSection() {
         <div className='mt-3 flex items-end justify-center md:justify-between'>
           <div className='text-center md:text-start'>
             <h2 className='text-4xl font-bold tracking-widest text-text-primary sm:text-5xl'>
-              Events
+              Similar Events
             </h2>
           </div>
           <Slider.Navigation />
@@ -43,3 +43,5 @@ export default function EventsSection() {
     </Section>
   );
 }
+
+export default SimilarEventsSlider;

@@ -23,6 +23,12 @@ export const getParams = (searchParams, defaults) => {
   return { sortBy, direction, filter, query };
 };
 
+export function getMonthName(event_date) {
+  return new Date(event_date).toLocaleDateString('fr-MA', {
+    month: 'short',
+  });
+}
+
 // Array Methods For Sorting, Searching And Filtering : Articles/Filieres
 Array.prototype.search = function (searchQuery) {
   if (!searchQuery) return this;
@@ -32,32 +38,32 @@ Array.prototype.search = function (searchQuery) {
   );
 };
 
-Array.prototype.customSort = function (sortBy, direction) {
+Array.prototype.customSort = function (sortBy, direction, sortOptions) {
+  if (!sortOptions) return this;
+
+  const stringFields = sortOptions.filter((c) => c.type === 'string').map((c) => c.key);
+  const numberFields = sortOptions.filter((c) => c.type === 'number').map((c) => c.key);
+  const dateFields = sortOptions.filter((c) => c.type === 'date').map((c) => c.key);
+  const customFields = sortOptions.filter((c) => c.type === 'custom').map((c) => c.key);
+
   return this.toSorted((a, b) => {
-    switch (sortBy) {
-      case 'date':
-        return direction === 'asc'
-          ? new Date(a.date) - new Date(b.date)
-          : new Date(b.date) - new Date(a.date);
+    if (numberFields.includes(sortBy))
+      return direction === 'asc' ? a?.[sortBy] - b?.[sortBy] : b?.[sortBy] - a?.[sortBy];
 
-      case 'title':
-        return direction === 'asc'
-          ? a.title.localeCompare(b.title)
-          : b.title.localeCompare(a.title);
-
-      case 'duration':
-        return direction === 'asc'
-          ? parseInt(a.duration) - parseInt(b.duration)
-          : parseInt(b.duration) - parseInt(a.duration);
-
-      case 'interns':
-        return direction === 'asc'
-          ? parseInt(a.interns) - parseInt(b.interns)
-          : parseInt(b.interns) - parseInt(a.interns);
-
-      default:
-        return 0;
+    if (stringFields.includes(sortBy)) {
+      return direction === 'asc'
+        ? a?.[sortBy]?.localeCompare(b?.[sortBy])
+        : b?.[sortBy]?.localeCompare(a?.[sortBy]);
     }
+
+    if (dateFields.includes(sortBy)) {
+      return direction === 'asc'
+        ? getIsoDate(a?.[sortBy]) - getIsoDate(b?.[sortBy])
+        : getIsoDate(b?.[sortBy]) - getIsoDate(a?.[sortBy]);
+    }
+
+    if (customFields.includes(sortBy))
+      return sortOptions.find((c) => c.key === sortBy)?.fn(a, b, direction);
   });
 };
 

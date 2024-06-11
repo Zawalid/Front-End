@@ -7,6 +7,7 @@ import { getParams } from '../../utils/helpers';
 
 export default function FilieresList({ view, defaultParams }) {
   const { filieres, isLoading, error } = useFilieres();
+  console.log(filieres);
   const { sectors } = useSectors();
   const [searchParams] = useSearchParams();
   const { sortBy, direction, filter, query } = getParams(searchParams, defaultParams);
